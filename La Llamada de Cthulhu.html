@@ -25,59 +25,94 @@
     <table>
         <tbody>
         <tr>
-            <td data-i18n="FUE-u">Fuerza</td>
+            <td data-i18n="FUE-u"/>
             <td>
                 <input type="number" min="3" max="18" value="3" name="attr_FUE" />
                 <button type="roll" name="roll_FUE" value="&{template:default} {{name=@{character_name}}} {{Roll=^{FUE-u}}} {{Puntuacion=@{FUE}}} {{Resultado=[[1d100/@{FUE}]]}}"/>
             </td>
-            <td data-i18n="DES-u">Destreza</td>
+            <td data-i18n="DES-u"/>
             <td>
                 <input type="number" min="3" max="18" value="3" name="attr_DES" />
                 <button type="roll" name="roll_DES" value="&{template:default} {{name=@{character_name}}} {{Roll=^{DES-u}}} {{Puntuacion=@{DES}}} {{Resultado=[[1d100/@{DES}]]}}"/>
             </td>
-            <td data-i18n="INT-u">Inteligencia</td>
+            <td data-i18n="INT-u"/>
             <td>
                 <input type="number" min="3" max="18" value="3" name="attr_INT" />
                 <button type="roll" name="roll_INT" value="&{template:default} {{name=@{character_name}}} {{Roll=^{INT-u}}} {{Puntuacion=@{INT}}} {{Resultado=[[1d100/@{INT}]]}}"/>
             </td>
         </tr>
         <tr>
-            <td data-i18n="CON-u">Constitución</td>
+            <td data-i18n="CON-u"/>
             <td>
                 <input type="number" min="3" max="18" value="3" name="attr_CON" />
                 <button type="roll" name="roll_CON" value="&{template:default} {{name=@{character_name}}} {{Roll=^{CON-u}}} {{Puntuacion=@{CON}}} {{Resultado=[[1d100/@{CON}]]}}"/>
             </td>
-            <td data-i18n="APA-u">Apariencia</td>
+            <td data-i18n="APA-u"/>
             <td>
                 <input type="number" min="3" max="18" value="3" name="attr_APA" />
+                <button type="roll" name="roll_APA" value="&{template:default} {{name=@{character_name}}} {{Roll=^{APA-u}}} {{Puntuacion=@{APA}}} {{Resultado=[[1d100/@{APA}]]}}"/>
             </td>
-            <td data-i18n="POD-u">Poder</td>
+            <td data-i18n="POD-u"/>
             <td>
                 <input type="number" min="3" max="18" value="3" name="attr_POD" />
+                <button type="roll" name="roll_POD" value="&{template:default} {{name=@{character_name}}} {{Roll=^{POD-u}}} {{Puntuacion=@{POD}}} {{Resultado=[[1d100/@{POD}]]}}"/>
             </td>
+
         </tr>
         <tr>
-            <td data-i18n="TAM-u">Tamaño</td>
+            <td data-i18n="TAM-u"/>
             <td>
                 <input type="number" min="3" max="18" value="3" name="attr_TAM" />
+                <button type="roll" name="roll_TAM" value="&{template:default} {{name=@{character_name}}} {{Roll=^{TAM-u}}} {{Puntuacion=@{TAM}}} {{Resultado=[[1d100/@{TAM}]]}}"/>
             </td>
-            <td data-i18n="COR-u">Cordura</td>
+            <td data-i18n="COR-u" />
             <td>
                 <input type="number" value="5*@{POD}" disabled="true" name="attr_COR" />
             </td>
             <td data-i18n="EDU-u">Educación</td>
             <td>
                 <input type="number" min="3" max="18" value="3" name="attr_EDU" />
+                <button type="roll" name="roll_EDU" value="&{template:default} {{name=@{character_name}}} {{Roll=^{EDU-u}}} {{Puntuacion=@{EDU}}} {{Resultado=[[1d100/@{EDU}]]}}"/>
             </td>
+
         </tr>
         </tbody>
+    </table>
+    <br/>
+    <br/>
+    <h3><span>Atributos secundarios</span></h3>
+    <table>
+        <tr class="flex-row">
+            <td class="center">
+                <span data-i18n="idea-u"></span>
+                <div>
+                    <input type="number" readonly="true" name="attr_IDEA" />
+                    <button type="roll" name="roll_Idea" value="/roll 1d100<@{IDEA}" />
+                </div>
+            </td>
+            <td class="center">
+                <span data-i18n="luck-u"></span>
+                <div>
+                    <input type="number" readonly="true" name="attr_LUCK" />
+                    <button type="roll" name="roll_Luck" value="/roll 1d100 < @{LUCK}?'Acierto'" />
+                </div>
+            </td>
+            <td class="center">
+                <span data-i18n="know-u"></span>
+                <div>
+                    <input type="number" readonly="true" name="attr_KNOW" />
+                    <button type="roll" name="roll_KNOW" value="/roll 1d100<@{KNOW}" />
+                </div>
+
+            </td>
+
+        </tr>
     </table>
 </div>
 
 <div class="tabcontent sheet-items" >
     <h2>Items</h2>
 </div>
-
 
 <script type="text/worker">
 
@@ -90,5 +125,28 @@
             })
             });
     });
+
+    var ADD_ATRIBUTES = {
+        attributes: {"int": "IDEA", "pod": "LUCK", "edu": "KNOW"},
+        set_attributes: function(){
+            getAttrs(["INT", "POD", "EDU"], function(values){
+                var know = parseInt(values.EDU)*5;
+                var luck = parseInt(values.POD)*5;
+                var idea = parseInt(values.INT)*5;
+                setAttrs({
+                    "KNOW": know, "LUCK": luck, "IDEA": idea
+                });
+            })
+        }
+    }
+    const attributes = {"int": "IDEA", "pod": "LUCK", "edu": "KNOW"}
+    on("sheet:opened", function(){
+        ADD_ATRIBUTES.set_attributes()
+    })
+
+    on("change:int change:pod change:edu", function(e){
+        ADD_ATRIBUTES.set_attributes()
+    })
+
 
 </script>

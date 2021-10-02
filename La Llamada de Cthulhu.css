@@ -46,4 +46,8 @@ h3 {
 	text-align: center;
 }
 
-
+.sheet-center {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
