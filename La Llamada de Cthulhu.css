@@ -1,0 +1,49 @@
+.sheet-tab {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+.sheet-tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+.sheet-tab button:hover {
+  background-color: #ddd;
+}
+
+div.sheet-userinfo,
+div.sheet-character,
+div.sheet-items {
+    display: none;
+}
+
+.sheet-tabstoggle[value="character"] ~ div.sheet-character,
+.sheet-tabstoggle[value="userinfo"] ~ div.sheet-userinfo,
+.sheet-tabstoggle[value="items"] ~ div.sheet-items {
+    display: block;
+}
+
+.sheet-tabstoggle[value="character"] ~ .sheet-tab button.sheet-character,
+.sheet-tabstoggle[value="userinfo"] ~ .sheet-tab button.sheet-userinfo,
+.sheet-tabstoggle[value="items"] ~ .sheet-tab button.sheet-items  {
+    background-color: #ccc;
+}
+
+table {
+    width: 100%;
+}
+
+h3 {
+	color: #FFF;
+	background-color: #000;
+	text-align: center;
+}
+
+

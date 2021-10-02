@@ -1,0 +1,94 @@
+<input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="userinfo"  />
+
+
+<div class="tab">
+    <button class="userinfo" type="action" name="act_userinfo">Información Personal</button>
+    <button class="character" type="action" name="act_character">Características y Puntuaciones</button>
+    <button class="items" type="action" name="act_items">Equipo y armas</button>
+</div>
+
+<div class="tabcontent sheet-userinfo">
+    <h2>Informacion Personal</h2>
+    <div>
+        <span>Nombre del investigador</span>
+        <input type="text" name="attr_Name" style="max-width: 300px" />
+    </div>
+
+</div>
+
+<div class="tabcontent sheet-character" >
+    <h2>Características y Habilidades</h2>
+    <br />
+    <h3>
+        <span class="header">Características</span>
+    </h3>
+    <table>
+        <tbody>
+        <tr>
+            <td data-i18n="FUE-u">Fuerza</td>
+            <td>
+                <input type="number" min="3" max="18" value="3" name="attr_FUE" />
+                <button type="roll" name="roll_FUE" value="&{template:default} {{name=@{character_name}}} {{Roll=^{FUE-u}}} {{Puntuacion=@{FUE}}} {{Resultado=[[1d100/@{FUE}]]}}"/>
+            </td>
+            <td data-i18n="DES-u">Destreza</td>
+            <td>
+                <input type="number" min="3" max="18" value="3" name="attr_DES" />
+                <button type="roll" name="roll_DES" value="&{template:default} {{name=@{character_name}}} {{Roll=^{DES-u}}} {{Puntuacion=@{DES}}} {{Resultado=[[1d100/@{DES}]]}}"/>
+            </td>
+            <td data-i18n="INT-u">Inteligencia</td>
+            <td>
+                <input type="number" min="3" max="18" value="3" name="attr_INT" />
+                <button type="roll" name="roll_INT" value="&{template:default} {{name=@{character_name}}} {{Roll=^{INT-u}}} {{Puntuacion=@{INT}}} {{Resultado=[[1d100/@{INT}]]}}"/>
+            </td>
+        </tr>
+        <tr>
+            <td data-i18n="CON-u">Constitución</td>
+            <td>
+                <input type="number" min="3" max="18" value="3" name="attr_CON" />
+                <button type="roll" name="roll_CON" value="&{template:default} {{name=@{character_name}}} {{Roll=^{CON-u}}} {{Puntuacion=@{CON}}} {{Resultado=[[1d100/@{CON}]]}}"/>
+            </td>
+            <td data-i18n="APA-u">Apariencia</td>
+            <td>
+                <input type="number" min="3" max="18" value="3" name="attr_APA" />
+            </td>
+            <td data-i18n="POD-u">Poder</td>
+            <td>
+                <input type="number" min="3" max="18" value="3" name="attr_POD" />
+            </td>
+        </tr>
+        <tr>
+            <td data-i18n="TAM-u">Tamaño</td>
+            <td>
+                <input type="number" min="3" max="18" value="3" name="attr_TAM" />
+            </td>
+            <td data-i18n="COR-u">Cordura</td>
+            <td>
+                <input type="number" value="5*@{POD}" disabled="true" name="attr_COR" />
+            </td>
+            <td data-i18n="EDU-u">Educación</td>
+            <td>
+                <input type="number" min="3" max="18" value="3" name="attr_EDU" />
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="tabcontent sheet-items" >
+    <h2>Items</h2>
+</div>
+
+
+<script type="text/worker">
+
+
+    const buttonlist = ["userinfo", "character", "items"];
+    buttonlist.forEach(button => {
+            on(`clicked:${button}`, function(e) {
+            setAttrs({
+                sheetTab: button
+            })
+            });
+    });
+
+</script>
