@@ -46,8 +46,19 @@ h3 {
 	text-align: center;
 }
 
-.sheet-center {
+.sheet-secondary {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+}
+
+.sheet-secondary .sheet-td {
     display: flex;
     justify-content: space-between;
-    width: 30%;
+
+}
+
+.sheet-reset-button {
+    text-align: center;
+    margin: 5px 0;
 }

@@ -1,0 +1,12 @@
+{
+  "legacy": true,
+  "useroptions": [
+    {
+      "attribute": "username",
+      "displaytranslationkey": "username-display-u",
+      "type": "checkbox",
+      "value": "1"
+
+    }
+  ]
+}
