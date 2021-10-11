@@ -1,144 +1,602 @@
 <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="userinfo"  />
 <span style="display: none" data-i18n="attributes-u">Test</span>
-<div class="tab">
-    <button class="userinfo" type="action" name="act_userinfo">Información Personal</button>
-    <button class="character" type="action" name="act_character">Características y Puntuaciones</button>
-    <button class="items" type="action" name="act_items">Equipo y armas</button>
+<div class="tabs">
+    <button class="tab userinfo" type="action" name="act_userinfo">Información Personal</button>
+    <button class="tab character" type="action" name="act_character">Características y Puntuaciones</button>
+    <button class="tab skills" type="action" name="act_skills">Habilidades</button>
+    <button class="tab items" type="action" name="act_items">Equipo y armas</button>
 </div>
 
-<div class="tabcontent sheet-userinfo">
+<div id="sheet-userinfo" class="tabcontent">
     <h2>Informacion Personal</h2>
-    <div>
-        <span>Nombre del investigador</span>
-        <input type="text" name="attr_Name" style="max-width: 300px" />
-    </div>
-
-</div>
-
-<rolltemplate class="sheet-rolltemplate-test">
-
-</rolltemplate>
-
-<div class="tabcontent sheet-character" >
-    <h2>Características y Habilidades</h2>
-    <br />
-    <h3>
-        <span class="header">Características</span>
-    </h3>
-    <div class="reset-button">
-        <button type="action" class="reset-button" name="act_reset" >Reiniciar</button>
-    </div>
-
     <table>
-        <tbody>
         <tr>
-            <td data-i18n="FUE-u"/>
+            <td>Nombre del investigador</td>
             <td>
-                <input type="number" min="3" value="3" name="attr_FUE" />
-                <button type="roll" name="roll_FUE" value="&{template:default} {{name=@{character_name}}} {{Roll=^{FUE-u}}} {{Puntuacion=@{FUE}}} {{Resultado=[[1d100/@{FUE}]]}}"/>
+                <input type="text" name="attr_Name"/>
             </td>
-            <td data-i18n="DES-u"/>
+            <td>Ocupación</td>
             <td>
-                <input type="number" min="3" value="3" name="attr_DES" />
-                <button type="roll" name="roll_DES" value="&{template:default} {{name=@{character_name}}} {{Roll=^{DES-u}}} {{Puntuacion=@{DES}}} {{Resultado=[[1d100/@{DES}]]}}"/>
-            </td>
-            <td data-i18n="INT-u"/>
-            <td>
-                <input type="number" min="8" value="8" name="attr_INT" />
-                <button type="roll" name="roll_INT" value="&{template:default} {{name=@{character_name}}} {{Roll=^{INT-u}}} {{Puntuacion=@{INT}}} {{Resultado=[[1d100/@{INT}]]}}"/>
+                <input type="text" name="attr_Ocupacion"/>
             </td>
         </tr>
         <tr>
-            <td data-i18n="CON-u"/>
+            <td>Sexo</td>
             <td>
-                <input type="number" min="3" value="3" name="attr_CON" />
-                <button type="roll" name="roll_CON" value="&{template:default} {{name=@{character_name}}} {{Roll=^{CON-u}}} {{Puntuacion=@{CON}}} {{Resultado=[[1d100/@{CON}]]}}"/>
+                <input type="text" name="attr_gender"/>
             </td>
-            <td data-i18n="APA-u"/>
+            <td>Edad</td>
             <td>
-                <input type="number" min="3" value="3" name="attr_APA" />
-                <button type="roll" name="roll_APA" value="&{template:default} {{name=@{character_name}}} {{Roll=^{APA-u}}} {{Puntuacion=@{APA}}} {{Resultado=[[1d100/@{APA}]]}}"/>
+                <input type="text" name="attr_age"  />
             </td>
-            <td data-i18n="POD-u"/>
-            <td>
-                <input type="number" min="3" value="3" name="attr_POD" />
-                <button type="roll" name="roll_POD" value="&{template:default} {{name=@{character_name}}} {{Roll=^{POD-u}}} {{Puntuacion=@{POD}}} {{Resultado=[[1d100/@{POD}]]}}"/>
-            </td>
-
         </tr>
         <tr>
-            <td data-i18n="TAM-u"/>
+            <td>Lugar de nacimiento</td>
             <td>
-                <input type="number" min="8" max="18" value="8" name="attr_TAM" />
-                <button type="roll" name="roll_TAM" value="&{template:default} {{name=@{character_name}}} {{Roll=^{TAM-u}}} {{Puntuacion=@{TAM}}} {{Resultado=[[1d100/@{TAM}]]}}"/>
+                <input type="text" name="attr_Birthplace" />
             </td>
-            <td data-i18n="COR-u" />
+            <td data-i18n="degrees-u"></td>
             <td>
-                <input type="number" value="5*@{POD}" disabled="true" name="attr_COR" />
+                <input type="text" name="attr_degress" />
             </td>
-            <td data-i18n="EDU-u">Educación</td>
-            <td>
-                <input type="number" min="6" max="18" value="6" name="attr_EDU" />
-                <button type="roll" name="roll_EDU" value="&{template:default} {{name=@{character_name}}} {{Roll=^{EDU-u}}} {{Puntuacion=@{EDU}}} {{Resultado=[[1d100/@{EDU}]]}}"/>
-            </td>
-
         </tr>
-        </tbody>
     </table>
-    <br/>
-    <br/>
-    <h3><span>Atributos secundarios</span></h3>
-    <div>
-        <button type="roll" name="roll_default" value="%{Test}" >Reiniciar</button>
-    </div>
-    <div class="secondary">
-        <div class="tr">
-            <div class="td">
-                <span data-i18n="idea-u"></span>
-                <div>
-                    <input type="number" name="attr_Idea" value="[[5*@{INT}]]" disabled="true" />
-                    <button type="roll" name="roll_Idea" value="/roll 1d100<@{Idea}" />
-                </div>
+    <hr>
+    <h3 data-i18n="mental-disorders-u"></h3>
+    <fieldset class="repeating_disorders">
+        <div class="repeating_disorder">
+            <div>
+                <span>Nombre</span>
+                <input type="text" name="attr_disorder-Name" />
             </div>
-            <div class="td">
-                <span data-i18n="luck-u"></span>
-                <div>
-                    <input type="number" name="attr_Luck" value="[[5*@{POD}]]" disabled="true" />
-                    <button type="roll" name="roll_Luck" value="/roll 1d100<@{Luck}" />
-                </div>
+            <div>
+                <span>Descripción</span>
+                <input type="text" name="attr_disorder-Desc" />
             </div>
-            <div class="td">
-                <span data-i18n="know-u"></span>
-                <div>
-                    <input type="number" name="attr_Know" value="[[5*@{EDU}]]" disabled="true" />
-                    <button type="roll" name="roll_Know" value="/roll 1d100<@{Know}" />
-                </div>
-            </div>
-        </div>
-        <div class="tr">
-            <div class="td">
-                <span data-i18n="hp-points-u"></span>
-                <input type="range" value="((@{CON}+@{TAM})/2)" min="-2" max="43" />
-            </div>
-        </div>
-        <div class="tr">
-            <div class="td">
-                <span data-i18n="dmg-bonus-u" ></span>
-                <div>
-                    <input type="text" readonly="true" name="attr_DMG" style="width: 3.5em;" />
-                </div>
-            </div>
-            <div class="td">
-                <span data-i18n="stable-sanity-u" ></span>
-                <div>
-                    <input type="number" readonly="true" name="attr_Max-Sanity" value="(99-@{Cthulhu-Mythos})" />
-                </div>
-            </div>
-        </div>
-    </div>
+        </div>      
+    </fieldset>   
+    
+    
 </div>
 
-<div class="tabcontent sheet-items" >
+<div id="sheet-character" class="tabcontent">
+    <h2>Características y Puntuaciones</h2>
+    <br />
+    <div>
+        <h3>
+            <span class="header">Características</span>
+        </h3>
+        <div class="reset-button">
+            <button type="action" class="reset-button" name="act_reset" >Reiniciar</button>
+        </div>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td data-i18n="FUE-u"></td>
+                    <td>
+                        <input type="number" min="3" value="3" name="attr_FUE" />
+                        <button type="roll" name="roll_FUE" value="&{template:default} {{name=@{character_name}}} {{Roll=^{FUE-u}}} {{Puntuacion=@{FUE}}} {{Resultado=[[1d100/@{FUE}]]}}"/>
+                    </td>
+                    <td data-i18n="DES-u"></td>
+                    <td>
+                        <input type="number" min="3" value="3" name="attr_DES" />
+                        <button type="roll" name="roll_DES" value="&{template:default} {{name=@{character_name}}} {{Roll=^{DES-u}}} {{Puntuacion=@{DES}}} {{Resultado=[[1d100/@{DES}]]}}"/>
+                    </td>
+                    <td data-i18n="INT-u"></td>
+                    <td>
+                        <input type="number" min="8" value="8" name="attr_INT" />
+                        <button type="roll" name="roll_INT" value="&{template:default} {{name=@{character_name}}} {{Roll=^{INT-u}}} {{Puntuacion=@{INT}}} {{Resultado=[[1d100/@{INT}]]}}"/>
+                    </td>
+                    <td data-i18n="idea-u" ></td>
+                    <td>
+                        <input type="number" name="attr_Idea" value="[[5*@{INT}]]" disabled="true" />
+                        <button type="roll" name="roll_Idea" value="/roll 1d100<@{Idea}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td data-i18n="CON-u"></td>
+                    <td>
+                        <input type="number" min="3" value="3" name="attr_CON" />
+                        <button type="roll" name="roll_CON" value="&{template:default} {{name=@{character_name}}} {{Roll=^{CON-u}}} {{Puntuacion=@{CON}}} {{Resultado=[[1d100/@{CON}]]}}"/>
+                    </td>
+                    <td data-i18n="APA-u"></td>
+                    <td>
+                        <input type="number" min="3" value="3" name="attr_APA" />
+                        <button type="roll" name="roll_APA" value="&{template:default} {{name=@{character_name}}} {{Roll=^{APA-u}}} {{Puntuacion=@{APA}}} {{Resultado=[[1d100/@{APA}]]}}"/>
+                    </td>
+                    <td data-i18n="POD-u"></td>
+                    <td>
+                        <input type="number" min="3" value="3" name="attr_POD" />
+                        <button type="roll" name="roll_POD" value="&{template:default} {{name=@{character_name}}} {{Roll=^{POD-u}}} {{Puntuacion=@{POD}}} {{Resultado=[[1d100/@{POD}]]}}"/>
+                    </td>
+                    <td data-i18n="luck-u"></td>
+                    <td>
+                        <input type="number" name="attr_Luck" value="[[5*@{POD}]]" disabled="true" />
+                        <button type="roll" name="roll_Luck" value="/roll 1d100<@{Luck}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td data-i18n="TAM-u"></td>
+                    <td>
+                        <input type="number" min="8" max="18" value="8" name="attr_TAM" />
+                        <button type="roll" name="roll_TAM" value="&{template:default} {{name=@{character_name}}} {{Roll=^{TAM-u}}} {{Puntuacion=@{TAM}}} {{Resultado=[[1d100/@{TAM}]]}}"/>
+                    </td>
+                    <td data-i18n="COR-u" ></td>
+                    <td>
+                        <input type="number" value="5*@{POD}" disabled="true" name="attr_COR" />
+                    </td>
+                    <td data-i18n="EDU-u">Educación</td>
+                    <td>
+                        <input type="number" min="6" max="18" value="6" name="attr_EDU" />
+                        <button type="roll" name="roll_EDU" value="&{template:default} {{name=@{character_name}}} {{Roll=^{EDU-u}}} {{Puntuacion=@{EDU}}} {{Resultado=[[1d100/@{EDU}]]}}"/>
+                    </td>
+                    <td data-i18n="know-u"></td>
+                    <td>
+                        <input type="number" name="attr_Know" value="[[5*@{EDU}]]" disabled="true" />
+                        <button type="roll" name="roll_Know" value="/roll 1d100<@{Know}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td data-i18n="stable-sanity-u"></td>
+                    <td>
+                        <input type="number" disabled="true" name="attr_Max-Sanity" value="(99-@{Cthulhu-Mythos}|0)" />
+                    </td>
+                    <td data-i18n="dmg-bonus-u"></td>
+                    <td>
+                        <input type="text" readonly="true" value="@{DMG}" name="attr_DMG" style="width: 3.5em;" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div>
+        <h3>
+            <span>Puntos de Vida y Magia</span>
+        </h3>
+        <div>
+            <div class="tr">
+                <h3>Puntos de vida</h3>
+            </div>
+            <div>
+                <h3>Puntos de magia</h3>
+            </div>
+        </div>
+        
+    </div>  
+    <hr>
+    <div>
+        <h3>
+            <span data-i18n="sanity-points-u" ></span>
+            <input type="number" disabled="true" name="attr_current-COR" value="@{Sanity}" />
+            <button type="roll" name="roll_Sanity" ></button>
+        </h3>
+    
+        <table id="sanity" class="sanity">
+            <tbody>
+                <tr>
+                    <td width="13"></td>
+                    <td width="13"></td>
+                    <td>
+                        <strong>0</strong>
+                        <input type="radio" value="0" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>1</strong>
+                        <input type="radio" value="1" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>2</strong>
+                        <input type="radio" value="2" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>3</strong>
+                        <input type="radio" value="3" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>4</strong>
+                        <input type="radio" value="4" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>5</strong>
+                        <input type="radio" value="5" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>6</strong>
+                        <input type="radio" value="6" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>7</strong>
+                        <input type="radio" value="7" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>8</strong>
+                        <input type="radio" value="8" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>9</strong>
+                        <input type="radio" value="9" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>10</strong>
+                        <input type="radio" value="10" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>11</strong>
+                        <input type="radio" value="11" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>12</strong>
+                        <input type="radio" value="12" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>13</strong>
+                        <input type="radio" value="13" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>14</strong>
+                        <input type="radio" value="14" name="attr_Sanity" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>15</strong>
+                        <input type="radio" value="15" name="attr_Sanity" /></td>
+                    <td>
+                        <strong>16</strong>
+                        <input type="radio" value="16" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>17</strong>
+                        <input type="radio" value="17" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>18</strong>
+                        <input type="radio" value="18" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>19</strong>
+                        <input type="radio" value="19" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>20</strong>
+                        <input type="radio" value="20" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>21</strong>
+                        <input type="radio" value="21" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>22</strong>
+                        <input type="radio" value="22" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>23</strong>
+                        <input type="radio" value="23" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>24</strong>
+                        <input type="radio" value="24" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>25</strong>
+                        <input type="radio" value="25" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>26</strong>
+                        <input type="radio" value="26" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>27</strong>
+                        <input type="radio" value="27" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>28</strong>
+                        <input type="radio" value="28" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>29</strong>
+                        <input type="radio" value="29" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>30</strong>
+                        <input type="radio" value="30" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>31</strong>
+                        <input type="radio" value="31" name="attr_Sanity" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>32</strong>
+                        <input type="radio" value="32" name="attr_Sanity" /></td>
+                    <td>
+                        <strong>33</strong>
+                        <input type="radio" value="33" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>34</strong>
+                        <input type="radio" value="34" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>35</strong>
+                        <input type="radio" value="35" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>36</strong>
+                        <input type="radio" value="36" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>37</strong>
+                        <input type="radio" value="37" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>38</strong>
+                        <input type="radio" value="38" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>39</strong>
+                        <input type="radio" value="39" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>40</strong>
+                        <input type="radio" value="40" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>41</strong>
+                        <input type="radio" value="41" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>42</strong>
+                        <input type="radio" value="42" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>43</strong>
+                        <input type="radio" value="43" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>44</strong>
+                        <input type="radio" value="44" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>45</strong>
+                        <input type="radio" value="45" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>46</strong>
+                        <input type="radio" value="46" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>47</strong>
+                        <input type="radio" value="47" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>48</strong>
+                        <input type="radio" value="48" name="attr_Sanity" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>49</strong>
+                        <input type="radio" value="49" name="attr_Sanity" /></td>
+                    <td>
+                        <strong>50</strong>
+                        <input type="radio" value="50" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>51</strong>
+                        <input type="radio" value="51" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>52</strong>
+                        <input type="radio" value="52" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>53</strong>
+                        <input type="radio" value="53" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>54</strong>
+                        <input type="radio" value="54" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>55</strong>
+                        <input type="radio" value="55" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>56</strong>
+                        <input type="radio" value="56" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>57</strong>
+                        <input type="radio" value="57" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>58</strong>
+                        <input type="radio" value="58" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>59</strong>
+                        <input type="radio" value="59" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>60</strong>
+                        <input type="radio" value="60" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>61</strong>
+                        <input type="radio" value="61" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>62</strong>
+                        <input type="radio" value="62" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>63</strong>
+                        <input type="radio" value="63" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>64</strong>
+                        <input type="radio" value="64" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>65</strong>
+                        <input type="radio" value="65" name="attr_Sanity" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>66</strong>
+                        <input type="radio" value="66" name="attr_Sanity" /></td>
+                    <td>
+                        <strong>67</strong>
+                        <input type="radio" value="67" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>68</strong>
+                        <input type="radio" value="68" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>69</strong>
+                        <input type="radio" value="69" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>70</strong>
+                        <input type="radio" value="70" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>71</strong>
+                        <input type="radio" value="71" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>72</strong>
+                        <input type="radio" value="72" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>73</strong>
+                        <input type="radio" value="73" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>74</strong>
+                        <input type="radio" value="74" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>75</strong>
+                        <input type="radio" value="75" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>76</strong>
+                        <input type="radio" value="76" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>77</strong>
+                        <input type="radio" value="77" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>78</strong>
+                        <input type="radio" value="78" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>79</strong>
+                        <input type="radio" value="79" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>80</strong>
+                        <input type="radio" value="80" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>81</strong>
+                        <input type="radio" value="81" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>82</strong>
+                        <input type="radio" value="82" name="attr_Sanity" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>83</strong>
+                        <input type="radio" value="83" name="attr_Sanity" /></td>
+                    <td>
+                        <strong>84</strong>
+                        <input type="radio" value="84" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>85</strong>
+                        <input type="radio" value="85" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>86</strong>
+                        <input type="radio" value="86" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>87</strong>
+                        <input type="radio" value="87" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>88</strong>
+                        <input type="radio" value="88" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>89</strong>
+                        <input type="radio" value="89" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>90</strong>
+                        <input type="radio" value="90" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>91</strong>
+                        <input type="radio" value="91" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>92</strong>
+                        <input type="radio" value="92" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>93</strong>
+                        <input type="radio" value="93" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>94</strong>
+                        <input type="radio" value="94" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>95</strong>
+                        <input type="radio" value="95" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>96</strong>
+                        <input type="radio" value="96" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>97</strong>
+                        <input type="radio" value="97" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>98</strong>
+                        <input type="radio" value="98" name="attr_Sanity" />
+                    </td>
+                    <td>
+                        <strong>99</strong>
+                        <input type="radio" value="99" name="attr_Sanity" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    
+    
+</div>
+
+<div id="sheet-skills" class="tabcontent">
+    <h2>Habilidades</h2>
+</div>
+
+<div id="sheet-items" class="tabcontent">
     <h2>Items</h2>
 </div>
 
@@ -146,35 +604,42 @@
 
     var DAMAGE_BONUS = {
         table: [
-            {bonus: '-1d6', range: _.range( 0,  12)},
-            {bonus: '-1d4', range: _.range( 13, 16)},
-            {bonus:    '0', range: _.range( 17, 24)},
-            {bonus:  '1d4', range: _.range( 25, 32)},
-            {bonus:  '1d6', range: _.range( 33, 40)},
-            {bonus:  '2d6', range: _.range( 42, 56)},
-            {bonus:  '3d6', range: _.range( 57, 72)},
-            {bonus:  '4d6', range: _.range( 73, 88)},
-            {bonus:  '5d6', range: _.range( 89,104)},
-            {bonus:  '6d6', range: _.range(105,120)},
-            {bonus:  '7d6', range: _.range(121,136)},
-            {bonus:  '8d6', range: _.range(137,152)},
-            {bonus:  '9d6', range: _.range(153,168)},
-            {bonus: '10d6', range: _.range(169,184)},
-            {bonus: '11d6', range: _.range(185,200)},
-            {bonus: '12d6', range: _.range(201,216)},
-            {bonus: '13d6', range: _.range(217,232)},
-            {bonus: '14d6', range: _.range(233,248)},
-            {bonus: '21d6', range: _.range(249,999)},
+            {bonus: '-1d6', range: _.range( 0,  11)},
+            {bonus: '-1d4', range: _.range( 11, 15)},
+            {bonus:    '0', range: _.range( 15, 23)},
+            {bonus:  '1d4', range: _.range( 23, 31)},
+            {bonus:  '1d6', range: _.range( 31, 39)},
+            {bonus:  '2d6', range: _.range( 39, 55)},
+            {bonus:  '3d6', range: _.range( 55, 71)},
+            {bonus:  '4d6', range: _.range( 71, 87)},
+            {bonus:  '5d6', range: _.range( 87,104)},
+            {bonus:  '6d6', range: _.range(104,119)},
+            {bonus:  '7d6', range: _.range(119,135)},
+            {bonus:  '8d6', range: _.range(135,151)},
+            {bonus:  '9d6', range: _.range(151,167)},
+            {bonus: '10d6', range: _.range(167,183)},
+            {bonus: '11d6', range: _.range(183,199)},
+            {bonus: '12d6', range: _.range(199,215)},
+            {bonus: '13d6', range: _.range(215,231)},
+            {bonus: '14d6', range: _.range(231,247)},
+            {bonus: '15d6', range: _.range(247,263)},
         ],
         getBonusForValue : function(value) {
-            var checkRange = function(entry) { return entry.range.indexOf(parseInt(value||0)) !== -1 };
-            var tableEntry = _.find(this.table, checkRange);
+            var tableEntry = this.table.filter(item => {
+                return item.range.indexOf(parseInt(value||0)) !== -1
+            })[0]
             return tableEntry.bonus;
         }
     }
 
+    on('change:COR', function(e){
+        setAttrs({
+            "Sanity": 45
+        })
+    })
 
-    const buttonlist = ["userinfo", "character", "items"];
+
+    const buttonlist = ["userinfo", "character", "items", "skills"];
     buttonlist.forEach(button => {
             on(`clicked:${button}`, function(e) {
             setAttrs({
@@ -196,10 +661,10 @@
         var stat = items[0]
         var stats = items[1]
         on(`change:${stat}`, function(e) {
-            console.log(e)
             if(stat == "FUE" || stat == "TAM"){
+                
                 getAttrs(["FUE", "TAM"], function(values){
-                    var v = parseInt(values.FUE) + parseInt(values.TAM)
+                    var v = parseInt(values.FUE) + parseInt(values.TAM) -2
                     var damage_bonus = DAMAGE_BONUS.getBonusForValue(v);
                     setAttrs({
                         "DMG": damage_bonus
@@ -209,6 +674,8 @@
             }
         })
     })
+
+    
 
     function reset(){
         var attrs = {}
@@ -229,6 +696,4 @@
             setAttrs(values)
         })
     })
-
-
 </script>
