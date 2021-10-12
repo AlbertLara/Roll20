@@ -66,9 +66,6 @@
         <h3>
             <span class="header">Características</span>
         </h3>
-        <div class="reset-button">
-            <button type="action" class="reset-button" name="act_reset" >Reiniciar</button>
-        </div>
 
         <table>
             <tbody>
@@ -90,7 +87,7 @@
                     </td>
                     <td data-i18n="idea-u" ></td>
                     <td>
-                        <input type="number" name="attr_Idea" value="[[5*@{INT}]]" disabled="true" />
+                        <input type="number" name="attr_Idea" value="[[5*@{INT}]]" disabled />
                         <button type="roll" name="roll_Idea" value="/roll 1d100<@{Idea}" />
                     </td>
                 </tr>
@@ -112,7 +109,7 @@
                     </td>
                     <td data-i18n="luck-u"></td>
                     <td>
-                        <input type="number" name="attr_Luck" value="[[5*@{POD}]]" disabled="true" />
+                        <input type="number" name="attr_Luck" value="[[5*@{POD}]]" disabled />
                         <button type="roll" name="roll_Luck" value="/roll 1d100<@{Luck}" />
                     </td>
                 </tr>
@@ -124,7 +121,7 @@
                     </td>
                     <td data-i18n="COR-u" ></td>
                     <td>
-                        <input type="number" value="5*@{POD}" disabled="true" name="attr_COR" />
+                        <input type="number" value="5*@{POD}" disabled name="attr_COR" />
                     </td>
                     <td data-i18n="EDU-u">Educación</td>
                     <td>
@@ -133,14 +130,14 @@
                     </td>
                     <td data-i18n="know-u"></td>
                     <td>
-                        <input type="number" name="attr_Know" value="[[5*@{EDU}]]" disabled="true" />
+                        <input type="number" name="attr_Know" value="[[5*@{EDU}]]" disabled />
                         <button type="roll" name="roll_Know" value="/roll 1d100<@{Know}" />
                     </td>
                 </tr>
                 <tr>
                     <td data-i18n="stable-sanity-u"></td>
                     <td>
-                        <input type="number" disabled="true" name="attr_Max-Sanity" value="(99-@{Cthulhu-Mythos}|0)" />
+                        <input type="number" disabled name="attr_Max-Sanity" value="(99-@{Cthulhu-Mythos}|0)" />
                     </td>
                     <td data-i18n="dmg-bonus-u"></td>
                     <td>
@@ -152,15 +149,482 @@
     </div>
     <hr>
     <div>
-        <h3>
-            <span>Puntos de Vida y Magia</span>
-        </h3>
-        <div>
-            <div class="tr">
-                <h3>Puntos de vida</h3>
+        <div class="tr">
+            <div class="th">
+                <h3>
+                    <span data-i18n="hp-points-u"></span>                        
+                </h3>
+                <div>
+                    <span data-i18n="stable-hp-u"></span>
+                    <input type="number" name="attr_stableHP" value="(ceil((@{CON}+@{TAM})/2))" disabled />
+                    <!--<span data-i18n="current-hp-u"></span>
+                    <input type="number" disabled name="attr_current-HP" value="[[@{HP}]]" />-->
+                </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td colspan="2" class="th2" data-i18n="dead-u"></td>
+                            <td colspan="5" class="th" data-i18n="unconscius-u"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <strong>-2</strong>
+                                <br>
+                                <input type="radio" value="-2" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>-1</strong>
+                                <br>
+                                <input type="radio" value="-1" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>0</strong>
+                                <br>
+                                <input type="radio" value="0" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>1</strong>
+                                <br>
+                                <input type="radio" value="1" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>2</strong>
+                                <br>
+                                <input type="radio" value="2" name="attr_HP" />
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>3</strong>
+                                <br>
+                                <input type="radio" value="3" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>4</strong>
+                                <br>
+                                <input type="radio" value="4" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>5</strong>
+                                <br>
+                                <input type="radio" value="5" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>6</strong>
+                                <br>
+                                <input type="radio" value="6" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>7</strong>
+                                <br>
+                                <input type="radio" value="7" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>8</strong>
+                                <br>
+                                <input type="radio" value="8" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>9</strong>
+                                <br>
+                                <input type="radio" value="9" name="attr_HP" />
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>10</strong>
+                                <br>
+                                <input type="radio" value="10" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>11</strong>
+                                <br>
+                                <input type="radio" value="11" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>12</strong>
+                                <br>
+                                <input type="radio" value="12" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>13</strong>
+                                <br>
+                                <input type="radio" value="13" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>14</strong>
+                                <br>
+                                <input type="radio" value="14" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>15</strong>
+                                <br>
+                                <input type="radio" value="15" name="attr_HP" checked="true" />
+                            </td>
+                            <td>
+                                <strong>16</strong>
+                                <br>
+                                <input type="radio" value="16" name="attr_HP" />
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>17</strong>
+                                <br>
+                                <input type="radio" value="17" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>18</strong>
+                                <br>
+                                <input type="radio" value="18" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>19</strong>
+                                <br>
+                                <input type="radio" value="19" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>20</strong>
+                                <br>
+                                <input type="radio" value="20" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>21</strong>
+                                <br>
+                                <input type="radio" value="21" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>22</strong>
+                                <br>
+                                <input type="radio" value="22" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>23</strong>
+                                <br>
+                                <input type="radio" value="23" name="attr_HP" />
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>24</strong>
+                                <br>
+                                <input type="radio" value="24" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>25</strong>
+                                <br>
+                                <input type="radio" value="25" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>26</strong>
+                                <br>
+                                <input type="radio" value="26" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>27</strong>
+                                <br>
+                                <input type="radio" value="27" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>28</strong>
+                                <br>
+                                <input type="radio" value="28" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>29</strong>
+                                <br>
+                                <input type="radio" value="29" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>30</strong>
+                                <br>
+                                <input type="radio" value="30" name="attr_HP" />
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>31</strong>
+                                <br>
+                                <input type="radio" value="31" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>32</strong>
+                                <br>
+                                <input type="radio" value="32" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>33</strong>
+                                <br>
+                                <input type="radio" value="33" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>34</strong>
+                                <br>
+                                <input type="radio" value="34" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>35</strong>
+                                <br>
+                                <input type="radio" value="35" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>36</strong>
+                                <br>
+                                <input type="radio" value="36" name="attr_HP" />
+                            </td>
+                            <td>
+                                <strong>37</strong>
+                                <br>
+                                <input type="radio" value="37" name="attr_HP" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div>
-                <h3>Puntos de magia</h3>
+            <div class="th">
+                <h3>
+                    <span data-i18n="mp-u"></span>
+                    
+                </h3>
+                <div>
+                    <span data-i18n="stable-mp-u"></span>
+                    <input type="number" disabled name="attr_stableMP" value="@{POD}" />
+                </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="th" colspan="4" data-i18n="unconscius-u"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                <strong>0</strong>
+                                <br>
+                                <input type="radio" value="0" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>1</strong>
+                                <br>
+                                <input type="radio" value="1" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>2</strong>
+                                <br>
+                                <input type="radio" value="2" name="attr_MP" />
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>3</strong>
+                                <br>
+                                <input type="radio" value="3" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>4</strong>
+                                <br>
+                                <input type="radio" value="4" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>5</strong>
+                                <br>
+                                <input type="radio" value="5" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>6</strong>
+                                <br>
+                                <input type="radio" value="6" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>7</strong>
+                                <br>
+                                <input type="radio" value="7" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>8</strong>
+                                <br>
+                                <input type="radio" value="8" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>9</strong>
+                                <br>
+                                <input type="radio" value="9" name="attr_MP" />
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>10</strong>
+                                <br>
+                                <input type="radio" value="10" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>11</strong>
+                                <br>
+                                <input type="radio" value="11" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>12</strong>
+                                <br>
+                                <input type="radio" value="12" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>13</strong>
+                                <br>
+                                <input type="radio" value="13" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>14</strong>
+                                <br>
+                                <input type="radio" value="14" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>15</strong>
+                                <br>
+                                <input type="radio" value="15" name="attr_MP" checked="true" />
+                            </td>
+                            <td>
+                                <strong>16</strong>
+                                <br>
+                                <input type="radio" value="16" name="attr_MP" />
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>17</strong>
+                                <br>
+                                <input type="radio" value="17" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>18</strong>
+                                <br>
+                                <input type="radio" value="18" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>19</strong>
+                                <br>
+                                <input type="radio" value="19" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>20</strong>
+                                <br>
+                                <input type="radio" value="20" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>21</strong>
+                                <br>
+                                <input type="radio" value="21" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>22</strong>
+                                <br>
+                                <input type="radio" value="22" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>23</strong>
+                                <br>
+                                <input type="radio" value="23" name="attr_MP" />
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>24</strong>
+                                <br>
+                                <input type="radio" value="24" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>25</strong>
+                                <br>
+                                <input type="radio" value="25" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>26</strong>
+                                <br>
+                                <input type="radio" value="26" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>27</strong>
+                                <br>
+                                <input type="radio" value="27" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>28</strong>
+                                <br>
+                                <input type="radio" value="28" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>29</strong>
+                                <br>
+                                <input type="radio" value="29" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>30</strong>
+                                <br>
+                                <input type="radio" value="30" name="attr_MP" />
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>31</strong>
+                                <br>
+                                <input type="radio" value="31" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>32</strong>
+                                <br>
+                                <input type="radio" value="32" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>33</strong>
+                                <br>
+                                <input type="radio" value="33" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>34</strong>
+                                <br>
+                                <input type="radio" value="34" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>35</strong>
+                                <br>
+                                <input type="radio" value="35" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>36</strong>
+                                <br>
+                                <input type="radio" value="36" name="attr_MP" />
+                            </td>
+                            <td>
+                                <strong>37</strong>
+                                <br>
+                                <input type="radio" value="37" name="attr_MP" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         
@@ -169,9 +633,16 @@
     <div>
         <h3>
             <span data-i18n="sanity-points-u" ></span>
-            <input type="number" disabled="true" name="attr_current-COR" value="@{Sanity}" />
+            <input type="number" disabled name="attr_current-COR" value="@{Sanity}" />
             <button type="roll" name="roll_Sanity" ></button>
         </h3>
+        <table>
+            <tbody>
+                <tr>
+                    <td data-i18n="insanity-u"></td>
+                </tr>
+            </tbody>
+        </table>
     
         <table id="sanity" class="sanity">
             <tbody>
@@ -587,9 +1058,6 @@
             </tbody>
         </table>
     </div>
-    
-    
-    
 </div>
 
 <div id="sheet-skills" class="tabcontent">
@@ -632,11 +1100,7 @@
         }
     }
 
-    on('change:COR', function(e){
-        setAttrs({
-            "Sanity": 45
-        })
-    })
+    
 
 
     const buttonlist = ["userinfo", "character", "items", "skills"];
@@ -648,52 +1112,73 @@
             });
     });
     var attributes = {
-        "FUE": {"default": 3, "min":3},
-        "DES": {"default": 3, "min":3},
-        "INT": {"default": 8, "min":8},
-        "CON": {"default": 3, "min":3},
-        "APA": {"default": 3, "min":3},
-        "POD": {"default": 3, "min":3},
-        "TAM": {"default": 8, "min":8},
-        "EDU": {"default": 6, "min":6}
+        "FUE": {"default": 3, "min":3, "max": 18},
+        "DES": {"default": 3, "min":3, "max": 18},
+        "INT": {"default": 8, "min":8, "max": 18},
+        "CON": {"default": 3, "min":3, "max": 18},
+        "APA": {"default": 3, "min":3, "max": 18},
+        "POD": {"default": 3, "min":3, "max": 18},
+        "TAM": {"default": 8, "min":8, "max": 18},
+        "EDU": {"default": 6, "min":6, "max": 21}
     }
-    Object.entries(attributes).forEach(items => {
-        var stat = items[0]
-        var stats = items[1]
-        on(`change:${stat}`, function(e) {
-            if(stat == "FUE" || stat == "TAM"){
-                
-                getAttrs(["FUE", "TAM"], function(values){
-                    var v = parseInt(values.FUE) + parseInt(values.TAM) -2
-                    var damage_bonus = DAMAGE_BONUS.getBonusForValue(v);
-                    setAttrs({
-                        "DMG": damage_bonus
-                    })
 
-                })
-            }
-        })
-    })
-
-    
-
-    function reset(){
-        var attrs = {}
+    function changeAttributes(){
         Object.entries(attributes).forEach(items => {
             var stat = items[0]
             var stats = items[1]
-            attrs[stat] = stats["default"]
+            on(`change:${stat}`, function(e) {
+                console.log(e)
+                var dmg_attrs = ["FUE", "TAM"]
+                var hp_attrs = ["TAM", "CON"]
+                if(dmg_attrs.indexOf(stat) !== -1){                
+                    getAttrs(["FUE", "TAM"], function(values){
+                        var value = parseInt(values.FUE) + parseInt(values.TAM) -2
+                        var damage_bonus = DAMAGE_BONUS.getBonusForValue(value);
+                        setAttrs({
+                            "DMG": damage_bonus
+                        })
+    
+                    })
+                }
+            })
         })
-        setAttrs(attrs)
     }
 
-    on("clicked:reset", function(){
-        reset()
-    })
+    changeAttributes();
+    
+    function calculateLife(){
+        getAttrs(["HP"], (values) => {
+            var hp = parseInt(values.HP)
+            var status = 'Consciente'
+            if(hp < 3){
+                status = 'Inconsciente'
+                if(hp< -2){
+                    status = 'Muerto'
+                }
+            }
+            setAttrs({
+                "HP-status": status
+            })
 
-    on("sheet:opened", function(eventInfo){
-        getAttrs(Object.keys(attributes), function(values) {
-            setAttrs(values)
         })
+    }
+
+    on("sheet:opened", function(e){
+        calculateLife()
+    })
+    
+    on("change:HP", function(e){
+        calculateLife()
+        getAttrs(["CON", "TAM"], (values) => {
+
+            var hp = e["newValue"]
+            var value = Math.ceil((parseInt(values.CON) + parseInt(values.TAM))/2)
+            if(hp > value){
+                setAttrs({
+                    "HP": value
+                })
+            }
+        })
+        
     })
 </script>

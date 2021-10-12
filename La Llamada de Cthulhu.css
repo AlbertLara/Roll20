@@ -81,3 +81,24 @@ div.sheet-tabcontent {
     flex-direction: column;
 
 }
+
+.sheet-tr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+td.sheet-th{
+    text-align: left;
+}
+
+.sheet-th {
+    width: 45%;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px 0 0 0;
+}
+
+.sheet-th2 {
+    text-align: left;
+}
