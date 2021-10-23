@@ -143,9 +143,28 @@
                     <td>
                         <input type="text" readonly="true" value="@{DMG}" name="attr_DMG" style="width: 3.5em;" />
                     </td>
+                    <td>Iniciativa</td>
+                    <td>
+                        <button type="roll" value="[[@{DES} &{tracker}]]" />
+                    </td>
                 </tr>
             </tbody>
         </table>
+    </div>
+    <hr>
+    <div>
+        <h3>
+            Tiradas
+        </h3>
+        <select name="attr_tirada">
+            <option value="FUE" selected="selected" data-i18n="FUE-u"></option>
+            <option value="DES" data-i18n="DES-u"></option>
+            <option value="INT" data-i18n="INT-u"></option>
+            <option value="APA" data-i18n="APA-u"></option>
+            <option value="POD" data-i18n="POD-u"></option>
+            <option value="TAM" data-i18n="TAM-u"></option>
+            <option value="EDU" data-i18n="EDU-u"></option>
+        </select>
     </div>
     <hr>
     <div>
@@ -1061,7 +1080,20 @@
 </div>
 
 <div id="sheet-skills" class="tabcontent">
-    <h2>Habilidades</h2>
+    <h3>Habilidades</h3>
+    <div>
+        <span>Puntos habilidades ocupacionales</span>
+        <input type="number" name="attr_Hab-Ocu" value="(@{EDU}*20)" disabled />
+        <span>Puntos intereses personales</span>
+        <input type="number" name="attr_Hab-PJ" value="(@{EDU}*10)" disabled />  
+    </div>
+    <div data-i18n-list="skills-list" >
+        <table>
+            <tr data-i18n-list-item="anthropology" >
+                
+            </tr>
+        </table>
+    </div>
 </div>
 
 <div id="sheet-items" class="tabcontent">
