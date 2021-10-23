@@ -102,3 +102,8 @@ td.sheet-th{
 .sheet-th2 {
     text-align: left;
 }
+
+.sheet-skill::after {
+    font-family: 'dicefontd20';
+    content: 't'
+}

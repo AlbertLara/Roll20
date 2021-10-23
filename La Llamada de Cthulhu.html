@@ -87,7 +87,7 @@
                     </td>
                     <td data-i18n="idea-u" ></td>
                     <td>
-                        <input type="number" name="attr_Idea" value="[[5*@{INT}]]" disabled />
+                        <input type="number" name="attr_Idea" readonly="true" />
                         <button type="roll" name="roll_Idea" value="/roll 1d100<@{Idea}" />
                     </td>
                 </tr>
@@ -109,7 +109,7 @@
                     </td>
                     <td data-i18n="luck-u"></td>
                     <td>
-                        <input type="number" name="attr_Luck" value="[[5*@{POD}]]" disabled />
+                        <input type="number" name="attr_Luck" readonly="true" />
                         <button type="roll" name="roll_Luck" value="/roll 1d100<@{Luck}" />
                     </td>
                 </tr>
@@ -121,7 +121,7 @@
                     </td>
                     <td data-i18n="COR-u" ></td>
                     <td>
-                        <input type="number" value="5*@{POD}" disabled name="attr_COR" />
+                        <input type="number" readonly="true" name="attr_COR" />
                     </td>
                     <td data-i18n="EDU-u">Educación</td>
                     <td>
@@ -130,18 +130,18 @@
                     </td>
                     <td data-i18n="know-u"></td>
                     <td>
-                        <input type="number" name="attr_Know" value="[[5*@{EDU}]]" disabled />
+                        <input type="number" name="attr_Know" readonly="true" />
                         <button type="roll" name="roll_Know" value="/roll 1d100<@{Know}" />
                     </td>
                 </tr>
                 <tr>
                     <td data-i18n="stable-sanity-u"></td>
                     <td>
-                        <input type="number" disabled name="attr_Max-Sanity" value="(99-@{Cthulhu-Mythos}|0)" />
+                        <input type="number" name="attr_Max-Sanity" readonly="true" />
                     </td>
                     <td data-i18n="dmg-bonus-u"></td>
                     <td>
-                        <input type="text" readonly="true" value="@{DMG}" name="attr_DMG" style="width: 3.5em;" />
+                        <input type="text" readonly="true" name="attr_DMG" style="width: 3.5em;" />
                     </td>
                     <td>Iniciativa</td>
                     <td>
@@ -153,21 +153,6 @@
     </div>
     <hr>
     <div>
-        <h3>
-            Tiradas
-        </h3>
-        <select name="attr_tirada">
-            <option value="FUE" selected="selected" data-i18n="FUE-u"></option>
-            <option value="DES" data-i18n="DES-u"></option>
-            <option value="INT" data-i18n="INT-u"></option>
-            <option value="APA" data-i18n="APA-u"></option>
-            <option value="POD" data-i18n="POD-u"></option>
-            <option value="TAM" data-i18n="TAM-u"></option>
-            <option value="EDU" data-i18n="EDU-u"></option>
-        </select>
-    </div>
-    <hr>
-    <div>
         <div class="tr">
             <div class="th">
                 <h3>
@@ -175,7 +160,7 @@
                 </h3>
                 <div>
                     <span data-i18n="stable-hp-u"></span>
-                    <input type="number" name="attr_stableHP" value="(ceil((@{CON}+@{TAM})/2))" disabled />
+                    <input type="number" name="attr_stableHP" readonly="true" />
                     <!--<span data-i18n="current-hp-u"></span>
                     <input type="number" disabled name="attr_current-HP" value="[[@{HP}]]" />-->
                 </div>
@@ -418,7 +403,7 @@
                 </h3>
                 <div>
                     <span data-i18n="stable-mp-u"></span>
-                    <input type="number" disabled name="attr_stableMP" value="@{POD}" />
+                    <input type="number" readonly="true" name="attr_stableMP" />
                 </div>
                 <table>
                     <tbody>
@@ -652,7 +637,7 @@
     <div>
         <h3>
             <span data-i18n="sanity-points-u" ></span>
-            <input type="number" disabled name="attr_current-COR" value="@{Sanity}" />
+            <input type="number" readonly="true" name="attr_current-COR" />
             <button type="roll" name="roll_Sanity" ></button>
         </h3>
         <table>
@@ -1083,22 +1068,43 @@
     <h3>Habilidades</h3>
     <div>
         <span>Puntos habilidades ocupacionales</span>
-        <input type="number" name="attr_Hab-Ocu" value="(@{EDU}*20)" disabled />
+        <input type="number" name="attr_Hab-Ocu" readonly="true" />
         <span>Puntos intereses personales</span>
-        <input type="number" name="attr_Hab-PJ" value="(@{EDU}*10)" disabled />  
+        <input type="number" name="attr_Hab-PJ" readonly="true" />  
     </div>
     <div data-i18n-list="skills-list" >
         <table>
-            <tr data-i18n-list-item="anthropology" >
-                
+            <tr>
+                <td data-i18n-list-item="anthropology">
+                    <input type="checkbox" name="attr_Success-Anthropology"  />
+                    <span data-i18n="anthropology-u"></span> (01%)
+                    <input type="number" name="attr_Anthropology" value="1" min="1"  />
+                    <button type="roll" name="roll_Anthropology" value="&{template:default} {{name=@{character_name}}} {{Habilidad=^{anthropology-u} (@{Anthropology}%)}}  {{^{roll-u}=[[1d100<@{Anthropology}]]}}" ></button>
+                </td>
+                <td data-i18n-list-item="archaeology">
+                    <input type="checkbox" name="attr_Success-Archaeology"  />
+                    <span data-i18n="archaeology-u"></span>
+                    <input type="number" name="attr_Archaeology" value="1" min="1" />
+                    <button type="roll" name="roll_Archaeology" value="&{template:default} {{name=@{character_name}}} {{Habilidad=^{archaeology-u} (@{Archaeology}%}}  {{^{roll-u}=[[1d100<@{Archaeology}]]}}" />
+                </td>
             </tr>
         </table>
     </div>
 </div>
-
 <div id="sheet-items" class="tabcontent">
     <h2>Items</h2>
 </div>
+
+<rolltemplate class="sheet-rolltemplate-skills">
+    <div class="sheet-content">
+        {{#allprops() title subtitle desc color}}
+        <div class="sheet-key">{{key}}</div>
+        <div class="sheet-value">{{value}}</div>
+        {{/allprops() title subtitle desc color}}
+        {{$[[0]]}}
+      </div>
+    
+</rolltemplate>
 
 <script type="text/worker">
 
@@ -1132,6 +1138,10 @@
         }
     }
 
+    on("clicked:skill", (info) => {
+        console.log(info)
+    })
+
     
 
 
@@ -1154,53 +1164,75 @@
         "EDU": {"default": 6, "min":6, "max": 21}
     }
 
-    function changeAttributes(){
-        Object.entries(attributes).forEach(items => {
-            var stat = items[0]
-            var stats = items[1]
-            on(`change:${stat}`, function(e) {
-                console.log(e)
-                var dmg_attrs = ["FUE", "TAM"]
-                var hp_attrs = ["TAM", "CON"]
-                if(dmg_attrs.indexOf(stat) !== -1){                
-                    getAttrs(["FUE", "TAM"], function(values){
-                        var value = parseInt(values.FUE) + parseInt(values.TAM) -2
-                        var damage_bonus = DAMAGE_BONUS.getBonusForValue(value);
-                        setAttrs({
-                            "DMG": damage_bonus
-                        })
-    
-                    })
-                }
-            })
-        })
-    }
-
-    changeAttributes();
-    
-    function calculateLife(){
-        getAttrs(["HP"], (values) => {
-            var hp = parseInt(values.HP)
-            var status = 'Consciente'
-            if(hp < 3){
-                status = 'Inconsciente'
-                if(hp< -2){
-                    status = 'Muerto'
-                }
-            }
+    on("change:INT sheet:opened", function(){
+        getAttrs(["INT"], function(values) {
+            var val=parseInt(values.INT)
             setAttrs({
-                "HP-status": status
+                "Idea":val*5
+            })
+        })
+    })
+
+    on("change:POD sheet:opened", function(){
+        getAttrs(["POD"], function(values) {
+            var val=parseInt(values.POD)
+            setAttrs({
+                "Luck":val*5,
+                "stableMP": val,
+                "COR": val*5
+            })
+        })
+    })
+
+    on("change:EDU sheet:opened", function(){
+        getAttrs(["EDU"], function(values) {
+            var val=parseInt(values.EDU)
+            setAttrs({
+                "Know":val*5,
+                "Hab-Ocu":val*20,
+                "Hab-PJ":val*5
+            })
+        })
+    })
+
+    on("change:CON change:TAM sheet:opened", function(){
+        getAttrs(["CON", "TAM"], function(values){
+            valCon=parseInt(values.CON);
+            valSiz=parseInt(values.TAM);
+            val=valCon+valSiz;
+            setAttrs({
+                "stableHP": Math.round(val/2)
             })
 
         })
-    }
+    })
 
-    on("sheet:opened", function(e){
-        calculateLife()
+    on("change:cthulhuMythos sheet:opened", function(){
+
+        getAttrs(["cthulhuMythos"], function(values){
+            var value = values.cthulhuMythos
+
+            val = value == null?0:parseInt(value)
+            setAttrs({
+                "Max-Sanity":99-val
+            })
+
+        })
+
+    })
+
+    on("change:FUE change:TAM sheet:opened", function(){
+        getAttrs(["FUE", "TAM"], function(values){
+            var value = parseInt(values.FUE) + parseInt(values.TAM) -2
+            var damage_bonus = DAMAGE_BONUS.getBonusForValue(value);
+            setAttrs({
+                "DMG": damage_bonus
+            })
+
+        })
     })
     
     on("change:HP", function(e){
-        calculateLife()
         getAttrs(["CON", "TAM"], (values) => {
 
             var hp = e["newValue"]
@@ -1212,5 +1244,14 @@
             }
         })
         
+    })
+
+    on("change:Sanity", function(){
+        getAttrs(["Sanity"], function(values){
+            var value = parseInt(values.Sanity)
+            setAttrs({
+                "current-COR": value
+            })
+        })
     })
 </script>
