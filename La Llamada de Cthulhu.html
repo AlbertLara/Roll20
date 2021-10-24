@@ -1076,16 +1076,16 @@
         <table>
             <tr>
                 <td data-i18n-list-item="anthropology">
-                    <input type="checkbox" name="attr_Success-Anthropology"  />
+                    <input type="checkbox" name="attr_success-anthropology" />
                     <span data-i18n="anthropology-u"></span> (01%)
-                    <input type="number" name="attr_Anthropology" value="1" min="1"  />
-                    <button type="roll" name="roll_Anthropology" value="&{template:default} {{name=@{character_name}}} {{Habilidad=^{anthropology-u} (@{Anthropology}%)}}  {{^{roll-u}=[[1d100<@{Anthropology}]]}}" ></button>
+                    <input type="number" name="attr_anthropology" value="1" min="1" />
+                    <button type="roll" name="roll_anthropology" value="&{template:default} {{name=@{character_name}}} {{Habilidad=^{anthropology-u} (@{anthropology}%)}}  {{^{roll-u}=[[1d100<@{anthropology}]]}}" ></button>
                 </td>
                 <td data-i18n-list-item="archaeology">
-                    <input type="checkbox" name="attr_Success-Archaeology"  />
+                    <input type="checkbox" name="attr_success-archaeology"  />
                     <span data-i18n="archaeology-u"></span>
-                    <input type="number" name="attr_Archaeology" value="1" min="1" />
-                    <button type="roll" name="roll_Archaeology" value="&{template:default} {{name=@{character_name}}} {{Habilidad=^{archaeology-u} (@{Archaeology}%}}  {{^{roll-u}=[[1d100<@{Archaeology}]]}}" />
+                    <input type="number" name="attr_archaeology" value="1" min="1" />
+                    <button type="roll" name="roll_archaeology" value="&{template:default} {{name=@{character_name}}} {{Habilidad=^{archaeology-u} (@{archaeology}%}}  {{^{roll-u}=[[1d100<@{archaeology}]]}}" />
                 </td>
             </tr>
         </table>
@@ -1138,10 +1138,6 @@
         }
     }
 
-    on("clicked:skill", (info) => {
-        console.log(info)
-    })
-
     
 
 
@@ -1172,6 +1168,15 @@
             })
         })
     })
+    var skills = getTranslationByKey("skills-list").split(",")
+
+    skills.forEach(skill => {
+        console.log(skill)
+        getAttrs([skill], function(values){
+            console.log(values)
+        })
+    })
+
 
     on("change:POD sheet:opened", function(){
         getAttrs(["POD"], function(values) {
