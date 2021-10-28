@@ -1,12 +1,8 @@
 {
-  "legacy": true,
-  "useroptions": [
-    {
-      "attribute": "username",
-      "displaytranslationkey": "username-display-u",
-      "type": "checkbox",
-      "value": "1"
-
-    }
-  ]
+    "html": "La Llamada de Cthulhu.html",
+    "css": "La Llamada de Cthulhu.css",
+    "authors": "Alberto L.",
+    "roll20userid": "4915121",
+    "instructions": "",
+    "legacy": true
 }

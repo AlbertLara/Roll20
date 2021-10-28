@@ -1073,22 +1073,30 @@
         <input type="number" name="attr_Hab-PJ" readonly="true" />  
     </div>
     <div data-i18n-list="skills-list" >
-        <table>
-            <tr>
-                <td data-i18n-list-item="anthropology">
-                    <input type="checkbox" name="attr_success-anthropology" />
-                    <span data-i18n="anthropology-u"></span> (01%)
+        <div>
+            <div class="col">
+                <div class="row" data-i18n-list-item="anthropology">
+                    <input type="checkbox" name="attr_success-anthropology"  />
+                    <button type="action" data-i18n="anthropology-u" name="act_anthropology"></button>
                     <input type="number" name="attr_anthropology" value="1" min="1" />
-                    <button type="roll" name="roll_anthropology" value="&{template:default} {{name=@{character_name}}} {{Habilidad=^{anthropology-u} (@{anthropology}%)}}  {{^{roll-u}=[[1d100<@{anthropology}]]}}" ></button>
-                </td>
-                <td data-i18n-list-item="archaeology">
-                    <input type="checkbox" name="attr_success-archaeology"  />
-                    <span data-i18n="archaeology-u"></span>
+                    <button type="roll" name="roll_anthropology" value="&{template:default} {{name=@{character_name}}} {{Habilidad=^{anthropology-u} (@{anthropology}%)}}  {{^{roll-u}=[[1d100<@{anthropology}]]}}"></button>
+                </div>
+                <div class="row" data-i18n-list-item="archaeology">
+                    <input type="checkbox" name="attr_success-archaeology"/>
+                    <button type="action" name="act_archaeology" data-i18n="archaeology-u"></button>
                     <input type="number" name="attr_archaeology" value="1" min="1" />
-                    <button type="roll" name="roll_archaeology" value="&{template:default} {{name=@{character_name}}} {{Habilidad=^{archaeology-u} (@{archaeology}%}}  {{^{roll-u}=[[1d100<@{archaeology}]]}}" />
-                </td>
-            </tr>
-        </table>
+                    <button type="roll" name="roll_archaeology" value="&{template:default} {{name=@{character_name}}} {{Habilidad=^{archaeology-u} (@{archaeology}%)}}  {{^{roll-u}=[[1d100<@{archaeology}]]}}" />
+                </div>
+                <div class="row" data-i18n-list-item="astronomy">
+                    <input type="checkbox" name="attr_success-astronomy" />
+                    <button type="action" name="act_astronomy" data-i18n="astronomy-u"></button>
+                    <input type="number" name="attr_astronomy" value="1" min="1" />
+                    <button type="roll" name="roll_astronomy" value="&{template:default} {{name=@{character_name}}} {{Habilidad=^{astronomy-u} (@{astronomy}%)}}  {{^{roll-u}=[[1d100<@{astronomy}]]}}" />
+                </div>
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
     </div>
 </div>
 <div id="sheet-items" class="tabcontent">
@@ -1171,9 +1179,12 @@
     var skills = getTranslationByKey("skills-list").split(",")
 
     skills.forEach(skill => {
-        console.log(skill)
-        getAttrs([skill], function(values){
-            console.log(values)
+        on(`clicked:${skill}`, (info)=>{
+            console.log(skill)
+            getAttrs([skill], (values)=>{
+                console.log(values)
+            })
+            console.log(info)
         })
     })
 
