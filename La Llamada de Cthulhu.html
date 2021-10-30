@@ -1076,19 +1076,19 @@
         <div class="col">
             <div class="trow" value="@{success-anthropology}" data-i18n-list-item="anthropology">
                 <input type="checkbox" name="attr_success-anthropology"  />
-                <span data-i18n="anthropology-u" ></span>
+                <span data-i18n="anthropology" ></span>
                 <input type="number" name="attr_anthropology" value="1" min="1" />
                 <button type="action" value="anthropology-u" class="skill" name="act_anthropology" ></button>
             </div>
             <div class="trow" data-i18n-list-item="archaeology">
                 <input type="checkbox" name="attr_success-archaeology"/>
-                <span data-i18n="archaeology-u"></span>
+                <span data-i18n="archaeology"></span>
                 <input type="number" name="attr_archaeology" value="1" min="1" />
                 <button type="action" class="skill" name="act_archaeology" ></button>
             </div>
             <div class="trow" data-i18n-list-item="astronomy">
                 <input type="checkbox" name="attr_success-astronomy" />
-                <span data-i18n="astronomy-u"></span>
+                <span data-i18n="astronomy"></span>
                 <input type="number" name="attr_astronomy" value="1" min="1" />
                 <button type="action" class="skill" name="act_astronomy" ></button>
             </div>
@@ -1256,10 +1256,11 @@
         on(`clicked:${skill}`, (info)=>{
             
             getAttrs([skill, "character_name"], (values)=>{
-                var skill_value = info.htmlAttributes.value
+                
                 var value = parseInt(values[skill])
                 console.log(values[skill])
-                startRoll(`&{template:default} {{name=${values.character_name}}} {{habilidad=^{${skill_value}}}} {{^{roll-u}=[[1d100]]}}`, (results) => {
+                
+                startRoll(`&{template:default} {{name=${values.character_name}}} {{Habilidad=^{${skill}}}} {{Valor=${value}}} {{^{roll-u}=[[1d100]]}}`, (results) => {
                     const total = results.results["^{roll-u}"].result
                     console.log(total)
                 })
