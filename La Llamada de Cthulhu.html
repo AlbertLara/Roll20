@@ -1065,13 +1065,7 @@
 </div>
 
 <div id="sheet-skills" class="tabcontent">
-    <h3>Habilidades</h3>
-    <div>
-        <span>Puntos habilidades ocupacionales</span>
-        <input type="number" name="attr_Hab-Ocu" readonly="true" />
-        <span>Puntos intereses personales</span>
-        <input type="number" name="attr_Hab-PJ" readonly="true" />  
-    </div>
+    <h2>Habilidades</h2>
     <div data-i18n-list="skills-list" class="skills" >
         <div class="col">
             <div class="trow" value="@{success-anthropology}" data-i18n-list-item="anthropology">
@@ -1096,19 +1090,118 @@
         <div class="col"></div>
         <div class="col"></div>
     </div>
+
+    <hr>
+    <h3 data-i18n="art"></h3>
+    <fieldset class="repeating_art">
+        <input type="checkbox" name="attr_success" />
+        <input type="text" name="attr_skillname"></input>
+        <input type="number" name="attr_score" value="5" min="5" />
+        <button type="action" class="skill" name="act_score" ></button>
+
+    </fieldset>
+    <hr>
+    <h3 data-i18n="martial-arts"></h3>
+    <fieldset class="repeating_martial">
+        <input type="checkbox" name="attr_success" />
+        <input type="text" name="attr_skillname"></input>
+        <select name="attr_ATK">
+            <option value="fist" data-i18n="fist-punch"></option>
+            <option value="head-butt" data-i18n="head-butt"></option>
+            <option value="kick" data-i18n="kick"></option>
+            <option value="grapple" data-i18n="grapple"></option>
+        </select>
+        <input type="number" name="attr_score" value="1" min="1" />
+    </fieldset>
+    <hr>
+    <h3 data-i18n="melee-weapons"></h3>
+    <div>
+        <table style="width: 60%;">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th data-i18n="attack-or-weapon-u"></th>
+                    <th>%</th>
+                    <th data-i18n="damage-u"></th>
+                    <th data-i18n="hands"></th>
+                    <th data-i18n="round-u"></th>
+                    <th data-i18n="hit-points-u"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" name="attr_success-fist" /></td>
+                    <td><span data-i18n="fist-punch"></span>
+                    <td><input type="number" name="attr_fist" value="50" min="50" /></td>
+                    <td><input type="text" class="dmg" name="attr_Fist-Punch-Damage"></td>
+                    <td><span>1</span></td>
+                    <td><span>1</span></td>
+                    <td><span>n/a</span></td>
+                    <td><button type="action" class="skill" name="act_fist" ></button></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="attr_success-head" /></td>
+                    <td><span data-i18n="head-butt"></span>
+                    <td><input type="number" name="attr_head-butt" value="10" min="10" /></td>
+                    <td><input type="text" class="dmg" name="attr_head-butt-Damage"></td>
+                    <td><span>0</span></td>
+                    <td><span>1</span></td>
+                    <td><span>n/a</span></td>
+                    <td><button type="action" class="skill" name="act_head-butt" ></button></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="attr_success-kick" /></td>
+                    <td><span data-i18n="kick"></span>
+                    <td><input type="number" name="attr_kick" value="25" min="25" /></td>
+                    <td><input type="text" class="dmg" name="attr_kick-Damage"></td>
+                    <td><span>0</span></td>
+                    <td><span>0</span></td>
+                    <td><span>n/a</span></td>
+                    <td><button type="action" class="skill" name="act_kick" ></button></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="attr_success-grapple" /></td>
+                    <td><span data-i18n="grapple"></span>
+                    <td><input type="number" name="attr_grapple" value="25" min="25" /></td>
+                    <td><input type="text" class="dmg" name="attr_grapple-Damage"></td>
+                    <td><span>0</span></td>
+                    <td><span>2</span></td>
+                    <td><span>n/a</span></td>
+                    <td><button type="action" class="skill" name="act_grapple" ></button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            
+            
+        </div>
+    </div>
+    <hr>
+    <h3 data-i18n="firearms"></h3>
+    <div>
+        
+    </div>
 </div>
 <div id="sheet-items" class="tabcontent">
     <h2>Items</h2>
 </div>
 
 <rolltemplate class="sheet-rolltemplate-skills">
-    <div class="sheet-content">
-        {{#allprops() title subtitle desc color}}
-        <div class="sheet-key">{{key}}</div>
-        <div class="sheet-value">{{value}}</div>
-        {{/allprops() title subtitle desc color}}
-        {{$[[0]]}}
-      </div>
+    <table>
+        <caption>{{name}}</caption>
+        <tbody>
+            {{#allprops() name}}
+                <tr>
+                    <td>{{key}}</td>
+                    <td>{{value}}</td>
+                </tr>
+            {{/allprops() name}}
+            <tr>
+                <td>Resultado</td>
+                <td>{{computed::Tirada}}</td>
+            </tr>
+        </tbody>        
+    </table>
     
 </rolltemplate>
 
@@ -1252,18 +1345,16 @@
 
     var skills = getTranslationByKey("skills-list").split(",")
 
+
     skills.forEach(skill => {
         on(`clicked:${skill}`, (info)=>{
             
             getAttrs([skill, "character_name"], (values)=>{
                 
                 var value = parseInt(values[skill])
-                console.log(values[skill])
+                var skill_name = getTranslationByKey(skill)
+                rollSkill(skill_name,value)
                 
-                startRoll(`&{template:default} {{name=${values.character_name}}} {{Habilidad=^{${skill}}}} {{Valor=${value}}} {{^{roll-u}=[[1d100]]}}`, (results) => {
-                    const total = results.results["^{roll-u}"].result
-                    console.log(total)
-                })
             })
             
         })
@@ -1274,6 +1365,31 @@
         
     })
 
+    var attacks = ["fist", "head-butt"]
+
+    attacks.forEach( item => {
+        on(`clicked:${item}`, function(info){
+            console.log(info)
+        })
+    })
+
+    on("change:repeating_art change:repeating_martial", (info) => {
+        on("clicked:repeating_art:score", (info) => {
+            getAttrs(["repeating_art_skillname", "repeating_art_score"], function(values){
+                var value = values.repeating_art_score
+                var skill = values.repeating_art_skillname
+                rollSkill(skill, value)
+            })
+        })
+        on("change:repeating_martial:ATK change:repeating_martial:score", (info) => {
+            getAttrs(["repeating_martial_atk", "repeating_martial_score"], (values) => {
+                var atk = values.repeating_martial_atk
+                console.log(values)
+            })
+            console.log(info)
+        })
+    })
+
     on("change:Sanity", function(){
         getAttrs(["Sanity"], function(values){
             var value = parseInt(values.Sanity)
@@ -1282,4 +1398,29 @@
             })
         })
     })
+
+    function rollSkill(skill, value ){
+        getAttrs(["character_name"], (values) => {
+            var character_name = values.character_name
+            startRoll(`&{template:skills} {{name=${character_name}}} {{Habilidad=${skill}}} {{Valor=${value}}} {{Tirada=[[1d100]]}}`, (results) => {
+                const total = results.results.Tirada.result
+                const computed = total/value
+                var success = total == 100?"Pifia":"Fallo"
+                if(computed <= 1){
+                    success = "Éxito"
+                    if(computed <= 0.1){
+                        success = "Crítico"
+                    }
+                }
+                finishRoll(
+                    results.rollId,
+                    {
+                        Tirada: success
+                    }
+                );
+            })
+
+        })
+
+    }
 </script>
