@@ -1086,6 +1086,25 @@
                 <input type="number" name="attr_astronomy" value="1" min="1" />
                 <button type="action" class="skill" name="act_astronomy" ></button>
             </div>
+            <div class="trow" data-i18n-list-item="biology">
+                <input type="checkbox" name="attr_success-biology" />
+                <span data-i18n="biology"></span>
+                <input type="number" name="attr_biology" value="1" min="1" />
+                <button type="action" class="skill" name="act_biology" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="library-use">
+                <input type="checkbox" name="attr_success-library-use" />
+                <span data-i18n="library-use"></span>
+                <input type="number" name="attr_library-use" value="25" min="25" />
+                <button type="action" class="skill" name="act_library-use" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="locksmith">
+                <input type="checkbox" name="attr_success-locksmith" />
+                <span data-i18n="locksmith"></span>
+                <input type="number" name="attr_locksmith" value="1" min="1" />
+                <button type="action" class="skill" name="act_locksmith" ></button>
+            </div>
+            
         </div>
         <div class="col"></div>
         <div class="col"></div>
@@ -1347,6 +1366,17 @@
 
 
     skills.forEach(skill => {
+        var name = getTranslationByKey(skill)
+        
+        on("sheet:opened", function(){
+            getAttrs([skill], (values) => {
+                var value = values[skill]
+                if(value === undefined){
+                    console.log(skill + ": " + name)
+                }
+            })
+        })
+        
         on(`clicked:${skill}`, (info)=>{
             
             getAttrs([skill, "character_name"], (values)=>{
