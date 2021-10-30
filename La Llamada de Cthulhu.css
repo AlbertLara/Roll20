@@ -103,7 +103,21 @@ td.sheet-th{
     text-align: left;
 }
 
-.sheet-skill::after {
+.sheet-skill::before {
     font-family: 'dicefontd20';
-    content: 't'
+    content: 't';
+    font-size: large;
+}
+
+div.sheet-skills{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.sheet-trow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
