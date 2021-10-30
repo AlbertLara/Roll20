@@ -110,10 +110,8 @@ td.sheet-th{
 }
 
 div.sheet-skills{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .sheet-trow {
