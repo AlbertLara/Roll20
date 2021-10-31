@@ -1,5 +1,21 @@
-table {
+div.sheet-tabs {
+    overflow: hidden;
+    background-color: #f1f1f1;
     width: 100%;
+}
+  
+div.sheet-tabs button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+  
+div.sheet-tabs button:hover {
+   background-color: #ddd;
 }
 
 h2, h3, h4 {
@@ -8,25 +24,7 @@ h2, h3, h4 {
 	text-align: center;
 }
 
-.sheet-tabs {
-  overflow: hidden;
-  background-color: #f1f1f1;
-  width: 100%;
-}
 
-.sheet-tabs button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-}
-
-.sheet-tabs button:hover {
-  background-color: #ddd;
-}
 
 div.sheet-tabcontent {
     display: none;
@@ -88,9 +86,7 @@ div.sheet-tabcontent {
     justify-content: space-between;
     
 }
-td.sheet-th{
-    text-align: left;
-}
+
 
 .sheet-th {
     width: 45%;
@@ -109,9 +105,14 @@ td.sheet-th{
     font-size: large;
 }
 
+h3 button.sheet-skill {
+    color: black;
+}
+
 div.sheet-skills{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
 }
 
 .sheet-trow {
@@ -120,7 +121,7 @@ div.sheet-skills{
     align-items: center;
 }
 
-.sheet-trow span{
+.sheet-trow span.sheet-td{
     width: 100%;
 }
 
@@ -160,4 +161,12 @@ div.sheet-skills{
 
 .sheet-dmg {
     width: 3.5em;
+}
+
+table {
+    width: 100%;
+}
+
+td.sheet-th{
+    text-align: left;
 }

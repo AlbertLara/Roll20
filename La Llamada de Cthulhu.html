@@ -64,7 +64,7 @@
     <br />
     <div>
         <h3>
-            <span class="header">Características</span>
+            <span data-i18n="characteristics-u" class="header">Características</span>
         </h3>
 
         <table>
@@ -72,17 +72,17 @@
                 <tr>
                     <td data-i18n="FUE-u"></td>
                     <td>
-                        <input type="number" min="3" value="3" name="attr_FUE" />
+                        <input type="number" value="3" name="attr_FUE" />
                         <button type="roll" name="roll_FUE" value="&{template:default} {{name=@{character_name}}} {{Roll=^{FUE-u}}} {{Puntuacion=@{FUE}}} {{Resultado=[[1d100/@{FUE}]]}}"/>
                     </td>
                     <td data-i18n="DES-u"></td>
                     <td>
-                        <input type="number" min="3" value="3" name="attr_DES" />
+                        <input type="number" value="3" name="attr_DES" />
                         <button type="roll" name="roll_DES" value="&{template:default} {{name=@{character_name}}} {{Roll=^{DES-u}}} {{Puntuacion=@{DES}}} {{Resultado=[[1d100/@{DES}]]}}"/>
                     </td>
                     <td data-i18n="INT-u"></td>
                     <td>
-                        <input type="number" min="8" value="8" name="attr_INT" />
+                        <input type="number" value="8" name="attr_INT" />
                         <button type="roll" name="roll_INT" value="&{template:default} {{name=@{character_name}}} {{Roll=^{INT-u}}} {{Puntuacion=@{INT}}} {{Resultado=[[1d100/@{INT}]]}}"/>
                     </td>
                     <td data-i18n="idea-u" ></td>
@@ -94,17 +94,17 @@
                 <tr>
                     <td data-i18n="CON-u"></td>
                     <td>
-                        <input type="number" min="3" value="3" name="attr_CON" />
+                        <input type="number" value="3" name="attr_CON" />
                         <button type="roll" name="roll_CON" value="&{template:default} {{name=@{character_name}}} {{Roll=^{CON-u}}} {{Puntuacion=@{CON}}} {{Resultado=[[1d100/@{CON}]]}}"/>
                     </td>
                     <td data-i18n="APA-u"></td>
                     <td>
-                        <input type="number" min="3" value="3" name="attr_APA" />
+                        <input type="number" value="3" name="attr_APA" />
                         <button type="roll" name="roll_APA" value="&{template:default} {{name=@{character_name}}} {{Roll=^{APA-u}}} {{Puntuacion=@{APA}}} {{Resultado=[[1d100/@{APA}]]}}"/>
                     </td>
                     <td data-i18n="POD-u"></td>
                     <td>
-                        <input type="number" min="3" value="3" name="attr_POD" />
+                        <input type="number" value="3" name="attr_POD" />
                         <button type="roll" name="roll_POD" value="&{template:default} {{name=@{character_name}}} {{Roll=^{POD-u}}} {{Puntuacion=@{POD}}} {{Resultado=[[1d100/@{POD}]]}}"/>
                     </td>
                     <td data-i18n="luck-u"></td>
@@ -116,7 +116,7 @@
                 <tr>
                     <td data-i18n="TAM-u"></td>
                     <td>
-                        <input type="number" min="8" max="18" value="8" name="attr_TAM" />
+                        <input type="number" value="8" name="attr_TAM" />
                         <button type="roll" name="roll_TAM" value="&{template:default} {{name=@{character_name}}} {{Roll=^{TAM-u}}} {{Puntuacion=@{TAM}}} {{Resultado=[[1d100/@{TAM}]]}}"/>
                     </td>
                     <td data-i18n="COR-u" ></td>
@@ -125,7 +125,7 @@
                     </td>
                     <td data-i18n="EDU-u">Educación</td>
                     <td>
-                        <input type="number" min="6" max="18" value="6" name="attr_EDU" />
+                        <input type="number" value="6" name="attr_EDU" />
                         <button type="roll" name="roll_EDU" value="&{template:default} {{name=@{character_name}}} {{Roll=^{EDU-u}}} {{Puntuacion=@{EDU}}} {{Resultado=[[1d100/@{EDU}]]}}"/>
                     </td>
                     <td data-i18n="know-u"></td>
@@ -1070,60 +1070,254 @@
         <div class="col">
             <div class="trow" value="@{success-anthropology}" data-i18n-list-item="anthropology">
                 <input type="checkbox" name="attr_success-anthropology"  />
-                <span data-i18n="anthropology" ></span>
+                <span class="td"><span data-i18n="anthropology" ></span> (01%)</span>
                 <input type="number" name="attr_anthropology" value="1" min="1" />
-                <button type="action" value="anthropology-u" class="skill" name="act_anthropology" ></button>
+                <button type="action" class="skill" name="act_anthropology" ></button>
             </div>
             <div class="trow" data-i18n-list-item="archaeology">
                 <input type="checkbox" name="attr_success-archaeology"/>
-                <span data-i18n="archaeology"></span>
+                <span class="td"><span data-i18n="archaeology"></span> (01%)</span>
                 <input type="number" name="attr_archaeology" value="1" min="1" />
                 <button type="action" class="skill" name="act_archaeology" ></button>
             </div>
+            <div style="margin-left: 5%;">
+                <span></span>
+                <span><span data-i18n="art"></span> (05%)</span>
+                <span></span>
+                <span></span>
+            </div>
+            <fieldset class="repeating_art">
+                <div class="trow">
+                    <input type="checkbox" name="attr_success" />
+                    <input style="width: 60%;" type="text" name="attr_skillname"></input>
+                    <input type="number" name="attr_score" value="5" min="5" />
+                    <button type="action" class="skill" name="act_score" ></button>
+                </div>
+            </fieldset>
             <div class="trow" data-i18n-list-item="astronomy">
                 <input type="checkbox" name="attr_success-astronomy" />
-                <span data-i18n="astronomy"></span>
+                <span class="td"><span data-i18n="astronomy"></span> (01%)</span>
                 <input type="number" name="attr_astronomy" value="1" min="1" />
                 <button type="action" class="skill" name="act_astronomy" ></button>
             </div>
             <div class="trow" data-i18n-list-item="biology">
                 <input type="checkbox" name="attr_success-biology" />
-                <span data-i18n="biology"></span>
+                <span class="td"><span data-i18n="biology"></span> (01%)</span>
                 <input type="number" name="attr_biology" value="1" min="1" />
                 <button type="action" class="skill" name="act_biology" ></button>
             </div>
             <div class="trow" data-i18n-list-item="library-use">
                 <input type="checkbox" name="attr_success-library-use" />
-                <span data-i18n="library-use"></span>
+                <span class="td"><span data-i18n="library-use"></span> (25%)</span>
                 <input type="number" name="attr_library-use" value="25" min="25" />
                 <button type="action" class="skill" name="act_library-use" ></button>
             </div>
             <div class="trow" data-i18n-list-item="locksmith">
                 <input type="checkbox" name="attr_success-locksmith" />
-                <span data-i18n="locksmith"></span>
+                <span class="td"><span data-i18n="locksmith"></span> (01%)</span>
                 <input type="number" name="attr_locksmith" value="1" min="1" />
                 <button type="action" class="skill" name="act_locksmith" ></button>
             </div>
             <div class="trow" data-i18n-list-item="fast-talk">
                 <input type="checkbox" name="attr_success-fast-talk" />
-                <span data-i18n="fast-talk"></span>
+                <span class="td"><span data-i18n="fast-talk"></span> (01%)</span>
                 <input type="number" name="attr_fast-talk" value="1" min="1" />
                 <button type="action" class="skill" name="act_fast-talk" ></button>
             </div>
+            <div class="trow" data-i18n-list-item="occult">
+                <input type="checkbox" name="attr_success-occult" />
+                <span class="td"><span data-i18n="occult"></span> (05%)</span>
+                <input type="number" name="attr_occult" value="5" min="5" />
+                <button type="action" class="skill" name="act_occult" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="drive">
+                <input type="checkbox" name="attr_success-drive" />
+                <span class="td"><span data-i18n="drive"></span> (20%)</span>
+                <input type="number" name="attr_drive" value="20" min="20" />
+                <button type="action" class="skill" name="act_drive" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="hvy-machine">
+                <input type="checkbox" name="attr_success-hvy-machine" />
+                <span class="td"><span data-i18n="hvy-machine"></span> (01%)</span>
+                <input type="number" name="attr_hvy-machine" value="1" min="1" />
+                <button type="action" class="skill" name="act_hvy-machine" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="accounting">
+                <input type="checkbox" name="attr_success-accounting" />
+                <span class="td"><span data-i18n="accounting"></span> (10%)</span>
+                <input type="number" name="attr_accounting" value="10" min="10" />
+                <button type="action" class="skill" name="act_accounting" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="credit-rating">
+                <input type="checkbox" name="attr_success-credit-rating" />
+                <span class="td"><span data-i18n="credit-rating"></span> (15%)</span>
+                <input type="number" name="attr_credit-rating" value="15" min="15" />
+                <button type="action" class="skill" name="act_credit-rating" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="law">
+                <input type="checkbox" name="attr_success-law" />
+                <span class="td"><span data-i18n="law"></span> (05%)</span>
+                <input type="number" name="attr_law" value="5" min="5" />
+                <button type="action" class="skill" name="act_law" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="spot-hidden">
+                <input type="checkbox" name="attr_success-spot-hidden" />
+                <span class="td"><span data-i18n="spot-hidden"></span> (25%)</span>
+                <input type="number" name="attr_spot-hidden" value="25" min="25" />
+                <button type="action" class="skill" name="act_spot-hidden" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="sneak">
+                <input type="checkbox" name="attr_success-sneak" />
+                <span class="td"><span data-i18n="sneak"></span> (10%)</span>
+                <input type="number" name="attr_sneak" value="10" min="10" />
+                <button type="action" class="skill" name="act_sneak" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="disguise">
+                <input type="checkbox" name="attr_success-disguise" />
+                <span class="td"><span data-i18n="disguise"></span> (01%)</span>
+                <input type="number" name="attr_disguise" value="1" min="1" />
+                <button type="action" class="skill" name="act_disguise" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="electrical-repair">
+                <input type="checkbox" name="attr_success-electrical-repair" />
+                <span class="td"><span data-i18n="electrical-repair"></span> (10%)</span>
+                <input type="number" name="attr_electrical-repair" value="10" min="10" />
+                <button type="action" class="skill" name="act_electrical-repair" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="ride">
+                <input type="checkbox" name="attr_success-ride" />
+                <span class="td"><span data-i18n="ride"></span> (5%)</span>
+                <input type="number" name="attr_ride" value="5" min="5" />
+                <button type="action" class="skill" name="act_ride" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="listen">
+                <input type="checkbox" name="attr_success-listen" />
+                <span class="td"><span data-i18n="listen"></span> (25%)</span>
+                <input type="number" name="attr_listen" value="25" min="25" />
+                <button type="action" class="skill" name="act_listen" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="dodge">
+                <input type="checkbox" name="attr_success-dodge" />
+                <span class="td"><span data-i18n="dodge"></span> (DES x 2%)</span>
+                <input type="number" name="attr_dodge" />
+                <button type="action" class="skill" name="act_dodge" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="pharmacy">
+                <input type="checkbox" name="attr_success-pharmacy" />
+                <span class="td"><span data-i18n="pharmacy"></span> (01%)</span>
+                <input type="number" name="attr_pharmacy" value="1" min="1" />
+                <button type="action" class="skill" name="act_pharmacy" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="physics">
+                <input type="checkbox" name="attr_success-physics" />
+                <span class="td"><span data-i18n="physics"></span> (01%)</span>
+                <input type="number" name="attr_physics" value="1" min="1" />
+                <button type="action" class="skill" name="act_physics" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="photography">
+                <input type="checkbox" name="attr_success-photography" />
+                <span class="td"><span data-i18n="photography"></span> (10%)</span>
+                <input type="number" name="attr_photography" value="10" min="10" />
+                <button type="action" class="skill" name="act_photography" ></button>
+            </div>
+            
+        </div>
+        <div class="col">
+            <div class="trow" data-i18n-list-item="geology">
+                <input type="checkbox" name="attr_success-geology" />
+                <span class="td"><span data-i18n="geology"></span> (01%)</span>
+                <input type="number" name="attr_geology" value="1" min="1" />
+                <button type="action" class="skill" name="act_geology" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="history">
+                <input type="checkbox" name="attr_success-history" />
+                <span class="td"><span data-i18n="history"></span> (20%)</span>
+                <input type="number" name="attr_history" value="20" min="20" />
+                <button type="action" class="skill" name="act_history" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="natural-history">
+                <input type="checkbox" name="attr_success-natural-history" />
+                <span class="td"><span data-i18n="natural-history"></span> (10%)</span>
+                <input type="number" name="attr_natural-history" value="10" min="10" />
+                <button type="action" class="skill" name="act_natural-history" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="throw">
+                <input type="checkbox" name="attr_success-throw" />
+                <span class="td"><span data-i18n="throw"></span> (25%)</span>
+                <input type="number" name="attr_throw" value="25" min="25" />
+                <button type="action" class="skill" name="act_throw" ></button>
+            </div>
+            <div style="margin: 2% 5%;">
+                <span></span>
+                <span><span data-i18n="own-language"></span> (EDUx5%)</span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="trow" data-i18n-list-item="own-language">
+                <input type="checkbox" name="attr_success-own-language" />
+                <input type="text" name="attr_own-language-name" />
+                <input type="number" name="attr_own-language" />
+                <button type="action" class="skill" name="act_own-language" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="mechanical-repair">
+                <input type="checkbox" name="attr_success-mechanical-repair" />
+                <span class="td"><span data-i18n="mechanical-repair"></span> (20%)</span>
+                <input type="number" name="attr_mechanical-repair" min="20" value="20" />
+                <button type="action" class="skill" name="act_mechanical-repair" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="medicine">
+                <input type="checkbox" name="attr_success-medicine" />
+                <span class="td"><span data-i18n="medicine"></span> (05%)</span>
+                <input type="number" name="attr_medicine" min="5" value="5" />
+                <button type="action" class="skill" name="act_medicine" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="cthulhumythos">
+                <input type="checkbox" name="attr_success-cthulhumythos" />
+                <span class="td"><span data-i18n="cthulhumythos"></span> (00%)</span>
+                <input type="number" name="attr_cthulhumythos" min="0" value="0" />
+                <button type="action" class="skill" name="act_cthulhumythos" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="swim">
+                <input type="checkbox" name="attr_success-swim" />
+                <span class="td"><span data-i18n="swim"></span> (25%)</span>
+                <input type="number" name="attr_swim" min="25" value="25" />
+                <button type="action" class="skill" name="act_swim" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="conceal">
+                <input type="checkbox" name="attr_success-conceal" />
+                <span class="td"><span data-i18n="conceal"></span> (15%)</span>
+                <input type="number" name="attr_conceal" min="15" value="15" />
+                <button type="action" class="skill" name="act_conceal" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="hide">
+                <input type="checkbox" name="attr_success-hide" />
+                <span class="td"><span data-i18n="hide"></span> (10%)</span>
+                <input type="number" name="attr_hide" min="10" value="10" />
+                <button type="action" class="skill" name="act_hide" ></button>
+            </div>
+            <div class="trow" data-i18n-list-item="navigate">
+                <input type="checkbox" name="attr_success-navigate" />
+                <span class="td"><span data-i18n="navigate"></span> (10%)</span>
+                <input type="number" name="attr_navigate" min="10" value="10" />
+                <button type="action" class="skill" name="act_navigate" ></button>
+            </div>
+            <div style="margin: 2% 5%;">
+                <span></span>
+                <span><span data-i18n="other-language"></span> (01%)</span>
+                <span></span>
+                <span></span>
+            </div>
+            <fieldset class="repeating_other-language">
+                <div class="trow">
+                    <input type="checkbox" name="attr_success" />
+                    <input style="width: 60%;" type="text" name="attr_skillname"></input>
+                    <input type="number" name="attr_score" value="1" min="1" />
+                    <button type="action" class="skill" name="act_score" ></button>
+                </div>
+            </fieldset>
         </div>
         <div class="col"></div>
-        <div class="col"></div>
     </div>
-
-    <hr>
-    <h3 data-i18n="art"></h3>
-    <fieldset class="repeating_art">
-        <input type="checkbox" name="attr_success" />
-        <input type="text" name="attr_skillname"></input>
-        <input type="number" name="attr_score" value="5" min="5" />
-        <button type="action" class="skill" name="act_score" ></button>
-
-    </fieldset>
     <hr>
     <h3 data-i18n="martial-arts"></h3>
     <fieldset class="repeating_martial">
@@ -1261,8 +1455,6 @@
         }
     }
 
-    
-
 
     const buttonlist = ["userinfo", "character", "items", "skills"];
     buttonlist.forEach(button => {
@@ -1282,6 +1474,8 @@
         "TAM": {"default": 8, "min":8, "max": 18},
         "EDU": {"default": 6, "min":6, "max": 21}
     }
+
+    
 
     on("change:INT sheet:opened", function(){
         getAttrs(["INT"], function(values) {
@@ -1306,13 +1500,31 @@
         })
     })
 
-    on("change:EDU sheet:opened", function(){
-        getAttrs(["EDU"], function(values) {
-            var val=parseInt(values.EDU)
+    on("change:EDU change:own-language sheet:opened", function(){
+        getAttrs(["EDU", "own-language"], function(values) {
+            var value=parseInt(values.EDU)
+            var language = values["own-language"] == ""?value*5:parseInt(values["own-language"])
+            if(language < value*5){
+                language = value*5
+            }
+
             setAttrs({
-                "Know":val*5,
-                "Hab-Ocu":val*20
+                "Know":value*5,
+                "Hab-Ocu":value*20,
+                "own-language": language
             })
+        })
+    })
+
+    on("change:DES change:dodge sheet:opened", function(){
+        getAttrs(["DES", "dodge"], function(values){
+            var value = parseInt(values.DES)*2
+            var dodge_value = values.dodge == ''?value: parseInt(values.dodge)
+            if(dodge_value < value){
+                dodge_value = value
+            }
+            var attributes = {"dodge": dodge_value}
+            setAttrs(attributes)
         })
     })
 
@@ -1339,10 +1551,10 @@
         })
     })
 
-    on("change:cthulhuMythos sheet:opened", function(){
+    on("change:cthulhumythos sheet:opened", function(){
 
-        getAttrs(["cthulhuMythos"], function(values){
-            var value = values.cthulhuMythos
+        getAttrs(["cthulhumythos"], function(values){
+            var value = values.cthulhumythos
 
             val = value == null?0:parseInt(value)
             setAttrs({
@@ -1368,23 +1580,15 @@
     })
 
     var skills = getTranslationByKey("skills-list").split(",")
-
+    
 
     skills.forEach(skill => {
         var name = getTranslationByKey(skill)
         
-        on("sheet:opened", function(){
-            getAttrs([skill], (values) => {
-                var value = values[skill]
-                if(value === undefined){
-                    console.log(skill + ": " + name)
-                }
-            })
-        })
-        
-        on(`clicked:${skill}`, (info)=>{
+        on(`clicked:${skill}`, function(info){
+            console.log(info)
             
-            getAttrs([skill, "character_name"], (values)=>{
+            getAttrs([skill, "character_name"], function(values){
                 
                 var value = parseInt(values[skill])
                 var skill_name = getTranslationByKey(skill)
@@ -1392,10 +1596,6 @@
                 
             })
             
-        })
-
-        on(`change:${skill}`, (info) => {
-            console.log(info)
         })
         
     })
@@ -1408,16 +1608,16 @@
         })
     })
 
-    on("change:repeating_art change:repeating_martial", (info) => {
-        on("clicked:repeating_art:score", (info) => {
+    on("change:repeating_art change:repeating_martial change:repeating_other-language", function(info) {
+        on("clicked:repeating_art:score", function(info) {
             getAttrs(["repeating_art_skillname", "repeating_art_score"], function(values){
                 var value = values.repeating_art_score
                 var skill = values.repeating_art_skillname
                 rollSkill(skill, value)
             })
         })
-        on("change:repeating_martial:ATK change:repeating_martial:score", (info) => {
-            getAttrs(["repeating_martial_atk", "repeating_martial_score"], (values) => {
+        on("change:repeating_martial:ATK change:repeating_martial:score", function(info) {
+            getAttrs(["repeating_martial_atk", "repeating_martial_score"], function(values) {
                 var atk = values.repeating_martial_atk
                 console.log(values)
             })
@@ -1435,7 +1635,7 @@
     })
 
     function rollSkill(skill, value ){
-        getAttrs(["character_name"], (values) => {
+        getAttrs(["character_name"], function(values) {
             var character_name = values.character_name
             startRoll(`&{template:skills} {{name=${character_name}}} {{Habilidad=${skill}}} {{Valor=${value}}} {{Tirada=[[1d100]]}}`, (results) => {
                 const total = results.results.Tirada.result
