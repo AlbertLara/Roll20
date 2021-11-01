@@ -1375,17 +1375,17 @@
             <div style="margin: 2% 5%;">
                 <span></span>
                 <span>
-                    <span data-i18n="other-language"></span> (01%)
+                    <span data-i18n="other_language"></span> (01%)
                 </span>
                 <span></span>
                 <span></span>
             </div>
-            <fieldset class="repeating_other-language">
+            <fieldset class="repeating_otherlanguage">
                 <div class="trow">
                     <input type="checkbox" name="attr_success" />
-                    <input style="width: 60%;" type="text" name="attr_skillname"></input>
-                    <input type="number" name="attr_score" value="1" min="1" />
-                    <button type="action" class="skill" name="act_score" ></button>
+                    <input style="width: 60%;" type="text" name="attr_otherlanguage-name"></input>
+                    <input type="number" name="attr_otherlanguage" value="1" min="1" />
+                    <button type="action" class="skill" name="act_otherlanguage" ></button>
                 </div>
             </fieldset>
             <div class="trow" data-i18n-list-item="persuade">
@@ -1450,15 +1450,15 @@
     <hr>
     <h3 data-i18n="martial-arts"></h3>
     <fieldset class="repeating_martial">
-        <input type="checkbox" name="attr_success" />
-        <input type="text" name="attr_skillname"></input>
+        <input type="checkbox" name="attr_success-martial" />
+        <input type="text" name="attr_martial-name"></input>
         <select name="attr_ATK">
             <option value="fist" data-i18n="fist-punch"></option>
             <option value="head-butt" data-i18n="head-butt"></option>
             <option value="kick" data-i18n="kick"></option>
             <option value="grapple" data-i18n="grapple"></option>
         </select>
-        <input type="number" name="attr_score" value="1" min="1" />
+        <input type="number" name="attr_martial" value="1" min="1" />
     </fieldset>
     <hr>
     <h3 data-i18n="melee-weapons"></h3>
@@ -1737,7 +1737,7 @@
         })
     })
 
-    on("change:repeating_art change:repeating_martial change:repeating_other-language", function(info) {
+    on("change:repeating_art change:repeating_martial change:repeating_otherlanguage", function(info) {
         on("clicked:repeating_art:score", function(info) {
             getAttrs(["repeating_art_skillname", "repeating_art_score"], function(values){
                 var value = values.repeating_art_score
@@ -1745,14 +1745,17 @@
                 rollSkill(skill, value)
             })
         })
-        on("change:repeating_martial:ATK change:repeating_martial:score", function(info) {
-            getAttrs(["repeating_martial_atk", "repeating_martial_score"], function(values) {
-                var atk = values.repeating_martial_atk
-                console.log(values)
+
+        on("clicked:repeating_otherlanguage:otherlanguage", function(info) {
+            getAttrs(["repeating_otherlanguage_otherlanguage-name", "repeating_otherlanguage_otherlanguage"], function(values){
+                var value = values.repeating_otherlanguage_otherlanguage
+                var skill = values.repeating_otherlanguage_otherlanguage-name
+                rollSkill(skill, value)
             })
-            console.log(info)
         })
+        
     })
+    
 
     on("change:Sanity", function(){
         getAttrs(["Sanity"], function(values){
