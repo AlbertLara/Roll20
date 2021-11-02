@@ -73,16 +73,19 @@
                     <td data-i18n="FUE-u"></td>
                     <td>
                         <input type="number" value="3" name="attr_FUE" />
+                        <button type="action" class="dice" name="act_FUE"></button>
                         <button type="roll" name="roll_FUE" value="&{template:default} {{name=@{character_name}}} {{Roll=^{FUE-u}}} {{Puntuacion=@{FUE}}} {{Resultado=[[1d100/@{FUE}]]}}"/>
                     </td>
                     <td data-i18n="DES-u"></td>
                     <td>
                         <input type="number" value="3" name="attr_DES" />
+                        <button type="action" class="dice" name="act_DES"></button>
                         <button type="roll" name="roll_DES" value="&{template:default} {{name=@{character_name}}} {{Roll=^{DES-u}}} {{Puntuacion=@{DES}}} {{Resultado=[[1d100/@{DES}]]}}"/>
                     </td>
                     <td data-i18n="INT-u"></td>
                     <td>
                         <input type="number" value="8" name="attr_INT" />
+                        <button type="action" class="dice" name="act_INT"></button>
                         <button type="roll" name="roll_INT" value="&{template:default} {{name=@{character_name}}} {{Roll=^{INT-u}}} {{Puntuacion=@{INT}}} {{Resultado=[[1d100/@{INT}]]}}"/>
                     </td>
                     <td data-i18n="idea-u" ></td>
@@ -95,16 +98,19 @@
                     <td data-i18n="CON-u"></td>
                     <td>
                         <input type="number" value="3" name="attr_CON" />
+                        <button type="action" class="dice" name="act_CON"></button>
                         <button type="roll" name="roll_CON" value="&{template:default} {{name=@{character_name}}} {{Roll=^{CON-u}}} {{Puntuacion=@{CON}}} {{Resultado=[[1d100/@{CON}]]}}"/>
                     </td>
                     <td data-i18n="APA-u"></td>
                     <td>
                         <input type="number" value="3" name="attr_APA" />
+                        <button type="action" class="dice" name="act_APA"></button>
                         <button type="roll" name="roll_APA" value="&{template:default} {{name=@{character_name}}} {{Roll=^{APA-u}}} {{Puntuacion=@{APA}}} {{Resultado=[[1d100/@{APA}]]}}"/>
                     </td>
                     <td data-i18n="POD-u"></td>
                     <td>
                         <input type="number" value="3" name="attr_POD" />
+                        <button type="action" class="dice" name="act_POD"></button>
                         <button type="roll" name="roll_POD" value="&{template:default} {{name=@{character_name}}} {{Roll=^{POD-u}}} {{Puntuacion=@{POD}}} {{Resultado=[[1d100/@{POD}]]}}"/>
                     </td>
                     <td data-i18n="luck-u"></td>
@@ -117,6 +123,7 @@
                     <td data-i18n="TAM-u"></td>
                     <td>
                         <input type="number" value="8" name="attr_TAM" />
+                        <button type="action" class="dice" name="act_TAM"></button>
                         <button type="roll" name="roll_TAM" value="&{template:default} {{name=@{character_name}}} {{Roll=^{TAM-u}}} {{Puntuacion=@{TAM}}} {{Resultado=[[1d100/@{TAM}]]}}"/>
                     </td>
                     <td data-i18n="COR-u" ></td>
@@ -126,6 +133,7 @@
                     <td data-i18n="EDU-u">Educación</td>
                     <td>
                         <input type="number" value="6" name="attr_EDU" />
+                        <button type="action" class="dice" name="act_"></button>
                         <button type="roll" name="roll_EDU" value="&{template:default} {{name=@{character_name}}} {{Roll=^{EDU-u}}} {{Puntuacion=@{EDU}}} {{Resultado=[[1d100/@{EDU}]]}}"/>
                     </td>
                     <td data-i18n="know-u"></td>
@@ -1096,7 +1104,7 @@
                 <div class="trow">
                     <input type="checkbox" name="attr_success" />
                     <input style="width: 60%;" type="text" name="attr_skillname"></input>
-                    <input type="number" name="attr_score" value="5" min="5" />
+                    <input type="number" name="attr_score" min="5" />
                     <button type="action" class="skill" name="act_score" ></button>
                 </div>
             </fieldset>
@@ -1383,9 +1391,9 @@
             <fieldset class="repeating_otherlanguage">
                 <div class="trow">
                     <input type="checkbox" name="attr_success" />
-                    <input style="width: 60%;" type="text" name="attr_otherlanguage-name"></input>
-                    <input type="number" name="attr_otherlanguage" value="1" min="1" />
-                    <button type="action" class="skill" name="act_otherlanguage" ></button>
+                    <input style="width: 60%;" type="text" name="attr_skillname"></input>
+                    <input type="number" name="attr_score" min="5" />
+                    <button type="action" class="skill" name="act_score"></button>
                 </div>
             </fieldset>
             <div class="trow" data-i18n-list-item="persuade">
@@ -1444,8 +1452,76 @@
                 <input type="number" name="attr_bargain" min="5" value="5" />
                 <button type="action" class="skill" name="act_bargain"></button>
             </div>
+            <div class="trow" data-i18n-list-item="jump">
+                <input type="checkbox" name="attr_success-jump" />
+                <span class="td">
+                    <span data-i18n="jump"></span> (25%)
+                </span>
+                <input type="number" name="attr_jump" min="25" value="25" />
+                <button type="action" class="skill" name="act_jump"></button>
+            </div>
+            <div class="trow" data-i18n-list-item="track">
+                <input type="checkbox" name="attr_success-track" />
+                <span class="td">
+                    <span data-i18n="track"></span> (10%)
+                </span>
+                <input type="number" name="attr_track" min="10" value="10" />
+                <button type="action" class="skill" name="act_track"></button>
+            </div>
+            <div class="trow" data-i18n-list-item="climb">
+                <input type="checkbox" name="attr_success-climb" />
+                <span class="td">
+                    <span data-i18n="climb"></span> (40%)
+                </span>
+                <input type="number" name="attr_climb" min="40" value="40" />
+                <button type="action" class="skill" name="act_climb"></button>
+            </div>
         </div>
-        <div class="col"></div>
+        <div class="col">
+            <div style="margin: 2% 5%;">
+                <span></span>
+                <span>
+                    <b data-i18n="firearms"></b>
+                </span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="trow" data-i18n-list-item="machine-gun">
+                <input type="checkbox" name="attr_success-machine-gun" />
+                <span class="td">
+                    <span data-i18n="machine-gun"></span> (15%)
+                </span>
+                <input type="number" name="attr_machine-gun" min="15" value="15" />
+            </div>
+            <div class="trow" data-i18n-list-item="handgun">
+                <input type="checkbox" name="attr_success-handgun" />
+                <span class="td">
+                    <span data-i18n="handgun"></span> (20%)
+                </span>
+                <input type="number" name="attr_handgun" min="20" value="20" />
+            </div>
+            <div class="trow" data-i18n-list-item="rifle">
+                <input type="checkbox" name="attr_success-rifle" />
+                <span class="td">
+                    <span data-i18n="rifle"></span> (25%)
+                </span>
+                <input type="number" name="attr_rifle" min="25" value="25" />
+            </div>
+            <div class="trow" data-i18n-list-item="shotgun">
+                <input type="checkbox" name="attr_success-shotgun" />
+                <span class="td">
+                    <span data-i18n="shotgun"></span> (30%)
+                </span>
+                <input type="number" name="attr_shotgun" min="30" value="30" />
+            </div>
+            <div class="trow" data-i18n-list-item="submachine-gun">
+                <input type="checkbox" name="attr_success-submachine-gun" />
+                <span class="td">
+                    <span data-i18n="submachine-gun"></span> (15%)
+                </span>
+                <input type="number" name="attr_submachine-gun" min="15" value="15" />
+            </div>
+        </div>
     </div>
     <hr>
     <h3 data-i18n="martial-arts"></h3>
@@ -1458,7 +1534,7 @@
             <option value="kick" data-i18n="kick"></option>
             <option value="grapple" data-i18n="grapple"></option>
         </select>
-        <input type="number" name="attr_martial" value="1" min="1" />
+        <input type="number" name="attr_martial" min="1" />
     </fieldset>
     <hr>
     <h3 data-i18n="melee-weapons"></h3>
@@ -1593,16 +1669,14 @@
             })
             });
     });
-    var attributes = {
-        "FUE": {"default": 3, "min":3, "max": 18},
-        "DES": {"default": 3, "min":3, "max": 18},
-        "INT": {"default": 8, "min":8, "max": 18},
-        "CON": {"default": 3, "min":3, "max": 18},
-        "APA": {"default": 3, "min":3, "max": 18},
-        "POD": {"default": 3, "min":3, "max": 18},
-        "TAM": {"default": 8, "min":8, "max": 18},
-        "EDU": {"default": 6, "min":6, "max": 21}
-    }
+    
+    var attrs = ["FUE", "DES", "INT", "CON", "APA", "POD", "TAM", "EDU"]
+    
+    attrs.forEach(attr => {
+        on(`clicked:${attr}`, function(info){
+            
+        })
+    })
 
     
 
@@ -1746,10 +1820,10 @@
             })
         })
 
-        on("clicked:repeating_otherlanguage:otherlanguage", function(info) {
-            getAttrs(["repeating_otherlanguage_otherlanguage-name", "repeating_otherlanguage_otherlanguage"], function(values){
-                var value = values.repeating_otherlanguage_otherlanguage
-                var skill = values.repeating_otherlanguage_otherlanguage-name
+        on("clicked:repeating_otherlanguage:score", function(info) {
+            getAttrs(["repeating_otherlanguage_skillname", "repeating_otherlanguage_score"], function(values){
+                var value = values.repeating_otherlanguage_score
+                var skill = values.repeating_otherlanguage_skillname
                 rollSkill(skill, value)
             })
         })
