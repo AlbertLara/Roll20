@@ -66,98 +66,117 @@
         <h3>
             <span data-i18n="characteristics-u" class="header">Características</span>
         </h3>
-
-        <table>
-            <tbody>
-                <tr>
-                    <td data-i18n="FUE"></td>
-                    <td>
+        <div class="table-charac" >
+            <div class="col">
+                <div class="trow">
+                    <span data-i18n="FUE"></span>
+                    <div>
                         <input type="number" value="3" name="attr_FUE" />
                         <button type="action" class="dice" name="act_FUE"></button>
-                        <button type="roll" name="roll_FUE" value="&{template:default} {{name=@{character_name}}} {{Roll=^{FUE-u}}} {{Puntuacion=@{FUE}}} {{Resultado=[[1d100/@{FUE}]]}}"/>
-                    </td>
-                    <td data-i18n="DES"></td>
-                    <td>
-                        <input type="number" value="3" name="attr_DES" />
-                        <button type="action" class="dice" name="act_DES"></button>
-                        <button type="roll" name="roll_DES" value="&{template:default} {{name=@{character_name}}} {{Roll=^{DES-u}}} {{Puntuacion=@{DES}}} {{Resultado=[[1d100/@{DES}]]}}"/>
-                    </td>
-                    <td data-i18n="INT"></td>
-                    <td>
-                        <input type="number" value="8" name="attr_INT" />
-                        <button type="action" class="dice" name="act_INT"></button>
-                        <button type="roll" name="roll_INT" value="&{template:default} {{name=@{character_name}}} {{Roll=^{INT-u}}} {{Puntuacion=@{INT}}} {{Resultado=[[1d100/@{INT}]]}}"/>
-                    </td>
-                    <td data-i18n="idea" ></td>
-                    <td>
-                        <input type="number" name="attr_Idea" readonly="true" />
-                        <button type="roll" name="roll_Idea" value="/roll 1d100<@{Idea}" />
-                    </td>
-                </tr>
-                <tr>
-                    <td data-i18n="CON"></td>
-                    <td>
+                    </div>                    
+                </div>
+                <div class="trow">
+                    <span data-i18n="CON"></span>
+                    <div>
                         <input type="number" value="3" name="attr_CON" />
-                        <button type="action" class="dice" name="act_CON"></button>
-                        <button type="roll" name="roll_CON" value="&{template:default} {{name=@{character_name}}} {{Roll=^{CON-u}}} {{Puntuacion=@{CON}}} {{Resultado=[[1d100/@{CON}]]}}"/>
-                    </td>
-                    <td data-i18n="APA"></td>
-                    <td>
-                        <input type="number" value="3" name="attr_APA" />
-                        <button type="action" class="dice" name="act_APA"></button>
-                        <button type="roll" name="roll_APA" value="&{template:default} {{name=@{character_name}}} {{Roll=^{APA-u}}} {{Puntuacion=@{APA}}} {{Resultado=[[1d100/@{APA}]]}}"/>
-                    </td>
-                    <td data-i18n="POD"></td>
-                    <td>
-                        <input type="number" value="3" name="attr_POD" />
-                        <button type="action" class="dice" name="act_POD"></button>
-                        <button type="roll" name="roll_POD" value="&{template:default} {{name=@{character_name}}} {{Roll=^{POD-u}}} {{Puntuacion=@{POD}}} {{Resultado=[[1d100/@{POD}]]}}"/>
-                    </td>
-                    <td data-i18n="luck"></td>
-                    <td>
-                        <input type="number" name="attr_Luck" readonly="true" />
-                        <button type="roll" name="roll_Luck" value="/roll 1d100<@{Luck}" />
-                    </td>
-                </tr>
-                <tr>
-                    <td data-i18n="TAM"></td>
-                    <td>
+                    <button type="action" class="dice" name="act_CON"></button>
+                    </div>
+                </div>
+                <div class="trow">
+                    <span data-i18n="TAM"></span>
+                    <div>
                         <input type="number" value="8" name="attr_TAM" />
                         <button type="action" class="dice" name="act_TAM"></button>
-                        <button type="roll" name="roll_TAM" value="&{template:default} {{name=@{character_name}}} {{Roll=^{TAM-u}}} {{Puntuacion=@{TAM}}} {{Resultado=[[1d100/@{TAM}]]}}"/>
-                    </td>
-                    <td data-i18n="COR" ></td>
-                    <td>
-                        <input type="number" readonly="true" name="attr_COR" />
-                    </td>
-                    <td data-i18n="EDU">Educación</td>
-                    <td>
-                        <input type="number" value="6" name="attr_EDU" />
-                        <button type="action" class="dice" name="act_"></button>
-                        <button type="roll" name="roll_EDU" value="&{template:default} {{name=@{character_name}}} {{Roll=^{EDU-u}}} {{Puntuacion=@{EDU}}} {{Resultado=[[1d100/@{EDU}]]}}"/>
-                    </td>
-                    <td data-i18n="know"></td>
-                    <td>
-                        <input type="number" name="attr_Know" readonly="true" />
-                        <button type="roll" name="roll_Know" value="/roll 1d100<@{Know}" />
-                    </td>
-                </tr>
-                <tr>
-                    <td data-i18n="stable-sanity-u"></td>
-                    <td>
+                    </div>                    
+                </div>
+                <div class="trow">
+                    <span data-i18n="stable-sanity-u"></span>
+                    <div>
                         <input type="number" name="attr_Max-Sanity" readonly="true" />
-                    </td>
-                    <td data-i18n="dmg-bonus-u"></td>
-                    <td>
-                        <input type="text" readonly="true" name="attr_DMG" style="width: 3.5em;" />
-                    </td>
-                    <td>Iniciativa</td>
-                    <td>
-                        <button type="roll" value="[[@{DES} &{tracker}]]" />
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    </div>                    
+                </div>
+            </div>
+            <div class="col">
+                <div class="trow">
+                    <span data-i18n="DES"></span>
+                    <div>
+                        <input type="number" value="3" name="attr_DES" />
+                        <button type="action" class="dice" name="act_DES"></button>
+                    </div>
+                </div>
+                <div class="trow">
+                    <span data-i18n="APA"></span>
+                    <div>
+                        <input type="number" value="3" name="attr_APA" />
+                    <button type="action" class="dice" name="act_APA"></button>
+                    </div>
+                </div>
+                <div class="trow">
+                    <span data-i18n="COR"></span>
+                    <div>
+                        <input type="number" readonly="true" name="attr_COR" />
+                    </div>                    
+                </div>
+                <div class="trow">
+                    <span data-i18n="dmg-bonus-u"></span>
+                    <div>
+                        <input type="text" readonly="true" name="attr_dmg-bonus" style="width: 3.5em;" />
+                    </div>                    
+                </div>
+            </div>
+            <div class="col">
+                <div class="trow">
+                    <span data-i18n="INT"></span>
+                    <div>
+                        <input type="number" value="8" name="attr_INT" />
+                        <button type="action" class="dice" name="act_INT"></button>  
+                    </div>                    
+                </div>
+                <div class="trow">
+                    <span data-i18n="POD"></span>
+                    <div>
+                        <input type="number" value="3" name="attr_POD" />
+                        <button type="action" class="dice" name="act_POD"></button>
+                    </div>
+                </div>
+                <div class="trow">
+                    <span data-i18n="EDU"></span>
+                    <div>
+                        <input type="number" value="6" name="attr_EDU" />
+                        <button type="action" class="dice" name="act_EDU"></button>
+                    </div>                    
+                </div>
+                <div class="trow">
+                    <span>Iniciativa</span>
+                    <div>
+                        <button type="action" class="dice" name="act_Init"></button>
+                    </div>                    
+                </div>
+            </div>
+            <div class="col">
+                <div class="trow">
+                    <span data-i18n="idea"></span>
+                    <div>
+                        <input type="number" name="attr_idea" readonly="true" />
+                        <button type="action" class="dice" name="act_idea" />
+                    </div>                    
+                </div>
+                <div class="trow">
+                    <span data-i18n="luck"></span>
+                    <div>
+                        <input type="number" name="attr_luck" readonly="true" />
+                        <button type="action" class="dice" name="act_luck" />
+                    </div>
+                </div>
+                <div class="trow">
+                    <span data-i18n="know"></span>
+                    <div>
+                        <input type="number" name="attr_know" readonly="true" />
+                        <button type="action" class="dice" name="act_know" />
+                    </div>                    
+                </div>
+            </div>
+        </div>
     </div>
     <hr>
     <div>
@@ -169,8 +188,7 @@
                 <div>
                     <span data-i18n="stable-hp-u"></span>
                     <input type="number" name="attr_stableHP" readonly="true" />
-                    <!--<span data-i18n="current-hp-u"></span>
-                    <input type="number" disabled name="attr_current-HP" value="[[@{HP}]]" />-->
+
                 </div>
                 <table>
                     <tbody>
@@ -1103,7 +1121,9 @@
             <fieldset class="repeating_art">
                 <div class="trow">
                     <input type="checkbox" name="attr_success" />
-                    <input style="width: 60%;" type="text" name="attr_skillname"></input>
+                    <div style="width: 100%;">
+                        <input style="width: 80%;" type="text" name="attr_skillname"></input>
+                    </div>
                     <input type="number" name="attr_score" min="5" />
                     <button type="action" class="skill" name="act_score" ></button>
                 </div>
@@ -1119,8 +1139,10 @@
             <fieldset class="repeating_martial">
                 <div class="trow">
                     <input type="checkbox" name="attr_success-martial" />
-                    <input style="width:60%;" type="text" name="attr_martial-name"></input>
-                    <input type="number" name="attr_martial" min="1" />
+                    <div style="width: 100%;">
+                        <input style="width: 80%;" type="text" name="attr_martial-name"></input>
+                    </div>
+                    <input type="number" name="attr_martial" value="1" />
                 </div>
             </fieldset>
             <div class="trow" data-i18n-list-item="astronomy">
@@ -1406,8 +1428,10 @@
             <fieldset class="repeating_otherlanguage">
                 <div class="trow">
                     <input type="checkbox" name="attr_success" />
-                    <input style="width: 60%;" type="text" name="attr_skillname"></input>
-                    <input type="number" name="attr_score" min="5" />
+                    <div style="width: 100%;">
+                        <input type="text" style="width: 80%;" name="attr_skillname"></input>
+                    </div>                    
+                    <input type="number" name="attr_score" value="1" />
                     <button type="action" class="skill" name="act_score"></button>
                 </div>
             </fieldset>
@@ -1538,8 +1562,14 @@
             </div>
         </div>
     </div>
-    <hr>
-    <h3 data-i18n="melee-weapons"></h3>
+    
+</div>
+<div id="sheet-items" class="tabcontent">
+    <h2>Equipo y armas</h2>
+    <br>
+    <h3 data-i18n="weapons"></h3>
+    <br>
+    <h4 data-i18n="melee-weapons"></h4>
     <div>
         <table style="width: 60%;">
             <thead>
@@ -1556,9 +1586,9 @@
             <tbody>
                 <tr>
                     <td><input type="checkbox" name="attr_success-fist" /></td>
-                    <td><span data-i18n="fist-punch"></span>
+                    <td><span data-i18n="fist"></span>
                     <td><input type="number" name="attr_fist" value="50" min="50" /></td>
-                    <td><input type="text" class="dmg" name="attr_Fist-Punch-Damage"></td>
+                    <td><input type="text" class="dmg" name="attr_fist-damage"></td>
                     <td><span>1</span></td>
                     <td><span>1</span></td>
                     <td><span>n/a</span></td>
@@ -1568,7 +1598,7 @@
                     <td><input type="checkbox" name="attr_success-head" /></td>
                     <td><span data-i18n="head-butt"></span>
                     <td><input type="number" name="attr_head-butt" value="10" min="10" /></td>
-                    <td><input type="text" class="dmg" name="attr_head-butt-Damage"></td>
+                    <td><input type="text" class="dmg" name="attr_head-butt-damage"></td>
                     <td><span>0</span></td>
                     <td><span>1</span></td>
                     <td><span>n/a</span></td>
@@ -1578,7 +1608,7 @@
                     <td><input type="checkbox" name="attr_success-kick" /></td>
                     <td><span data-i18n="kick"></span>
                     <td><input type="number" name="attr_kick" value="25" min="25" /></td>
-                    <td><input type="text" class="dmg" name="attr_kick-Damage"></td>
+                    <td><input type="text" class="dmg" name="attr_kick-damage"></td>
                     <td><span>0</span></td>
                     <td><span>0</span></td>
                     <td><span>n/a</span></td>
@@ -1588,7 +1618,7 @@
                     <td><input type="checkbox" name="attr_success-grapple" /></td>
                     <td><span data-i18n="grapple"></span>
                     <td><input type="number" name="attr_grapple" value="25" min="25" /></td>
-                    <td><input type="text" class="dmg" name="attr_grapple-Damage"></td>
+                    <td><input type="text" class="dmg" name="attr_grapple-damage"></td>
                     <td><span>0</span></td>
                     <td><span>2</span></td>
                     <td><span>n/a</span></td>
@@ -1597,8 +1627,7 @@
             </tbody>
         </table>
         <div>
-            
-            
+                        
         </div>
     </div>
     <hr>
@@ -1606,28 +1635,37 @@
     <div>
     </div>
 </div>
-<div id="sheet-items" class="tabcontent">
-    <h2>Items</h2>
+<div class="rolltemplates" >
+    <rolltemplate class="sheet-rolltemplate-dice">
+        <table>
+            <caption>{{name}}</caption>
+            <tbody>
+                {{#allprops() name computed roll}}
+                    <tr>
+                        <td>{{key}}</td>
+                        <td>{{value}}</td>
+                    </tr>
+                {{/allprops() name computed roll}}
+                {{#roll}}
+                <tr>
+                    <td data-i18n="roll-u"></td>
+                    <td >{{roll}}</td>
+                </tr>
+                {{/roll}}
+                {{#computed}}
+                <tr>
+                    <td>Resultado</td>
+                    <td>{{computed::roll}}</td>
+                </tr>
+                {{/computed}}
+            </tbody>        
+        </table>    
+    </rolltemplate>
+    <rolltemplate class="sheet-rolltemplate-atk">
+
+    </rolltemplate>
 </div>
 
-<rolltemplate class="sheet-rolltemplate-skills">
-    <table>
-        <caption>{{name}}</caption>
-        <tbody>
-            {{#allprops() name}}
-                <tr>
-                    <td>{{key}}</td>
-                    <td>{{value}}</td>
-                </tr>
-            {{/allprops() name}}
-            <tr>
-                <td>Resultado</td>
-                <td>{{computed::Tirada}}</td>
-            </tr>
-        </tbody>        
-    </table>
-    
-</rolltemplate>
 
 <script type="text/worker">
 
@@ -1670,27 +1708,12 @@
             })
             });
     });
-    
-    var attrs = ["FUE", "DES", "INT", "CON", "APA", "POD", "TAM", "EDU"]
-    
-    /*attrs.forEach(attr => {
-        on(`clicked:${attr}`, function(info){
-            var name = getTranslationByKey(,)
-            getAttrs([attr, "character_name"], function(values){
-                var character_name = values.character_name
-                
-                console.log(values)
-            })
-        })
-    })*/
-
-    
 
     on("change:INT sheet:opened", function(){
         getAttrs(["INT"], function(values) {
             var val=parseInt(values.INT)
             setAttrs({
-                "Idea":val*5,
+                "idea":val*5,
                 "Hab-PJ": val*10
             })
         })
@@ -1702,7 +1725,7 @@
         getAttrs(["POD"], function(values) {
             var val=parseInt(values.POD)
             setAttrs({
-                "Luck":val*5,
+                "luck":val*5,
                 "stableMP": val,
                 "COR": val*5
             })
@@ -1718,7 +1741,7 @@
             }
 
             setAttrs({
-                "Know":value*5,
+                "know":value*5,
                 "Hab-Ocu":value*20,
                 "own-language": language
             })
@@ -1754,7 +1777,7 @@
             var value = parseInt(values.FUE) + parseInt(values.TAM) -2
             var damage_bonus = DAMAGE_BONUS.getBonusForValue(value);
             setAttrs({
-                "DMG": damage_bonus
+                "dmg-bonus": damage_bonus
             })
 
         })
@@ -1788,6 +1811,32 @@
         
     })
 
+    on("change:Sanity", function(){
+        getAttrs(["Sanity"], function(values){
+            var value = parseInt(values.Sanity)
+            setAttrs({
+                "current-COR": value
+            })
+        })
+    })
+
+    var attrs = ["FUE", "DES", "INT", "CON", "APA", "POD", "TAM", "EDU"]
+    
+    attrs.forEach(attr => {
+        on(`clicked:${attr}`, function(info){
+            var name = getTranslationByKey(attr)
+            getAttrs([attr, "character_name"], function(values){
+                var character_name = values.character_name
+                var value = parseInt(values[attr])
+                let rollBase = '&{template:dice} {{name=@{character_name}}} {{Atributo=$0}} {{Valor=$1}} {{roll=[[1d100]]}}'
+                rollBase = rollBase.replace("$0", name).replace("$1", value)
+                startRoll(rollBase, function(results){
+                    finishRoll(results.rollId)
+                })
+            })
+        })
+    })
+
     var skills = getTranslationByKey("skills-list").split(",")
     
 
@@ -1795,13 +1844,10 @@
         var name = getTranslationByKey(skill)
         
         on(`clicked:${skill}`, function(info){
-            console.log(info)
-            
-            getAttrs([skill, "character_name"], function(values){
-                
+            getAttrs([skill], function(values){
                 var value = parseInt(values[skill])
                 var skill_name = getTranslationByKey(skill)
-                rollSkill(skill_name,value)
+                rollSkill(skill_name, value)
                 
             })
             
@@ -1809,11 +1855,46 @@
         
     })
 
-    var attacks = ["fist", "head-butt"]
+    var attacks = ["fist", "head-butt", "kick", "grapple"]
 
     attacks.forEach( item => {
         on(`clicked:${item}`, function(info){
+            var dmg = `${item}-damage`
+            getAttrs([item, dmg, "dmg-bonus", "character_name"], function(values){
+                var character_name = values.character_name
+                var value = parseInt(values[item])
+                var bonus = values["dmg-bonus"]
+                console.log(values)
+                var name = getTranslationByKey(item)
+                let rollBase = '&{template:dice} {{name=@{character_name}}} {{$name=$value}} {{rollname=[Ataque](! &#13; [[1d100]])}} {{^{attack-u}=[[1d100]]}}'
+                rollBase = rollBase.replace("$name", name).replace("$value", value).replace("user", character_name)
+                startRoll(rollBase, function(results){
+                    finishRoll(results.rollId)
+                })
+            })
             console.log(info)
+        })
+    })
+
+    on("clicked:Init", function(info){
+        getAttrs(["DES"], function(values){
+            var value = parseInt(values.DES)
+            startRoll(`[[${value} &{tracker}]]`, function(results){
+                finishRoll(results.rollId)
+            })
+        })
+    })
+
+    var secon_attrs = ["Idea", "Luck", "Know"]
+
+    secon_attrs.forEach(item => {
+        on(`clicked:${item}`, function(info){
+            getAttrs([item], function(values){
+                var value = parseInt(values[item])
+                startRoll(`/roll 1d100<${value}`, function(results){
+                    finishRoll(results.rollId)
+                })
+            })
         })
     })
 
@@ -1835,39 +1916,24 @@
         })
         
     })
-    
 
-    on("change:Sanity", function(){
-        getAttrs(["Sanity"], function(values){
-            var value = parseInt(values.Sanity)
-            setAttrs({
-                "current-COR": value
-            })
-        })
-    })
 
-    function rollSkill(skill, value ){
-        getAttrs(["character_name"], function(values) {
-            var character_name = values.character_name
-            startRoll(`&{template:skills} {{name=${character_name}}} {{Habilidad=${skill}}} {{Valor=${value}}} {{Tirada=[[1d100]]}}`, (results) => {
-                const total = results.results.Tirada.result
-                const computed = total/value
-                var success = total == 100?"Pifia":"Fallo"
-                if(computed <= 1){
-                    success = "Éxito"
-                    if(computed <= 0.1){
-                        success = "Crítico"
-                    }
+
+    function rollSkill(skill, value){
+        let rollBase = '&{template:dice} {{name=@{character_name}}} {{Habilidad=$0}} {{Valor=$1}} {{roll=[[1d100]]}} {{computed=1}}'
+        rollBase = rollBase.replace("$0", skill)
+        rollBase = rollBase.replace("$1", value)
+        startRoll(rollBase, function(results){
+            const total = results.results.roll.result
+            const computed = total/value
+            var success = computed <= 1?1:0
+            finishRoll(
+                results.rollId,
+                {
+                    roll: success
                 }
-                finishRoll(
-                    results.rollId,
-                    {
-                        Tirada: success
-                    }
-                );
-            })
-
+            );
         })
-
     }
+
 </script>

@@ -131,13 +131,13 @@ div.sheet-skills{
     width: 100%;
 }
 
-.sheet-rolltemplate-skills table {
+.sheet-rolltemplate-dice table {
     width: 100%;
     background-color: white;
     border: 1px  solid rgba(112, 32, 130, 1);
 }
 
-.sheet-rolltemplate-skills caption {
+.sheet-rolltemplate-dice caption {
     background-color: rgba(112, 32, 130, 1);
     color: white;
     font-family: "Helvetica Neue", Helvetica, sans-serif;
@@ -146,13 +146,13 @@ div.sheet-skills{
     padding: 5px;
 }
 
-.sheet-rolltemplate-skills td {
+.sheet-rolltemplate-dice td {
     padding: 5px;
     line-height: 1.4em;
     vertical-align: top;
 }
 
-.sheet-rolltemplate-skills td:first-child {
+.sheet-rolltemplate-dice td:first-child {
     font-weight: bold;
     text-align: right;
     min-width: 50px;
@@ -175,4 +175,15 @@ table {
 
 td.sheet-th{
     text-align: left;
+}
+
+
+.sheet-table-charac {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+input[type=number]:read-only {
+    -moz-appearance: textfield;
 }
