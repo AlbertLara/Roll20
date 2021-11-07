@@ -1,3 +1,34 @@
+/*
+    Generic elements
+*/
+
+h2, h3, h4 {
+	color: #FFF;
+	background-color: #000;
+	text-align: center;
+}
+
+.sheet-trow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+table {
+    width: 100%;
+}
+
+/*Convert action button to roll button*/
+.sheet-skill::before {
+    font-family: 'dicefontd20';
+    content: 't';
+    font-size: large;
+}
+
+/*
+    Tabs and content selectors
+*/
+
 div.sheet-tabs {
     overflow: hidden;
     background-color: #f1f1f1;
@@ -18,56 +49,39 @@ div.sheet-tabs button:hover {
    background-color: #ddd;
 }
 
-h2, h3, h4 {
-	color: #FFF;
-	background-color: #000;
-	text-align: center;
+button.sheet-select-tab{
+    background-color: #ccc;
 }
-
- .sheet-userinfo {
-     display: grid;
-     grid-template-columns: repeat(2, 1fr)
- }
-
 
 div.sheet-tabcontent {
     display: none;
 }
 
-.sheet-tabstoggle[value="character"] ~ div#sheet-character,
-.sheet-tabstoggle[value="skills"] ~ div#sheet-skills,
-.sheet-tabstoggle[value="items"] ~ div#sheet-items {
+.sheet-show-tabcontent {
     display: block;
 }
 
+/*
+    User info Tab content
 
-.sheet-tabstoggle[value="character"] ~ .sheet-tabs button.sheet-character,
-.sheet-tabstoggle[value="skills"] ~ .sheet-tabs button.sheet-skills,
-.sheet-tabstoggle[value="items"] ~ .sheet-tabs button.sheet-items  {
-    background-color: #ccc;
+*/
+
+.sheet-table-userinfo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
 }
 
-.sheet-secondary {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+/*
+    Character Tab content
+*/
+
+.sheet-table-charac {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
 }
 
-.sheet-secondary .sheet-td {
-    display: flex;
-    justify-content: space-between;
-
-}
-
-.sheet-reset-button {
-    text-align: center;
-    margin: 5px 0;
-}
-
-.repeating_disorder {
-    display: flex;
-    flex-direction: row;
-}
 .sheet-sanity tr{
     display: flex;
     flex-direction: row;
@@ -79,16 +93,7 @@ div.sheet-tabcontent {
 .sheet-sanity td{
     display: flex;
     flex-direction: column;
-
 }
-
-.sheet-tr {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
-}
-
 
 .sheet-th {
     width: 45%;
@@ -101,21 +106,14 @@ div.sheet-tabcontent {
     text-align: left;
 }
 
-.sheet-dice::before {
-    font-family: 'dicefontd20';
-    content: 't';
-    font-size: large;
+td.sheet-th{
+    text-align: left;
 }
 
-.sheet-skill::before {
-    font-family: 'dicefontd20';
-    content: 't';
-    font-size: large;
-}
+/*
+    Skills Tab content
 
-h3 button.sheet-skill {
-    color: black;
-}
+*/
 
 div.sheet-skills{
     display: grid;
@@ -123,15 +121,27 @@ div.sheet-skills{
     grid-gap: 10px;
 }
 
-.sheet-trow {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.sheet-readonly {
+    pointer-events: none;
 }
 
 .sheet-trow span.sheet-td{
     width: 100%;
 }
+
+
+/*
+    Items Tab content
+*/
+
+.sheet-dmg {
+    width: 3.5em;
+}
+
+
+/*
+    Roll templates
+*/
 
 .sheet-rolltemplate-dice table {
     width: 100%;
@@ -159,31 +169,6 @@ div.sheet-skills{
     text-align: right;
     min-width: 50px;
     padding-right: 10px;
-}
-
-.sheet-weapons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
-}
-
-.sheet-dmg {
-    width: 3.5em;
-}
-
-table {
-    width: 100%;
-}
-
-td.sheet-th{
-    text-align: left;
-}
-
-
-.sheet-table-charac {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
 }
 
 input[type=number]:read-only {
