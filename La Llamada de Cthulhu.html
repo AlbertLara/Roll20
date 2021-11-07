@@ -1,33 +1,24 @@
 <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="userinfo"  />
-<span style="display: none" data-i18n="attributes-u">Test</span>
-<div class="tabs">
-    <button class="tab userinfo" type="action" name="act_userinfo">Información Personal</button>
-    <button class="tab character" type="action" name="act_character">Características y Puntuaciones</button>
-    <button class="tab skills" type="action" name="act_skills">Habilidades</button>
-    <button class="tab items" type="action" name="act_items">Equipo y armas</button>
-</div>
-
-<div id="sheet-userinfo" class="tabcontent">
-    <h2>Informacion Personal</h2>
+<div>
     <table>
         <tr>
             <td>Nombre del investigador</td>
             <td>
-                <input type="text" name="attr_Name"/>
+                <input type="text" name="attr_Name" />
             </td>
             <td>Ocupación</td>
             <td>
-                <input type="text" name="attr_Ocupacion"/>
+                <input type="text" name="attr_Ocupacion" />
             </td>
         </tr>
         <tr>
             <td>Sexo</td>
             <td>
-                <input type="text" name="attr_gender"/>
+                <input type="text" name="attr_gender" />
             </td>
             <td>Edad</td>
             <td>
-                <input type="text" name="attr_age"  />
+                <input type="text" name="attr_age" />
             </td>
         </tr>
         <tr>
@@ -53,12 +44,15 @@
                 <span>Descripción</span>
                 <input type="text" name="attr_disorder-Desc" />
             </div>
-        </div>      
-    </fieldset>   
-    
-    
+        </div>
+    </fieldset>
 </div>
-
+<br>
+<div class="tabs">
+    <button class="tab character" type="action" name="act_character">Características y Puntuaciones</button>
+    <button class="tab skills" type="action" name="act_skills">Habilidades</button>
+    <button class="tab items" type="action" name="act_items">Equipo y armas</button>
+</div>
 <div id="sheet-character" class="tabcontent">
     <h2>Características y Puntuaciones</h2>
     <br />

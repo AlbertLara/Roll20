@@ -31,7 +31,6 @@ div.sheet-tabcontent {
 }
 
 .sheet-tabstoggle[value="character"] ~ div#sheet-character,
-.sheet-tabstoggle[value="userinfo"] ~ div#sheet-userinfo,
 .sheet-tabstoggle[value="skills"] ~ div#sheet-skills,
 .sheet-tabstoggle[value="items"] ~ div#sheet-items {
     display: block;
@@ -39,7 +38,6 @@ div.sheet-tabcontent {
 
 
 .sheet-tabstoggle[value="character"] ~ .sheet-tabs button.sheet-character,
-.sheet-tabstoggle[value="userinfo"] ~ .sheet-tabs button.sheet-userinfo,
 .sheet-tabstoggle[value="skills"] ~ .sheet-tabs button.sheet-skills,
 .sheet-tabstoggle[value="items"] ~ .sheet-tabs button.sheet-items  {
     background-color: #ccc;
