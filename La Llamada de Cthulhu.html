@@ -648,7 +648,7 @@
     <div>
         <h3>
             <span data-i18n="sanity-points-u" ></span>
-            <input type="number" disabled="true" name="attr_current-COR" />
+            <input type="number" readonly="true" name="attr_current-COR" />
             <button type="roll" name="roll_Sanity" ></button>
         </h3>
         <table>
@@ -1571,18 +1571,18 @@
                 <tr>
                     <td><input type="checkbox" name="attr_success-fist" /></td>
                     <td><span data-i18n="fist"></span>
-                    <td><input type="number" name="attr_fist" value="50" min="50" /></td>
-                    <td><input type="text" class="dmg" name="attr_fist-damage"></td>
+                    <td><input type="number" class="readonly" name="attr_fist" value="50" min="50" /></td>
+                    <td><input type="text" class="dmg" value="1d4" name="attr_fist-damage"></td>
                     <td><span>1</span></td>
                     <td><span>1</span></td>
                     <td><span>n/a</span></td>
                     <td><button type="action" class="skill" name="act_fist" ></button></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="attr_success-head" /></td>
+                    <td><input type="checkbox" name="attr_success-head-butt" /></td>
                     <td><span data-i18n="head-butt"></span>
-                    <td><input type="number" name="attr_head-butt" value="10" min="10" /></td>
-                    <td><input type="text" class="dmg" name="attr_head-butt-damage"></td>
+                    <td><input type="number" class="readonly" name="attr_head-butt" value="10" min="10" /></td>
+                    <td><input type="text" class="dmg" value="1d4" name="attr_head-butt-damage"></td>
                     <td><span>0</span></td>
                     <td><span>1</span></td>
                     <td><span>n/a</span></td>
@@ -1591,8 +1591,8 @@
                 <tr>
                     <td><input type="checkbox" name="attr_success-kick" /></td>
                     <td><span data-i18n="kick"></span>
-                    <td><input type="number" name="attr_kick" value="25" min="25" /></td>
-                    <td><input type="text" class="dmg" name="attr_kick-damage"></td>
+                    <td><input type="number" class="readonly" name="attr_kick" value="25" min="25" /></td>
+                    <td><input type="text" class="dmg" value="1d6" name="attr_kick-damage"></td>
                     <td><span>0</span></td>
                     <td><span>0</span></td>
                     <td><span>n/a</span></td>
@@ -1601,8 +1601,8 @@
                 <tr>
                     <td><input type="checkbox" name="attr_success-grapple" /></td>
                     <td><span data-i18n="grapple"></span>
-                    <td><input type="number" name="attr_grapple" value="25" min="25" /></td>
-                    <td><input type="text" class="dmg" name="attr_grapple-damage"></td>
+                    <td><input type="number" class="readonly" name="attr_grapple" value="25" min="25" /></td>
+                    <td><input type="text" class="dmg" value="0" name="attr_grapple-damage"></td>
                     <td><span>0</span></td>
                     <td><span>2</span></td>
                     <td><span>n/a</span></td>
@@ -1646,7 +1646,8 @@
         </table>    
     </rolltemplate>
     <rolltemplate class="sheet-rolltemplate-attk">
-        <caption>{{name}}</caption>
+        <h3>{{name}}</h3>
+        <span>[Daño](`!&#13; [[{{dmg}} + ${dmg-bonus}]])</span>
     </rolltemplate>
 </div>
 
@@ -1688,15 +1689,14 @@
     
     
     
-    on(`sheet:opened ${change_string}`, function(info){
+    on(`sheet:opened ${change_string}`, function(eventinfo){
         
         getAttrs(["sheetTab"], function(values){
             var element = values.sheetTab
             updateTabs(element)
         })
-        $20('button.sheet-tab').on('click', function(event){
-            var element = event.htmlAttributes.name.replace("act_","")
-            console.log(element)
+        $20('button.sheet-tab').on('click', function(eventinfo){
+            var element = eventinfo.htmlAttributes.name.replace("act_","")
             setAttrs({
                 sheetTab: element
             })
@@ -1736,7 +1736,6 @@
         });
     
         getAttrs(["DES", "dodge"], function(values){
-            console.log(values)
             var value = parseInt(values.DES)*2
             var dodge_value = values.dodge == ''?value: parseInt(values.dodge)
             if(dodge_value < value){
@@ -1778,7 +1777,7 @@
     
     })
     
-    on("change:HP", function(e){
+    on("change:HP", function(eventinfo){
         getAttrs(["CON", "TAM"], (values) => {
     
             var hp = e["newValue"]
@@ -1804,7 +1803,7 @@
     var attrs = ["FUE", "DES", "INT", "CON", "APA", "POD", "TAM", "EDU"]
     
     attrs.forEach(attr => {
-        on(`clicked:${attr}`, function(info){
+        on(`clicked:${attr}`, function(eventinfo){
             var name = getTranslationByKey(attr)
             getAttrs([attr, "character_name"], function(values){
                 var character_name = values.character_name
@@ -1822,17 +1821,18 @@
     var skills = getTranslationByKey("skills-list").split(",")
     skills.forEach(skill => {
         var checkbox = `success-${skill}`
-        on(`sheet:opened change:${checkbox}`, function(info){            
+        on(`sheet:opened change:${checkbox}`, function(eventinfo){
             getAttrs([checkbox], function(values){
                 var checked = values[checkbox] !== "0"
+                var input_element = $20(`input[name="attr_${skill}"]`)
                 if(checked){
-                    $20(`input[name="attr_${skill}"]`).removeClass('sheet-readonly')
+                    input_element.removeClass('sheet-readonly')
                 }else{
-                    $20(`input[name="attr_${skill}"]`).addClass('sheet-readonly')
+                    input_element.addClass('sheet-readonly')
                 }
             })
         })
-        on(`clicked:${skill}`, function(info){
+        on(`clicked:${skill}`, function(eventinfo){
             getAttrs([skill], function(values){
                 var value = parseInt(values[skill])
                 var skill_name = getTranslationByKey(skill)
@@ -1843,16 +1843,31 @@
     })
     var attacks = ["fist", "head-butt", "kick", "grapple"]
     attacks.forEach( item => {
-        on(`clicked:${item}`, function(info){
-            var dmg = `${item}-damage`
-            getAttrs([item, dmg, "dmg-bonus", "character_name"], function(values){
+        var checkbox = `success-${item}`
+        on(`sheet:opened change:${checkbox} change:${item}`, function(eventinfo){
+            
+            getAttrs([checkbox], function(values){
+                var checked = values[checkbox] !== "0"
+                var input_element = $20(`input[name="attr_${item}"]`)
+                if(checked){
+                    input_element.removeClass('sheet-readonly')
+                }else{
+                    input_element.addClass('sheet-readonly')
+                }
+            })
+        })
+        on(`clicked:${item}`, function(eventinfo){
+            var dmg_name = `${item}-damage`
+            getAttrs([item, dmg_name, "dmg-bonus", "character_name"], function(values){
                 console.log(values)
                 var character_name = values.character_name
                 var value = parseInt(values[item])
                 var bonus = values["dmg-bonus"]
+                var dmg = values[dmg_name]
+                console.log(dmg)
                 var name = getTranslationByKey(item)
-                let rollBase = '&{template:attk} {{name=@{character_name}}} {{$name=$value}} {{rollname=[Ataque](! &#13; [[1d100]])}} {{^{attack-u}=[[1d100]]}}'
-                rollBase = rollBase.replace("$name", name).replace("$value", value).replace("user", character_name)
+                let rollBase = '&{template:attk} {{name=@{character_name}}} {{dmg=$dmg}} {{$name=$value}} {{^{attack-u}=[[1d100]]}}'
+                rollBase = rollBase.replace("$name", name).replace("$value", value).replace("user", character_name).replace("$dmg", dmg)
                 startRoll(rollBase, function(results){
                     finishRoll(results.rollId)
                 })
@@ -1862,7 +1877,7 @@
     var secon_attrs = ["Idea", "Luck", "Know"]
     
     secon_attrs.forEach(item => {
-        on(`clicked:${item}`, function(info){
+        on(`clicked:${item}`, function(eventinfo){
             getAttrs([item], function(values){
                 var value = parseInt(values[item])
                 startRoll(`/roll 1d100<${value}`, function(results){
@@ -1872,7 +1887,7 @@
         })
     })
     
-    on("clicked:Init", function(info){
+    on("clicked:Init", function(eventinfo){
         getAttrs(["DES"], function(values){
             var value = parseInt(values.DES)
             startRoll(`[[${value} &{tracker}]]`, function(results){
@@ -1881,8 +1896,8 @@
         })
     })
     
-    on("change:repeating_art change:repeating_martial change:repeating_otherlanguage", function(info) {
-        on("clicked:repeating_art:score", function(info) {
+    on("change:repeating_art change:repeating_martial change:repeating_otherlanguage", function(eventinfo) {
+        on("clicked:repeating_art:score", function(eventinfo) {
             getAttrs(["repeating_art_skillname", "repeating_art_score"], function(values){
                 var value = values.repeating_art_score
                 var skill = values.repeating_art_skillname
@@ -1890,7 +1905,7 @@
             })
         })
     
-        on("clicked:repeating_otherlanguage:score", function(info) {
+        on("clicked:repeating_otherlanguage:score", function(eventinfo) {
             getAttrs(["repeating_otherlanguage_skillname", "repeating_otherlanguage_score"], function(values){
                 var value = values.repeating_otherlanguage_score
                 var skill = values.repeating_otherlanguage_skillname
@@ -1941,12 +1956,7 @@
             tab_select.addClass("sheet-tab")
         })
         
-    }
-
-    
-    
-
-    
+    }   
     
 
 </script>
