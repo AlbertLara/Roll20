@@ -1941,7 +1941,10 @@
     on("clicked:Init", function(eventinfo){
         getAttrs(["DES"], function(values){
             var value = parseInt(values.DES)
-            startRoll(`[[${value} &{tracker}]]`, function(results){
+            var rollBase = "&{template:dice} {{name=@{character_name}}} {{Iniciativa=[[$value &{tracker}]]}}"
+            rollBase = rollBase.replace("$value", value)
+            console.log(rollBase)
+            startRoll(rollBase, function(results){
                 finishRoll(results.rollId)
             })
         })
