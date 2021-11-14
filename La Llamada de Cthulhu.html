@@ -282,7 +282,7 @@
                             <td>
                                 <strong>15</strong>
                                 <br>
-                                <input type="radio" value="15" name="attr_HP" checked="true" />
+                                <input type="radio" value="15" name="attr_HP" />
                             </td>
                             <td>
                                 <strong>16</strong>
@@ -516,7 +516,7 @@
                             <td>
                                 <strong>15</strong>
                                 <br>
-                                <input type="radio" value="15" name="attr_MP" checked="true" />
+                                <input type="radio" value="15" name="attr_MP" />
                             </td>
                             <td>
                                 <strong>16</strong>
@@ -1074,12 +1074,14 @@
         </table>
     </div>
 </div>
+
+
 <div id="skills" class="tabcontent">
     <h2>Habilidades</h2>
     <div data-i18n-list="skills-list" class="skills" >
         <div class="col">
             <div class="trow" value="@{success-anthropology}" data-i18n-list-item="anthropology">
-                <input class="checkbox" type="checkbox" name="attr_success-anthropology"  />
+                <input type="checkbox" name="attr_success-anthropology"  />
                 <span class="td">
                     <span data-i18n="anthropology" ></span> (01%)
                 </span>
@@ -1087,7 +1089,7 @@
                 <button type="action" class="skill" name="act_anthropology" ></button>
             </div>
             <div class="trow" data-i18n-list-item="archaeology">
-                <input class="checkbox" type="checkbox" name="attr_success-archaeology"/>
+                <input type="checkbox" name="attr_success-archaeology"/>
                 <span class="td">
                     <span data-i18n="archaeology"></span> (01%)
                 </span>
@@ -1104,7 +1106,7 @@
             </div>
             <fieldset class="repeating_art">
                 <div class="trow">
-                    <input class="checkbox" type="checkbox" name="attr_success" />
+                    <input type="checkbox" name="attr_success" />
                     <div style="width: 100%;">
                         <input style="width: 80%;" type="text" name="attr_skillname"></input>
                     </div>
@@ -1722,17 +1724,26 @@
             var val=parseInt(values.INT)
             setAttrs({
                 "idea":val*5,
-                "Hab-PJ": val*10
+                "Hab-PJ": val*10,
+                INT: val
             })
         });
     
-        getAttrs(["POD"], function(values) {
+        getAttrs(["POD", "current-COR", "Sanity", "MP"], function(values) {
             var val=parseInt(values.POD)
-            setAttrs({
-                "luck":val*5,
+            var cordura = values["current-COR"] == ""? val*5:parseInt(values["current-COR"])
+            var sanity = values["Sanity"] == ""? val*5:parseInt(values["Sanity"])
+            var mp = values.MP == undefined?val:parseInt(values.MP)
+            var obj = {
+                "luck": val*5,
                 "stableMP": val,
-                "COR": val*5
-            })
+                "COR": val*5,
+                "POD": val,
+                "Sanity": sanity,
+                "current-COR": cordura,
+                "MP": mp
+            }
+            setAttrs(obj)
         });
     
         getAttrs(["EDU", "own-language"], function(values) {
@@ -1745,26 +1756,31 @@
             setAttrs({
                 "know":value*5,
                 "Hab-Ocu":value*20,
-                "own-language": language
+                "own-language": language,
+                "EDU": value
             })
         });
     
         getAttrs(["DES", "dodge"], function(values){
-            var value = parseInt(values.DES)*2
-            var dodge_value = values.dodge == ''?value: parseInt(values.dodge)
+            var value = parseInt(values.DES)
+            var dodge_value = values.dodge == ''?value*2: parseInt(values.dodge)
             if(dodge_value < value){
                 dodge_value = value
             }
-            var attributes = {"dodge": dodge_value}
+            var attributes = {"dodge": dodge_value, "DES": value}
             setAttrs(attributes)
         });
     
-        getAttrs(["CON", "TAM"], function(values){
-            valCon=parseInt(values.CON);
-            valSiz=parseInt(values.TAM);
-            val=valCon+valSiz;
+        getAttrs(["CON", "TAM", "HP"], function(values){
+            var valCon=parseInt(values.CON);
+            var valSiz=parseInt(values.TAM);
+            var val=valCon+valSiz;
+            var hp = values.HP == undefined?Math.round(val/2):parseInt(values.HP)
             setAttrs({
-                "stableHP": Math.round(val/2)
+                "stableHP": Math.round(val/2),
+                "CON": valCon,
+                "TAM": valSiz,
+                "HP": hp
             })
     
         });
@@ -1794,7 +1810,7 @@
     on("change:HP", function(eventinfo){
         getAttrs(["CON", "TAM"], (values) => {
     
-            var hp = e["newValue"]
+            var hp = eventinfo["newValue"]
             var value = Math.ceil((parseInt(values.CON) + parseInt(values.TAM))/2)
             if(hp > value){
                 setAttrs({
@@ -1805,7 +1821,8 @@
         
     })
     
-    on("change:Sanity", function(){
+    on("change:Sanity", function(info){
+        console.log(info)
         getAttrs(["Sanity"], function(values){
             var value = parseInt(values.Sanity)
             setAttrs({
@@ -1854,10 +1871,6 @@
                 
             })
         })
-    })
-
-    $20(".checkbox").on("mouseenter", function(eventinfo){
-        console.log(eventinfo)
     })
 
     on("change:repeating_art change:repeating_martial change:repeating_otherlanguage", function(eventinfo) {
@@ -1976,7 +1989,7 @@
             tab_select.addClass("sheet-tab")
         })
         
-    }   
+    }
     
 
 </script>
