@@ -142,13 +142,15 @@ div.sheet-skills{
     Roll templates
 */
 
-.sheet-rolltemplate-dice table {
+.sheet-rolltemplate-dice table,
+.sheet-rolltemplate-attk table{
     width: 100%;
     background-color: white;
     border: 1px  solid rgba(112, 32, 130, 1);
 }
 
-.sheet-rolltemplate-dice caption {
+.sheet-rolltemplate-dice caption,
+.sheet-rolltemplate-attk caption {
     background-color: rgba(112, 32, 130, 1);
     color: white;
     font-family: "Helvetica Neue", Helvetica, sans-serif;
@@ -157,13 +159,15 @@ div.sheet-skills{
     padding: 5px;
 }
 
-.sheet-rolltemplate-dice td {
+.sheet-rolltemplate-dice td,
+.sheet-rolltemplate-attk td{
     padding: 5px;
     line-height: 1.4em;
     vertical-align: top;
 }
 
-.sheet-rolltemplate-dice td:first-child {
+.sheet-rolltemplate-dice td:first-child,
+.sheet-rolltemplate-attk td:first-child{
     font-weight: bold;
     text-align: right;
     min-width: 50px;
