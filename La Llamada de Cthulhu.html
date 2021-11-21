@@ -1,11 +1,11 @@
-<input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="character"  />
+<input type="hidden" class="tabstoggle" name="attr_sheetTab" value="character"  />
 <div class="tabs">
     <button class="tab userinfo" type="action" name="act_userinfo">Información Personal</button>
     <button class="tab character" type="action" name="act_character">Características y Puntuaciones</button>
     <button class="tab skills" type="action" name="act_skills">Habilidades</button>
     <button class="tab items" type="action" name="act_items">Equipo y armas</button>
 </div>
-<div id="userinfo" class="tabcontent">
+<div class="tabcontent userinfo-content">
     <h2>Información Personal</h2>
     <div>
         <div class="table-userinfo">
@@ -44,7 +44,7 @@
         </div>
     </div>
 </div>
-<div id="character" class="tabcontent">
+<div class="tabcontent character-content">
     <h2>Características y Puntuaciones</h2>
     <br />
     <div>
@@ -659,7 +659,7 @@
             </tbody>
         </table>
     
-        <table id="sanity" class="sanity">
+        <table class="sanity">
             <tbody>
                 <tr>
                     <td width="13"></td>
@@ -1076,12 +1076,12 @@
 </div>
 
 
-<div id="skills" class="tabcontent">
+<div class="tabcontent skills-content">
     <h2>Habilidades</h2>
     <div data-i18n-list="skills-list" class="skills" >
         <div class="col">
             <div class="trow" value="@{success-anthropology}" data-i18n-list-item="anthropology">
-                <input type="checkbox" name="attr_success-anthropology"  />
+                <input type="checkbox" name="attr_success-anthropology" />
                 <span class="td">
                     <span data-i18n="anthropology" ></span> (01%)
                 </span>
@@ -1124,7 +1124,7 @@
             </div>
             <fieldset class="repeating_martial">
                 <div class="trow">
-                    <input class="checkbox" type="checkbox" name="attr_success-martial" />
+                    <input class="checkbox" type="checkbox" name="attr_success" />
                     <div style="width: 100%;">
                         <input style="width: 80%;" type="text" name="attr_martial-name"></input>
                     </div>
@@ -1550,7 +1550,7 @@
     </div>
     
 </div>
-<div id="items" class="tabcontent">
+<div class="tabcontent items-content">
     <h2>Equipo y armas</h2>
     <br>
     <h3 data-i18n="weapons"></h3>
@@ -1638,12 +1638,10 @@
                     <td >{{roll}}</td>
                 </tr>
                 {{/roll}}
-                {{#computed}}
                 <tr>
                     <td>Resultado</td>
                     <td>{{computed::roll}}</td>
                 </tr>
-                {{/computed}}
             </tbody>        
         </table>    
     </rolltemplate>
@@ -1651,12 +1649,26 @@
         <table>
             <caption>{{name}}</caption>
             <tbody>
-                {{#allprops() dmg dmg-bonus}}
                 <tr>
-                    <td>{{key}}</td>
-                    <td>{{value}}</td>
+                    <td>{{atk_name}}</td>
+                    <td>{{atk_value}}</td>
                 </tr>
-                {{/allprops() dmg dmg-bonus}}
+                {{#roll}}
+                <tr>
+                    <td data-i18n="attack-u"></td>
+                    <td >{{roll}}</td>
+                </tr>
+                {{/roll}}
+                <tr>
+                    <td>Resultado</td>
+                    <td>{{computed::roll}}</td>
+                </tr>
+                {{#rollLess() roll @atk_value}}
+                <tr>
+                    <td data-i18n="attack-u"></td>
+                    <td >1</td>
+                </tr>
+                {{/rollLess() roll @atk_value}}
                 <tr>
                     <td colspan="2">[Daño](`!&#13; [[{{dmg}} + {{dmg-bonus}} + ?{Bonus|0|1|2|3|4|5}]])</td>
                 </tr>
@@ -1711,7 +1723,7 @@
             var element = values.sheetTab
             updateTabs(element)
         })
-        $20('button.sheet-tab').on('click', function(eventinfo){
+        $20('button.tab').on('click', function(eventinfo){
             var element = eventinfo.htmlAttributes.name.replace("act_","")
             setAttrs({
                 sheetTab: element
@@ -1854,12 +1866,16 @@
         var checkbox = `success-${skill}`
         on(`sheet:opened change:${checkbox}`, function(eventinfo){
             getAttrs([checkbox], function(values){
+                var obj = {}
+                
                 var checked = values[checkbox] !== "0"
+                obj[checkbox] = values[checkbox]
                 var input_element = $20(`input[name="attr_${skill}"]`)
+                setAttrs(obj)
                 if(checked){
-                    input_element.removeClass('sheet-readonly')
+                    input_element.removeClass('readonly')
                 }else{
-                    input_element.addClass('sheet-readonly')
+                    input_element.addClass('readonly')
                 }
             })
         })
@@ -1867,60 +1883,61 @@
             getAttrs([skill], function(values){
                 var value = parseInt(values[skill])
                 var skill_name = getTranslationByKey(skill)
+                console.log(skill_name)
                 rollSkill(skill_name, value)
                 
             })
         })
     })
 
-    on("change:repeating_art change:repeating_martial change:repeating_otherlanguage", function(eventinfo) {
-        on("clicked:repeating_art:score", function(eventinfo) {
-            getAttrs(["repeating_art_skillname", "repeating_art_score"], function(values){
-                var value = values.repeating_art_score
-                var skill = values.repeating_art_skillname
-                rollSkill(skill, value)
-            })
-        })
+    var repeatings = ["art", "martial", "otherlanguage"]
+
     
-        on("clicked:repeating_otherlanguage:score", function(eventinfo) {
-            getAttrs(["repeating_otherlanguage_skillname", "repeating_otherlanguage_score"], function(values){
-                var value = values.repeating_otherlanguage_score
-                var skill = values.repeating_otherlanguage_skillname
+    
+    repeatings.forEach(item => {
+
+        on(`clicked:repeating_${item}`, function(info){
+            var sourceAttribute = info.sourceAttribute
+            getAttrs([`${sourceAttribute}_skillname`, `${sourceAttribute}_score`], function(values){
+                var value = parseInt(values[`${sourceAttribute}_score`])
+                var skill = values[`${sourceAttribute}_skillname`]
                 rollSkill(skill, value)
             })
         })
-        
     })
+
+    
     var attacks = ["fist", "head-butt", "kick", "grapple"]
-    attacks.forEach( item => {
-        var checkbox = `success-${item}`
-        on(`sheet:opened change:${checkbox} change:${item}`, function(eventinfo){
-            
-            getAttrs([checkbox], function(values){
-                var checked = values[checkbox] !== "0"
-                var input_element = $20(`input[name="attr_${item}"]`)
-                if(checked){
-                    input_element.removeClass('sheet-readonly')
-                }else{
-                    input_element.addClass('sheet-readonly')
-                }
-            })
-        })
+    attacks.forEach( item => {        
         on(`clicked:${item}`, function(eventinfo){
             var dmg_name = `${item}-damage`
             getAttrs([item, dmg_name, "dmg-bonus", "character_name"], function(values){
-                console.log(values)
                 var character_name = values.character_name
-                var value = parseInt(values[item])
+                var atk_value = parseInt(values[item])
                 var bonus = values["dmg-bonus"]
                 var dmg = values[dmg_name]
-                console.log(dmg)
                 var name = getTranslationByKey(item)
-                let rollBase = '&{template:attk} {{name=@{character_name}}} {{dmg=$dmg}} {{$name=$value}} {{dmg-bonus=$bonus}} {{^{attack-u}=[[1d100]]}}'
-                rollBase = rollBase.replace("$name", name).replace("$value", value).replace("user", character_name).replace("$dmg", dmg).replace("$bonus", bonus)
-                console.log(rollBase)
+                var obj = {
+                    "name": "@{character_name}",
+                    "dmg": dmg,
+                    "atk_name": name,
+                    "atk_value": atk_value,
+                    "dmg-bonus": bonus,
+                    "roll": "[[1d100]]"
+                }
+                var query_string = Object.entries(obj).map(function([key, value]){
+                    return `{{${key}=${value}}}`
+                }).join(" ")
+                let rollBase = `&{template:attk} ${query_string}`
                 startRoll(rollBase, function(results){
-                    finishRoll(results.rollId)
+                    const total = results.results.roll.result
+                    const success = total <= atk_value?1:0
+                    finishRoll(
+                        results.rollId,
+                        {
+                            roll: success
+                        }
+                    );
                 })
             })
         })
@@ -1975,21 +1992,21 @@
         })
         
         var tab_select = $20(`button[name="act_${element}"]`)
-        tab_select.removeClass("sheet-tab")
-        tab_select.toggleClass("sheet-select-tab")
-        var name = `#sheet-${element}`
+        tab_select.removeClass("tab")
+        tab_select.toggleClass("select-tab")
+        var name = `.${element}-content`
         var selector = $20(name)
-        selector.removeClass("sheet-tabcontent")
-        selector.toggleClass("sheet-show-tabcontent")
+        selector.removeClass("tabcontent")
+        selector.toggleClass("show-tabcontent")
         filtered_tabs.forEach(tab => {
-            var select = $20(`#sheet-${tab}`)
+            var select = $20(`div.${tab}-content`)
             
-            select.removeClass("sheet-tabcontent")
-            select.addClass("sheet-tabcontent")
+            select.removeClass("tabcontent")
+            select.addClass("tabcontent")
             var tab_select = $20(`button[name="act_${tab}"]`)
-            tab_select.removeClass("sheet-tab")
-            tab_select.removeClass("sheet-select-tab")
-            tab_select.addClass("sheet-tab")
+            tab_select.removeClass("tab")
+            tab_select.removeClass("select-tab")
+            tab_select.addClass("tab")
         })
         
     }

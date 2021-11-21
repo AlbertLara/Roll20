@@ -8,7 +8,7 @@ h2, h3, h4 {
 	text-align: center;
 }
 
-.sheet-trow {
+.trow {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,7 +19,7 @@ table {
 }
 
 /*Convert action button to roll button*/
-.sheet-skill::before {
+.skill::before {
     font-family: 'dicefontd20';
     content: 't';
     font-size: large;
@@ -29,13 +29,13 @@ table {
     Tabs and content selectors
 */
 
-div.sheet-tabs {
+div.tabs {
     overflow: hidden;
     background-color: #f1f1f1;
     width: 100%;
 }
   
-div.sheet-tabs button {
+div.tabs button {
     float: left;
     border: none;
     outline: none;
@@ -44,19 +44,19 @@ div.sheet-tabs button {
     transition: 0.3s;
 }
   
-div.sheet-tabs button:hover {
+div.tabs button:hover {
    background-color: #ddd;
 }
 
-button.sheet-select-tab{
+button.select-tab{
     background-color: #ccc;
 }
 
-div.sheet-tabcontent {
+div.tabcontent {
     display: none;
 }
 
-.sheet-show-tabcontent {
+.show-tabcontent {
     display: block;
 }
 
@@ -65,7 +65,7 @@ div.sheet-tabcontent {
 
 */
 
-.sheet-table-userinfo {
+.table-userinfo {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
@@ -75,13 +75,13 @@ div.sheet-tabcontent {
     Character Tab content
 */
 
-.sheet-table-charac {
+.table-charac {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
 }
 
-.sheet-sanity tr{
+.sanity tr{
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -89,23 +89,23 @@ div.sheet-tabcontent {
     width: 100%;
 }
 
-.sheet-sanity td{
+.sanity td{
     display: flex;
     flex-direction: column;
 }
 
-.sheet-th {
+.th {
     width: 45%;
     border-style: solid;
     border-color: white;
     border-width: 1px 0 0 0;
 }
 
-.sheet-th2 {
+.th2 {
     text-align: left;
 }
 
-td.sheet-th{
+td.th{
     text-align: left;
 }
 
@@ -114,17 +114,13 @@ td.sheet-th{
 
 */
 
-div.sheet-skills{
+div.skills{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
 }
 
-.sheet-readonly {
-    pointer-events: none;
-}
-
-.sheet-trow span.sheet-td{
+.trow span.td{
     width: 100%;
 }
 
@@ -133,7 +129,7 @@ div.sheet-skills{
     Items Tab content
 */
 
-.sheet-dmg {
+.dmg {
     width: 3.5em;
 }
 
@@ -178,6 +174,10 @@ div.sheet-skills{
     text-align: center;
 }
 
-input[type=number]:read-only {
-    -moz-appearance: textfield;
+input[type=checkbox] ~ input[type=number]  {
+    pointer-events: none;
+}
+
+input[type=checkbox]:checked ~ input[type=number]  {
+    pointer-events: all;
 }
