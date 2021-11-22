@@ -1557,6 +1557,57 @@
     <br>
     <h4 data-i18n="melee-weapons"></h4>
     <div>
+        <div>
+            <div class="trow" >
+                <span data-i18n="attack-or-weapon-u"></span>
+                <span>%</span>
+                <span data-i18n="damage-u"></span>
+                <span data-i18n="hands"></span>
+                <span data-i18n="round-u"></span>
+                <span data-i18n="hit-points-u"></span>
+                <span data-i18n="roll-u"></span>
+            </div>
+            <div class="trow" >
+                <input type="checkbox" name="attr_success-fist" />
+                <span data-i18n="fist"></span>
+                <input type="number" class="readonly" name="attr_fist" value="50" min="50" />
+                <input type="text" class="dmg" value="1d4" name="attr_fist-damage">
+                <span>1</span>
+                <span>1</span>
+                <span>n/a</span>
+                <button type="action" class="skill" name="act_fist"></button>
+            </div>
+            <div class="trow">
+                <input type="checkbox" name="attr_success-head-butt" />
+                <span data-i18n="head-butt"></span>
+                <input type="number" class="readonly" name="attr_head-butt" value="10" min="10" />
+                <input type="text" class="dmg" value="1d4" name="attr_head-butt-damage">
+                <span>0</span>
+                <span>1</span>
+                <span>n/a</span>
+                <button type="action" class="skill" name="act_head-butt"></button>
+            </div>
+            <div class="trow">
+                <input type="checkbox" name="attr_success-kick" />
+                <span data-i18n="kick"></span>
+                <input type="number" class="readonly" name="attr_kick" value="25" min="25" />
+                <input type="text" class="dmg" value="1d6" name="attr_kick-damage">
+                <span>0</span>
+                <span>0</span>
+                <span>n/a</span>
+                <button type="action" class="skill" name="act_kick"></button>
+            </div>
+            <div class="trow">
+                <input type="checkbox" name="attr_success-grapple" />
+                <span data-i18n="grapple"></span>
+                <input type="number" class="readonly" name="attr_grapple" value="25" min="25" />
+                <input type="text" class="dmg" value="0" name="attr_grapple-damage">
+                <span>0</span>
+                <span>2</span>
+                <span>n/a</span>
+                <button type="action" class="skill" name="act_grapple"></button>
+            </div>
+        </div>
         <table style="width: 60%;">
             <thead>
                 <tr>
@@ -1610,6 +1661,17 @@
                     <td><span>n/a</span></td>
                     <td><button type="action" class="skill" name="act_grapple" ></button></td>
                 </tr>
+                <fieldset name="repeating_atk">
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="attr_success" />
+                        </td>
+                        <td>
+                            <input type="text" name="attr_atkname" />
+                        </td>
+                        <td></td>
+                    </tr>
+                </fieldset>
             </tbody>
         </table>
         <div>
