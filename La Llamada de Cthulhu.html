@@ -168,18 +168,21 @@
         <div class="trow">
             <div class="th">
                 <h3>
-                    <span data-i18n="hp-points-u"></span>                        
+                    <span data-i18n="hp-points-u"></span>
                 </h3>
                 <div>
                     <span data-i18n="stable-hp-u"></span>
                     <input type="number" name="attr_stableHP" readonly="true" />
-
+                </div>
+                <div>
+                    <span data-i18n="current-hp-u"></span>
+                    <input type="number" name="attr_HP" readonly="true" />
                 </div>
                 <table>
                     <tbody>
                         <tr>
                             <td colspan="2" class="th2" data-i18n="dead-u"></td>
-                            <td colspan="5" class="th" data-i18n="unconscius-u"></td>
+                            <td colspan="5" data-i18n="unconscius-u" style="text-align: left;"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -213,7 +216,6 @@
                                 <br>
                                 <input type="radio" value="2" name="attr_HP" />
                             </td>
-                            
                         </tr>
                         <tr>
                             <td>
@@ -419,7 +421,7 @@
                 <table>
                     <tbody>
                         <tr>
-                            <td class="th" colspan="4" data-i18n="unconscius-u"></td>
+                            <td colspan="4" data-i18n="unconscius-u" style="text-align:left;"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -1557,8 +1559,8 @@
     <br>
     <h4 data-i18n="melee-weapons"></h4>
     <div>
-        <div>
-            <div class="trow" >
+        <div class="table">
+            <div  >
                 <span data-i18n="attack-or-weapon-u"></span>
                 <span>%</span>
                 <span data-i18n="damage-u"></span>
@@ -1567,7 +1569,7 @@
                 <span data-i18n="hit-points-u"></span>
                 <span data-i18n="roll-u"></span>
             </div>
-            <div class="trow" >
+            <div >
                 <input type="checkbox" name="attr_success-fist" />
                 <span data-i18n="fist"></span>
                 <input type="number" class="readonly" name="attr_fist" value="50" min="50" />
@@ -1577,7 +1579,7 @@
                 <span>n/a</span>
                 <button type="action" class="skill" name="act_fist"></button>
             </div>
-            <div class="trow">
+            <div>
                 <input type="checkbox" name="attr_success-head-butt" />
                 <span data-i18n="head-butt"></span>
                 <input type="number" class="readonly" name="attr_head-butt" value="10" min="10" />
@@ -1587,7 +1589,7 @@
                 <span>n/a</span>
                 <button type="action" class="skill" name="act_head-butt"></button>
             </div>
-            <div class="trow">
+            <div>
                 <input type="checkbox" name="attr_success-kick" />
                 <span data-i18n="kick"></span>
                 <input type="number" class="readonly" name="attr_kick" value="25" min="25" />
@@ -1597,7 +1599,7 @@
                 <span>n/a</span>
                 <button type="action" class="skill" name="act_kick"></button>
             </div>
-            <div class="trow">
+            <div>
                 <input type="checkbox" name="attr_success-grapple" />
                 <span data-i18n="grapple"></span>
                 <input type="number" class="readonly" name="attr_grapple" value="25" min="25" />
@@ -1608,7 +1610,7 @@
                 <button type="action" class="skill" name="act_grapple"></button>
             </div>
         </div>
-        <table style="width: 60%;">
+        <!--<table style="width: 60%;">
             <thead>
                 <tr>
                     <th></th>
@@ -1673,7 +1675,7 @@
                     </tr>
                 </fieldset>
             </tbody>
-        </table>
+        </table>-->
         <div>
                         
         </div>
@@ -1796,11 +1798,12 @@
         
         getAttrs(["INT"], function(values) {
             var val=parseInt(values.INT)
-            setAttrs({
-                "idea":val*5,
+            var obj = {
+                "idea": val*5,
                 "Hab-PJ": val*10,
-                INT: val
-            })
+                "INT": val
+            }
+            setAttrs(obj)
         });
     
         getAttrs(["POD", "current-COR", "Sanity", "MP"], function(values) {
@@ -1826,13 +1829,14 @@
             if(language < value*5){
                 language = value*5
             }
-    
-            setAttrs({
-                "know":value*5,
-                "Hab-Ocu":value*20,
+            var obj = {
+                "know": value*5,
+                "Hab-Ocu": value*20,
                 "own-language": language,
                 "EDU": value
-            })
+            }
+    
+            setAttrs(obj)
         });
     
         getAttrs(["DES", "dodge"], function(values){
@@ -1850,21 +1854,25 @@
             var valSiz=parseInt(values.TAM);
             var val=valCon+valSiz;
             var hp = values.HP == undefined?Math.round(val/2):parseInt(values.HP)
-            setAttrs({
+            
+            var obj = {
                 "stableHP": Math.round(val/2),
                 "CON": valCon,
                 "TAM": valSiz,
-                "HP": hp
-            })
+                "HP": hp,
+                "hp": hp
+            }
+            setAttrs(obj)
     
         });
     
         getAttrs(["FUE", "TAM"], function(values){
             var value = parseInt(values.FUE) + parseInt(values.TAM) -2
             var damage_bonus = DAMAGE_BONUS.getBonusForValue(value);
-            setAttrs({
+            var obj = {
                 "dmg-bonus": damage_bonus
-            })
+            }
+            setAttrs(obj)
     
         });
     
@@ -1872,9 +1880,10 @@
             var value = values.cthulhumythos
     
             val = value == null?0:parseInt(value)
-            setAttrs({
+            var obj = {
                 "Max-Sanity":99-val
-            })
+            }
+            setAttrs(obj)
     
         });
     
@@ -1887,9 +1896,10 @@
             var hp = eventinfo["newValue"]
             var value = Math.ceil((parseInt(values.CON) + parseInt(values.TAM))/2)
             if(hp > value){
-                setAttrs({
+                var obj = {
                     "HP": value
-                })
+                }
+                setAttrs(obj)
             }
         })
         
@@ -1899,9 +1909,10 @@
         console.log(info)
         getAttrs(["Sanity"], function(values){
             var value = parseInt(values.Sanity)
-            setAttrs({
+            var obj = {
                 "current-COR": value
-            })
+            }
+            setAttrs(obj)
         })
     })
     

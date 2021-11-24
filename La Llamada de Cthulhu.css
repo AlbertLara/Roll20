@@ -105,10 +105,6 @@ div.tabcontent {
     text-align: left;
 }
 
-td.th{
-    text-align: left;
-}
-
 /*
     Skills Tab content
 
@@ -133,6 +129,10 @@ div.skills{
     width: 3.5em;
 }
 
+.table{
+    width: 100%;
+    display: flex;
+}
 
 /*
     Roll templates
