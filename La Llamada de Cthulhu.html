@@ -103,13 +103,13 @@
                 <div class="trow">
                     <span data-i18n="COR"></span>
                     <div>
-                        <input type="number" readonly="true" name="attr_COR" />
+                        <input type="number" class="readonly" name="attr_COR" />
                     </div>
                 </div>
                 <div class="trow">
                     <span data-i18n="dmg-bonus-u"></span>
                     <div>
-                        <input type="text" readonly="true" name="attr_dmg-bonus" style="width: 3.5em;" />
+                        <input type="text" class="readonly" name="attr_dmg-bonus" style="width: 3.5em;" />
                     </div>
                 </div>
             </div>
@@ -146,21 +146,21 @@
                 <div class="trow">
                     <span data-i18n="idea"></span>
                     <div>
-                        <input type="number" name="attr_idea" readonly="true" />
+                        <input type="number" class="readonly" name="attr_idea" />
                         <button type="action" class="skill" name="act_idea" />
                     </div>
                 </div>
                 <div class="trow">
                     <span data-i18n="luck"></span>
                     <div>
-                        <input type="number" name="attr_luck" readonly="true" />
+                        <input type="number" class="readonly" name="attr_luck" />
                         <button type="action" class="skill" name="act_luck" />
                     </div>
                 </div>
                 <div class="trow">
                     <span data-i18n="know"></span>
                     <div>
-                        <input type="number" name="attr_know" readonly="true" />
+                        <input type="number" class="readonly" name="attr_know" />
                         <button type="action" class="skill" name="act_know" />
                     </div>
                 </div>
@@ -1083,7 +1083,6 @@
 <div class="tabcontent skills-content">
     <h2 class="title">
         <span data-i18n="skills-u"></span>
-        <button type="action" name="act_reset" >Reset</button>
     </h2>
     <div data-i18n-list="skills-list" class="skills" >
         <div class="col">
@@ -1350,7 +1349,9 @@
             </div>
             <div class="trow" data-i18n-list-item="own-language">
                 <input type="checkbox" name="attr_success-own-language" />
-                <input type="text" name="attr_own-language-name" />
+                <div>
+                    <input type="text" name="attr_own-language-name" />
+                </div>                
                 <input type="number" class="readonly" name="attr_own-language" />
                 <button type="action" class="skill" name="act_own-language" ></button>
             </div>
@@ -1564,7 +1565,59 @@
     <br>
     <h4 class="title" data-i18n="melee-weapons"></h4>
     <div>
-        <table style="width: 60%;">
+        <div style="width: 60%;" class="col">
+            <div class="trow">
+                <span></span>
+                <span data-i18n="attack-or-weapon-u"></span>
+                <span>%</span>
+                <span data-i18n="damage-u"></span>
+                <span data-i18n="hands"></span>
+                <span data-i18n="round-u"></span>
+                <span data-i18n="hit-points-u"></span>
+                <span data-i18n="roll-u"></span>
+            </div>
+            <div class="trow">
+                <input type="checkbox" name="attr_success-fist" />
+                <span data-i18n="fist"></span>
+                <input type="number" class="readonly" name="attr_fist" value="50" min="50" />
+                <input type="text" class="dmg" value="1d4" name="attr_fist-damage">
+                <span>1</span>
+                <span>1</span>
+                <span>n/a</span>
+                <button type="action" class="skill" name="act_fist"></button>
+            </div>
+            <div class="trow">
+                <input type="checkbox" name="attr_success-head-butt" />
+                <span data-i18n="head-butt"></span>
+                <input type="number" class="readonly" name="attr_head-butt" value="10" min="10" />
+                <input type="text" class="dmg" value="1d4" name="attr_head-butt-damage">
+                <span>0</span>
+                <span>1</span>
+                <span>n/a</span>
+                <button type="action" class="skill" name="act_head-butt"></button>
+            </div>
+            <div class="trow">
+                <input type="checkbox" name="attr_success-kick" />
+                <span data-i18n="kick"></span>
+                <input type="number" class="readonly" name="attr_kick" value="25" min="25" />
+                <input type="text" class="dmg" value="1d6" name="attr_kick-damage">
+                <span>0</span>
+                <span>0</span>
+                <span>n/a</span>
+                <button type="action" class="skill" name="act_kick"></button>
+            </div>
+            <div class="trow">
+                <input type="checkbox" name="attr_success-grapple" />
+                <span data-i18n="grapple"></span>
+                <input type="number" class="readonly" name="attr_grapple" value="25" min="25" />
+                <input type="text" class="dmg" value="0" name="attr_grapple-damage">
+                <span>0</span>
+                <span>2</span>
+                <span>n/a</span>
+                <button type="action" class="skill" name="act_grapple"></button>
+            </div>
+        </div>
+        <!--<table style="width: 60%;">
             <thead>
                 <tr>
                     <th></th>
@@ -1574,6 +1627,7 @@
                     <th data-i18n="hands"></th>
                     <th data-i18n="round-u"></th>
                     <th data-i18n="hit-points-u"></th>
+                    <th data-i18n="roll-u"></th>
                 </tr>
             </thead>
             <tbody>
@@ -1618,7 +1672,7 @@
                     <td><button type="action" class="skill" name="act_grapple" ></button></td>
                 </tr>
             </tbody>
-        </table>
+        </table>-->
         <div>
                         
         </div>
@@ -1735,9 +1789,19 @@
             updateTabs(element)
             
         })
+
+        
     })
     
     
+    changes.forEach(change => {
+            
+        on(`change:${change}`, function(eventinfo){
+            var name = getTranslationByKey(change)
+            console.log(name)
+            console.log(eventinfo)
+        })
+    })
     
     on(`sheet:opened ${change_string}`, function(eventinfo){
 
@@ -1935,11 +1999,7 @@
 
     function initAttributes(attribute){
 
-        if(attribute !== undefined){
-            getAttrs([attribute], function(values){
-                console.log(values)
-            })
-        }
+        
         getAttrs(["INT"], function(values) {
             var val=parseInt(values.INT)
             setAttrs({
@@ -1987,8 +2047,8 @@
         getAttrs(["DES", "dodge"], function(values){
             var value = parseInt(values.DES)
             var dodge_value = values.dodge == ''?value*2: parseInt(values.dodge)
-            if(dodge_value < value){
-                dodge_value = value
+            if(dodge_value < value*2){
+                dodge_value = value*2
             }
             var attributes = {"dodge": dodge_value, "DES": value}
             setAttrs(attributes)

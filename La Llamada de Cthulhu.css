@@ -22,6 +22,15 @@ table {
     width: 100%;
 }
 
+.readonly {
+    pointer-events: none;
+}
+
+input[type=number].readonly {
+    
+    -moz-appearance: textfield;
+}
+
 /*Convert action button to roll button*/
 .skill::before {
     font-family: 'dicefontd20';
@@ -132,6 +141,11 @@ div.skills{
     width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.table .trow {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
 }
 
 /*
