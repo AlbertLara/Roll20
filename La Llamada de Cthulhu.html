@@ -58,7 +58,7 @@
                     <div>
                         <input type="number" value="3" name="attr_FUE" />
                         <button type="action" class="skill" name="act_FUE"></button>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="trow">
                     <span data-i18n="CON"></span>
@@ -72,13 +72,13 @@
                     <div>
                         <input type="number" value="8" name="attr_TAM" />
                         <button type="action" class="skill" name="act_TAM"></button>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="trow">
                     <span data-i18n="stable-sanity-u"></span>
                     <div>
                         <input type="number" name="attr_Max-Sanity" readonly="true" />
-                    </div>                    
+                    </div>
                 </div>
             </div>
             <div class="col">
@@ -100,13 +100,13 @@
                     <span data-i18n="COR"></span>
                     <div>
                         <input type="number" readonly="true" name="attr_COR" />
-                    </div>                    
+                    </div>
                 </div>
                 <div class="trow">
                     <span data-i18n="dmg-bonus-u"></span>
                     <div>
                         <input type="text" readonly="true" name="attr_dmg-bonus" style="width: 3.5em;" />
-                    </div>                    
+                    </div>
                 </div>
             </div>
             <div class="col">
@@ -115,7 +115,7 @@
                     <div>
                         <input type="number" value="8" name="attr_INT" />
                         <button type="action" class="skill" name="act_INT"></button>  
-                    </div>                    
+                    </div>
                 </div>
                 <div class="trow">
                     <span data-i18n="POD"></span>
@@ -129,13 +129,13 @@
                     <div>
                         <input type="number" value="6" name="attr_EDU" />
                         <button type="action" class="skill" name="act_EDU"></button>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="trow">
                     <span>Iniciativa</span>
                     <div>
                         <button type="action" class="skill" name="act_Init"></button>
-                    </div>                    
+                    </div>
                 </div>
             </div>
             <div class="col">
@@ -144,7 +144,7 @@
                     <div>
                         <input type="number" name="attr_idea" readonly="true" />
                         <button type="action" class="skill" name="act_idea" />
-                    </div>                    
+                    </div>
                 </div>
                 <div class="trow">
                     <span data-i18n="luck"></span>
@@ -158,7 +158,7 @@
                     <div>
                         <input type="number" name="attr_know" readonly="true" />
                         <button type="action" class="skill" name="act_know" />
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </div>
@@ -173,16 +173,13 @@
                 <div>
                     <span data-i18n="stable-hp-u"></span>
                     <input type="number" name="attr_stableHP" readonly="true" />
-                </div>
-                <div>
-                    <span data-i18n="current-hp-u"></span>
-                    <input type="number" name="attr_HP" readonly="true" />
+
                 </div>
                 <table>
                     <tbody>
                         <tr>
-                            <td colspan="2" style="text-align: left;" data-i18n="dead-u"></td>
-                            <td colspan="5" data-i18n="unconscius-u" style="text-align: left;"></td>
+                            <td colspan="2" class="th2" data-i18n="dead-u"></td>
+                            <td colspan="5" class="th" data-i18n="unconscius-u"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -216,6 +213,7 @@
                                 <br>
                                 <input type="radio" value="2" name="attr_HP" />
                             </td>
+                            
                         </tr>
                         <tr>
                             <td>
@@ -421,7 +419,7 @@
                 <table>
                     <tbody>
                         <tr>
-                            <td colspan="4" data-i18n="unconscius-u" style="text-align:left;"></td>
+                            <td class="th" colspan="4" data-i18n="unconscius-u"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -1079,7 +1077,10 @@
 
 
 <div class="tabcontent skills-content">
-    <h2>Habilidades</h2>
+    <h2>
+        <span data-i18n="skills-u"></span>
+        <button type="action" name="act_reset" >Reset</button>
+    </h2>
     <div data-i18n-list="skills-list" class="skills" >
         <div class="col">
             <div class="trow" value="@{success-anthropology}" data-i18n-list-item="anthropology">
@@ -1559,58 +1560,7 @@
     <br>
     <h4 data-i18n="melee-weapons"></h4>
     <div>
-        <div class="table">
-            <div class="trow" >
-                <span data-i18n="attack-or-weapon-u"></span>
-                <span>%</span>
-                <span data-i18n="damage-u"></span>
-                <span data-i18n="hands"></span>
-                <span data-i18n="round-u"></span>
-                <span data-i18n="hit-points-u"></span>
-                <span data-i18n="roll-u"></span>
-            </div>
-            <div class="trow">
-                <input type="checkbox" name="attr_success-fist" />
-                <span data-i18n="fist"></span>
-                <input type="number" class="readonly" name="attr_fist" value="50" min="50" />
-                <input type="text" class="dmg" value="1d4" name="attr_fist-damage">
-                <span>1</span>
-                <span>1</span>
-                <span>n/a</span>
-                <button type="action" class="skill" name="act_fist"></button>
-            </div>
-            <div class="trow">
-                <input type="checkbox" name="attr_success-head-butt" />
-                <span data-i18n="head-butt"></span>
-                <input type="number" class="readonly" name="attr_head-butt" value="10" min="10" />
-                <input type="text" class="dmg" value="1d4" name="attr_head-butt-damage">
-                <span>0</span>
-                <span>1</span>
-                <span>n/a</span>
-                <button type="action" class="skill" name="act_head-butt"></button>
-            </div>
-            <div class="trow">
-                <input type="checkbox" name="attr_success-kick" />
-                <span data-i18n="kick"></span>
-                <input type="number" class="readonly" name="attr_kick" value="25" min="25" />
-                <input type="text" class="dmg" value="1d6" name="attr_kick-damage">
-                <span>0</span>
-                <span>0</span>
-                <span>n/a</span>
-                <button type="action" class="skill" name="act_kick"></button>
-            </div>
-            <div class="tr">
-                <input type="checkbox" name="attr_success-grapple" />
-                <span data-i18n="grapple"></span>
-                <input type="number" class="readonly" name="attr_grapple" value="25" min="25" />
-                <input type="text" class="dmg" value="0" name="attr_grapple-damage">
-                <span>0</span>
-                <span>2</span>
-                <span>n/a</span>
-                <button type="action" class="skill" name="act_grapple"></button>
-            </div>
-        </div>
-        <!--<table style="width: 60%;">
+        <table style="width: 60%;">
             <thead>
                 <tr>
                     <th></th>
@@ -1663,19 +1613,8 @@
                     <td><span>n/a</span></td>
                     <td><button type="action" class="skill" name="act_grapple" ></button></td>
                 </tr>
-                <fieldset name="repeating_atk">
-                    <tr>
-                        <td>
-                            <input type="checkbox" name="attr_success" />
-                        </td>
-                        <td>
-                            <input type="text" name="attr_atkname" />
-                        </td>
-                        <td></td>
-                    </tr>
-                </fieldset>
             </tbody>
-        </table>-->
+        </table>
         <div>
                         
         </div>
@@ -1778,11 +1717,8 @@
     var change_string = _.map(changes, function(value){
         return "change:" + value
     }).join(" ")
-    
-    
-    
-    on(`sheet:opened ${change_string}`, function(eventinfo){
-        
+
+    on("sheet:opened", function(eventinfo){
         getAttrs(["sheetTab"], function(values){
             var element = values.sheetTab
             updateTabs(element)
@@ -1795,97 +1731,14 @@
             updateTabs(element)
             
         })
-        
-        getAttrs(["INT"], function(values) {
-            var val=parseInt(values.INT)
-            var obj = {
-                "idea": val*5,
-                "Hab-PJ": val*10,
-                "INT": val
-            }
-            setAttrs(obj)
-        });
+    })
     
-        getAttrs(["POD", "current-COR", "Sanity", "MP"], function(values) {
-            var val=parseInt(values.POD)
-            var cordura = values["current-COR"] == ""? val*5:parseInt(values["current-COR"])
-            var sanity = values["Sanity"] == ""? val*5:parseInt(values["Sanity"])
-            var mp = values.MP == undefined?val:parseInt(values.MP)
-            var obj = {
-                "luck": val*5,
-                "stableMP": val,
-                "COR": val*5,
-                "POD": val,
-                "Sanity": sanity,
-                "current-COR": cordura,
-                "MP": mp
-            }
-            setAttrs(obj)
-        });
     
-        getAttrs(["EDU", "own-language"], function(values) {
-            var value=parseInt(values.EDU)
-            var language = values["own-language"] == ""?value*5:parseInt(values["own-language"])
-            if(language < value*5){
-                language = value*5
-            }
-            var obj = {
-                "know": value*5,
-                "Hab-Ocu": value*20,
-                "own-language": language,
-                "EDU": value
-            }
     
-            setAttrs(obj)
-        });
-    
-        getAttrs(["DES", "dodge"], function(values){
-            var value = parseInt(values.DES)
-            var dodge_value = values.dodge == ''?value*2: parseInt(values.dodge)
-            if(dodge_value < value){
-                dodge_value = value
-            }
-            var attributes = {"dodge": dodge_value, "DES": value}
-            setAttrs(attributes)
-        });
-    
-        getAttrs(["CON", "TAM", "HP"], function(values){
-            var valCon=parseInt(values.CON);
-            var valSiz=parseInt(values.TAM);
-            var val=valCon+valSiz;
-            var hp = values.HP == undefined?Math.round(val/2):parseInt(values.HP)
-            
-            var obj = {
-                "stableHP": Math.round(val/2),
-                "CON": valCon,
-                "TAM": valSiz,
-                "HP": hp,
-                "hp": hp
-            }
-            setAttrs(obj)
-    
-        });
-    
-        getAttrs(["FUE", "TAM"], function(values){
-            var value = parseInt(values.FUE) + parseInt(values.TAM) -2
-            var damage_bonus = DAMAGE_BONUS.getBonusForValue(value);
-            var obj = {
-                "dmg-bonus": damage_bonus
-            }
-            setAttrs(obj)
-    
-        });
-    
-        getAttrs(["cthulhumythos"], function(values){
-            var value = values.cthulhumythos
-    
-            val = value == null?0:parseInt(value)
-            var obj = {
-                "Max-Sanity":99-val
-            }
-            setAttrs(obj)
-    
-        });
+    on(`sheet:opened ${change_string}`, function(eventinfo){
+
+        var attribute = eventinfo.sourceAttribute
+        initAttributes(attribute)        
     
     
     })
@@ -1896,23 +1749,33 @@
             var hp = eventinfo["newValue"]
             var value = Math.ceil((parseInt(values.CON) + parseInt(values.TAM))/2)
             if(hp > value){
-                var obj = {
+                setAttrs({
                     "HP": value
-                }
-                setAttrs(obj)
+                })
             }
         })
         
     })
+
+    on("change:MP", function(eventinfo){
+
+        getAttrs(["POD"], function(values){
+            var mp = eventinfo["newValue"]
+            var value = parseInt(values.POD)
+            if(mp > value){
+                setAttrs({
+                    "MP": value
+                })
+            }
+        })
+    })
     
     on("change:Sanity", function(info){
-        console.log(info)
         getAttrs(["Sanity"], function(values){
             var value = parseInt(values.Sanity)
-            var obj = {
+            setAttrs({
                 "current-COR": value
-            }
-            setAttrs(obj)
+            })
         })
     })
     
@@ -2039,25 +1902,7 @@
             })
         })
     })
-    
-    
-    function rollSkill(skill, value){
-        let rollBase = '&{template:dice} {{name=@{character_name}}} {{Habilidad=$0}} {{Valor=$1}} {{roll=[[1d100]]}} {{computed=1}}'
-        rollBase = rollBase.replace("$0", skill)
-        rollBase = rollBase.replace("$1", value)
-        startRoll(rollBase, function(results){
-            const total = results.results.roll.result
-            const computed = total/value
-            var success = computed <= 1?1:0
-            finishRoll(
-                results.rollId,
-                {
-                    roll: success
-                }
-            );
-        })
-    }
-    
+
     function updateTabs(element){
         var tabs = ["userinfo", "character", "items", "skills"]
         var filtered_tabs = _.filter(tabs, function(tab){
@@ -2083,6 +1928,121 @@
         })
         
     }
+
+    function initAttributes(attribute){
+
+        if(attribute !== undefined){
+            getAttrs([attribute], function(values){
+                console.log(values)
+            })
+        }
+        getAttrs(["INT"], function(values) {
+            var val=parseInt(values.INT)
+            setAttrs({
+                "idea":val*5,
+                "Hab-PJ": val*10,
+                INT: val
+            })
+        });
+    
+        getAttrs(["POD", "current-COR", "Sanity", "MP"], function(values) {
+            var val=parseInt(values.POD)
+            var cordura = values["current-COR"] == ""? val*5:parseInt(values["current-COR"])
+            var sanity = values["Sanity"] == ""? val*5:parseInt(values["Sanity"])
+            var mp = values.MP == undefined?val:parseInt(values.MP)
+            if(mp > val){
+                mp = val
+            }
+            var obj = {
+                "luck": val*5,
+                "stableMP": val,
+                "COR": val*5,
+                "POD": val,
+                "Sanity": sanity,
+                "current-COR": cordura,
+                "MP": mp
+            }
+            setAttrs(obj)
+        });
+    
+        getAttrs(["EDU", "own-language"], function(values) {
+            var value=parseInt(values.EDU)
+            var language = values["own-language"] == ""?value*5:parseInt(values["own-language"])
+            if(language < value*5){
+                language = value*5
+            }
+    
+            setAttrs({
+                "know":value*5,
+                "Hab-Ocu":value*20,
+                "own-language": language,
+                "EDU": value
+            })
+        });
+    
+        getAttrs(["DES", "dodge"], function(values){
+            var value = parseInt(values.DES)
+            var dodge_value = values.dodge == ''?value*2: parseInt(values.dodge)
+            if(dodge_value < value){
+                dodge_value = value
+            }
+            var attributes = {"dodge": dodge_value, "DES": value}
+            setAttrs(attributes)
+        });
+    
+        getAttrs(["CON", "TAM", "HP"], function(values){
+            var valCon=parseInt(values.CON);
+            var valSiz=parseInt(values.TAM);
+            var val=valCon+valSiz;
+            var hp = values.HP == undefined?Math.round(val/2):parseInt(values.HP)
+            setAttrs({
+                "stableHP": Math.round(val/2),
+                "CON": valCon,
+                "TAM": valSiz,
+                "HP": hp
+            })
+    
+        });
+    
+        getAttrs(["FUE", "TAM"], function(values){
+            var value = parseInt(values.FUE) + parseInt(values.TAM) -2
+            var damage_bonus = DAMAGE_BONUS.getBonusForValue(value);
+            setAttrs({
+                "dmg-bonus": damage_bonus
+            })
+    
+        });
+    
+        getAttrs(["cthulhumythos"], function(values){
+            var value = values.cthulhumythos
+    
+            val = value == null?0:parseInt(value)
+            setAttrs({
+                "Max-Sanity":99-val
+            })
+    
+        });
+    }
+    
+    
+    function rollSkill(skill, value){
+        let rollBase = '&{template:dice} {{name=@{character_name}}} {{Habilidad=$0}} {{Valor=$1}} {{roll=[[1d100]]}} {{computed=1}}'
+        rollBase = rollBase.replace("$0", skill)
+        rollBase = rollBase.replace("$1", value)
+        startRoll(rollBase, function(results){
+            const total = results.results.roll.result
+            const computed = total/value
+            var success = computed <= 1?1:0
+            finishRoll(
+                results.rollId,
+                {
+                    roll: success
+                }
+            );
+        })
+    }
+    
+    
     
 
 </script>
