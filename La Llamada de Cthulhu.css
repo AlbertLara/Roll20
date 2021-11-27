@@ -2,10 +2,14 @@
     Generic elements
 */
 
-h2, h3, h4 {
+.title {
 	color: #FFF;
 	background-color: #000;
 	text-align: center;
+}
+
+.title button {
+    color: #000;
 }
 
 .trow {
