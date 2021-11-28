@@ -31,6 +31,34 @@ input[type=number].readonly {
     -moz-appearance: textfield;
 }
 
+.scroll {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 3px;
+    width: min-content;
+    height: min-content;
+}
+  
+  
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+  
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+
+
 /*Convert action button to roll button*/
 .skill::before {
     font-family: 'dicefontd20';
@@ -94,6 +122,48 @@ div.tabcontent {
     grid-gap: 10px;
 }
 
+.block {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.th {
+    border-style: solid;
+    border-color: white;
+    border-width: 1px 0 0 0;
+}
+
+.table-hp, .table-mp {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.dead {
+    grid-column: 1/3;
+    text-align: center;
+}
+
+.table-hp .unconscius {
+    grid-column: 4/7;
+    text-align: center;
+}
+
+.table-mp .unconscius {
+    grid-column: 1/5;
+    text-align: center;
+}
+
+.table-sanity {
+    display: grid;
+    grid-template-columns: repeat(17, 1fr);
+}
+
+.insanity {
+    grid-column: 1/3;
+    text-align: center;
+}
+
 .sanity tr{
     display: flex;
     flex-direction: row;
@@ -107,11 +177,7 @@ div.tabcontent {
     flex-direction: column;
 }
 
-.th {
-    border-style: solid;
-    border-color: white;
-    border-width: 1px 0 0 0;
-}
+
 
 /*
     Skills Tab content
