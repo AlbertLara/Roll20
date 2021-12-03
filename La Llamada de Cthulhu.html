@@ -1499,7 +1499,7 @@
     <br>
     <h4 class="title" data-i18n="melee-weapons"></h4>
     <div>
-        <div style="width: 60%;">
+        <div class="table-melee">
             <div class="trow">
                 <span></span>
                 <span data-i18n="attack-or-weapon-u"></span>
@@ -1553,11 +1553,10 @@
             <fieldset class="repeating_melee">
                 <div class="trow">
                     <input type="checkbox" name="attr_success" />
-                    <div style="width: 100%;">
-                        <input style="width: 80%;" type="text" name="attr_skillname"></input>
-                    </div>
+                    <input style="width: 80%;" type="text" name="attr_skillname" />
                     <input type="number" class="readonly" name="attr_score" value="0" />
                     <input type="text" class="dmg" name="attr_damage" />
+                    <input type="number" name="attr_hands" />
                     <input type="number" name="attr_attack-rounds" />
                     <input type="text" class="dmg" name="attr_hp" />
                     <button type="action" class="skill" name="act_score" ></button>
