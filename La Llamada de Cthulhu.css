@@ -1,11 +1,44 @@
+/**
+    Header elements
+*/
+
+.section-header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.table-userinfo {
+    border: 2px solid black;
+    background-color: #c4beb6;
+}
+
+.table-userinfo > h4 {
+    border-bottom: 2px solid black;
+}
+
+.table-userinfo > div {
+    margin: 1%;
+    
+}
+
+.table-userinfo span {
+    font-weight: bold;
+}
+
+.table-userinfo input {
+    width: auto;
+}
+
+.table-userinfo .attribute {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
 /*
     Generic elements
 */
-
-.header {
-    background: url('https://s3.amazonaws.com/files.d20.io/images/97937165/ks0F-URBvdgE-vEm-J5cCg/max.png?1574799601');
-}
-
 .title {
 	color: #FFF;
 	background-color: #000;
