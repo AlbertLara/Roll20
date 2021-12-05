@@ -4,5 +4,18 @@
     "authors": "Alberto L.",
     "roll20userid": "4915121",
     "instructions": "",
-    "legacy": false
+    "legacy": false,
+    "useroptions": [
+        {
+            "attribute": "npc_rolls",
+            "displayname": "Botón de tirar las características del PJ",
+            "type": "select",
+            "options": [
+                "Desactivado|{{name=@{character_name}}}",
+                "Activado| "
+            ],
+            "default": "Desactivado",
+            "description": ""
+        }
+    ]
 }

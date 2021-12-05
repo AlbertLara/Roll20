@@ -2,6 +2,10 @@
     Generic elements
 */
 
+.header {
+    background: url('https://s3.amazonaws.com/files.d20.io/images/97937165/ks0F-URBvdgE-vEm-J5cCg/max.png?1574799601');
+}
+
 .title {
 	color: #FFF;
 	background-color: #000;
@@ -25,6 +29,10 @@ table {
 input[type=number].readonly {
     pointer-events: none;
     -moz-appearance: textfield;
+}
+
+input[type=number].show {
+    pointer-events: all;
 }
 
 /*Convert action button to roll button*/
@@ -67,17 +75,6 @@ div.tabcontent {
 
 .show-tabcontent {
     display: block;
-}
-
-/*
-    User info Tab content
-
-*/
-
-.table-userinfo {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
 }
 
 /*
@@ -220,12 +217,4 @@ div.skills{
 
 .sheet-rolltemplate-attk td:first-child[colspan="2"]{
     text-align: center;
-}
-
-input[type=checkbox] ~ input[type=number]  {
-    pointer-events: none;
-}
-
-input[type=checkbox]:checked ~ input[type=number]  {
-    pointer-events: all;
 }
