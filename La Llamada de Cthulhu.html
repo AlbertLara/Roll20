@@ -1568,7 +1568,33 @@
         </div>
     </div>
     <hr>
-    <h3 class="title" data-i18n="firearms"></h3>
+    <h4 class="title" data-i18n="firearms"></h4>
+    <div>
+        <div class="trow">
+            <span></span>
+            <span data-i18n="weapon-name"></span>
+            <span data-i18n="weapon-u"></span>
+            <span data-i18n="damage-u"></span>
+            <span data-i18n="base-range-u"></span>
+            <span data-i18n="shots-u"></span>
+            <span data-i18n="total-shots-u"></span>
+        </div>
+        <fieldset class="repeating_firearms">
+            <div class="trow">
+                <input type="checkbox" name="attr_success" />
+                <input style="width: 80%;" type="text" name="attr_skillname" />
+                <select name="attr_weapon-skill">
+                    <option value="machine-gun" data-i18n="machine-gun"></option>
+                    <option value="handgun" data-i18n="handgun"></option>
+                    <option value="rifle" data-i18n="rifle"></option>
+                    <option value="shotgun" data-i18n="shotgun"></option>
+                    <option value="submachine-gun" data-i18n="submachine-gun"></option>
+                </select>
+                <input type="text" class="dmg" name="attr_damage" />
+                <input type="number" name="attr_range" />
+            </div>
+        </fieldset>
+    </div>
     <div>
     </div>
 </div>
