@@ -1,55 +1,175 @@
 <div class="section-header" >
-    <div class="table-userinfo">
-        <h4 class="title" data-i18n="investigatorinfo-u">
-            Información Personal
-        </h4>
-        <div>
-            <div class="attribute">
-                <span data-i18n="investigator-name-u"></span>
-                <input type="text" name="attr_Name"  />
-            </div>        
-            <div class="attribute">
-                <span data-i18n="birthplace-u"></span>
-                <input type="text" name="attr_Birthplace" />
+    <div class="table-u">
+        <h4 class="title" data-i18n="investigatorinfo-u"></h4>
+        <div class="table-userinfo">
+            <div>
+                <img name="attr_character_token">
             </div>
-            <div class="attribute">
-                <span data-i18n="occupation-u"></span>
-                <input type="text" name="attr_occupation" />
-            </div>
-            <div class="attribute">
+            <div>
                 <div class="attribute">
-                    <span data-i18n="sex-u"></span>
-                    <input type="text" name="attr_gender" />
+                    <span data-i18n="investigator-name-u"></span>
+                    <input type="text" name="attr_character_name"/>
+                </div>        
+                <div class="attribute">
+                    <span data-i18n="birthplace-u"></span>
+                    <input type="text" name="attr_Birthplace" />
                 </div>
                 <div class="attribute">
-                    <span data-i18n="age-u"></span>
-                    <input type="text" name="attr_age" />
-                </div>            
-            </div>
-            <div class="attribute">
-                <span data-i18n="degrees-u"></span>
-                <input type="text" name="attr_degress" />
+                    <span data-i18n="occupation-u"></span>
+                    <input type="text" name="attr_occupation" />
+                </div>
+                <div class="attribute">
+                    <div class="attribute">
+                        <span data-i18n="sex-u"></span>
+                        <input type="text" name="attr_gender" />
+                    </div>
+                    <div class="attribute">
+                        <span data-i18n="age-u"></span>
+                        <input type="text" name="attr_age" />
+                    </div>            
+                </div>
+                <div class="attribute">
+                    <span data-i18n="degrees-u"></span>
+                    <input type="text" name="attr_degress" />
+                </div>
             </div>
         </div>
-        
+    </div>
+    <br>
+    <div class="table-u table-charac" >
+        <h4 class="title" data-i18n="characteristics-u"></h4>
+        <div>
+            <div class="attribute">
+                <span data-i18n="FUE"></span>
+                <div class="block">
+                    <input type="number" value="3" name="attr_FUE" />
+                    <button type="action" class="skill" name="act_FUE"></button>
+                </div>
+            </div>
+            <div class="attribute">
+                <span data-i18n="DES"></span>
+                <div class="block">
+                    <input type="number" value="3" name="attr_DES" />
+                    <button type="action" class="skill" name="act_DES"></button>
+                </div>
+            </div>
+            <div class="attribute">
+                <span data-i18n="INT"></span>
+                <div class="block">
+                    <input type="number" value="8" name="attr_INT" />
+                    <button type="action" class="skill" name="act_INT"></button>
+                </div>
+            </div>
+            <div class="attribute">
+                <span data-i18n="idea"></span>
+                <div class="block">
+                    <input type="number" class="readonly" name="attr_idea" />
+                    <button type="action" class="skill" name="act_idea"></button>
+                </div>
+            </div>
+            <div class="attribute">
+                <span data-i18n="CON"></span>
+                <div class="block">
+                    <input type="number" value="3" name="attr_CON" />
+                    <button type="action" class="skill" name="act_CON"></button>
+                </div>
+            </div>
+            <div class="attribute">
+                <span data-i18n="APA"></span>
+                <div class="block">
+                    <input type="number" value="3" name="attr_APA" />
+                    <button type="action" class="skill" name="act_APA"></button>
+                </div>
+            </div>
+            <div class="attribute">
+                <span data-i18n="POD"></span>
+                <div class="block">
+                    <input type="number" value="3" name="attr_POD" />
+                    <button type="action" class="skill" name="act_POD"></button>
+                </div>
+            </div>
+            <div class="attribute">
+                <span data-i18n="luck"></span>
+                <div class="block">
+                    <input type="number" class="readonly" name="attr_luck" />
+                    <button type="action" class="skill" name="act_luck"></button>
+                </div>
+            </div>
+            <div class="attribute">
+                <span data-i18n="TAM"></span>
+                <div class="block">
+                    <input type="number" value="8" name="attr_TAM" />
+                    <button type="action" class="skill" name="act_TAM"></button>
+                </div>
+            </div>
+            <div class="attribute">
+                <span data-i18n="COR"></span>
+                <div class="block">
+                    <input type="number" class="readonly" name="attr_COR" />
+                </div>
+            </div>
+            <div class="attribute">
+                <span data-i18n="EDU"></span>
+                <div class="block">
+                    <input type="number" value="6" name="attr_EDU" />
+                    <button type="action" class="skill" name="act_EDU"></button>
+                </div>
+            </div>
+            <div class="attribute">
+                <span data-i18n="know"></span>
+                <div class="block">
+                    <input type="number" class="readonly" name="attr_know" />
+                    <button type="action" class="skill" name="act_know"></button>
+                </div>
+            </div>
+            <div class="attribute">
+                <span data-i18n="stable-sanity-u"></span>
+                <div class="block">    
+                    <input type="number" name="attr_Max-Sanity" class="readonly" />
+                </div>
+            </div>
+            <div class="attribute">
+                <span data-i18n="dmg-bonus-u"></span>
+                <div class="block">
+                    <input type="text" class="readonly" name="attr_dmg-bonus" style="width: 3.5em;" />
+                </div>
+            </div>
+            <div class="attribute">
+                <span>Iniciativa</span>
+                <div class="block">
+                    <button type="action" class="skill" name="act_Init"></button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 <input type="hidden" class="tabstoggle" name="attr_sheetTab" value="character"  />
-<div class="tabs">
-    <button class="tab userinfo" type="action" name="act_userinfo">Información Personal</button>
+<div class="navigation">
+    <label class="navigation_item" data-i18n-title="enable character tab">
+        <input name="attr_sheetTab" class="navbar" type="radio" value="character" />
+        <div class="navigation__label">Características</div>
+    </label>
+    <label class="navigation_item" data-i18n-title="enable skills tab">
+        <input name="attr_sheetTab" class="navbar" type="radio" value="skills" />
+        <div class="navigation__label">Habilidades</div>
+    </label>
+    <label class="navigation_item" data-i18n-title="enable combat tab">
+        <input name="attr_sheetTab" class="navbar" type="radio" value="combat" />
+        <div class="navigation__label">Combate</div>
+    </label>
+    <label class="navigation_item" data-i18n-title="enable items tab">
+        <input name="attr_sheetTab" class="navbar" type="radio" value="items" />
+        <div class="navigation__label">Equipo y armas</div>
+    </label>
+</div>
+
+<!--<div class="tabs">
     <button class="tab character" type="action" name="act_character">Características y Puntuaciones</button>
+    <button class="tab skills" type="action" name="act_combat">Combate</button>
     <button class="tab skills" type="action" name="act_skills">Habilidades</button>
     <button class="tab items" type="action" name="act_items">Equipo y armas</button>
-</div>
-<div class="tabcontent userinfo-content">
-    <h2 class="title">
-        
-    </h2>
-    <div>
-        
-    </div>
-</div>
+</div>-->
 <div class="tabcontent character-content">
     <h2 class="title">
         <span>Características y Puntuaciones</span>
@@ -58,112 +178,8 @@
     <div>
         <h3 class="title">
             <span data-i18n="characteristics-u" class="header">Características</span>
-            <button type="action" name="act_reset-character" class="reset">Reset</button>
         </h3>
-        <div class="table-charac" >
-            <div class="trow">
-                <span data-i18n="FUE"></span>
-                <div class="block">
-                    <input type="number" value="3" name="attr_FUE" />
-                    <button type="action" class="skill" name="act_FUE"></button>
-                </div>
-            </div>
-            <div class="trow">
-                <span data-i18n="DES"></span>
-                <div class="block">
-                    <input type="number" value="3" name="attr_DES" />
-                    <button type="action" class="skill" name="act_DES"></button>
-                </div>
-            </div>
-            <div class="trow">
-                <span data-i18n="INT"></span>
-                <div class="block">
-                    <input type="number" value="8" name="attr_INT" />
-                    <button type="action" class="skill" name="act_INT"></button>
-                </div>
-            </div>
-            <div class="trow">
-                <span data-i18n="idea"></span>
-                <div class="block">
-                    <input type="number" class="readonly" name="attr_idea" />
-                    <button type="action" class="skill" name="act_idea"></button>
-                </div>
-            </div>
-            <div class="trow">
-                <span data-i18n="CON"></span>
-                <div class="block">
-                    <input type="number" value="3" name="attr_CON" />
-                    <button type="action" class="skill" name="act_CON"></button>
-                </div>
-            </div>
-            <div class="trow">
-                <span data-i18n="APA"></span>
-                <div class="block">
-                    <input type="number" value="3" name="attr_APA" />
-                    <button type="action" class="skill" name="act_APA"></button>
-                </div>
-            </div>
-            <div class="trow">
-                <span data-i18n="POD"></span>
-                <div class="block">
-                    <input type="number" value="3" name="attr_POD" />
-                    <button type="action" class="skill" name="act_POD"></button>
-                </div>
-            </div>
-            <div class="trow">
-                <span data-i18n="luck"></span>
-                <div class="block">
-                    <input type="number" class="readonly" name="attr_luck" />
-                    <button type="action" class="skill" name="act_luck"></button>
-                </div>
-            </div>
-            <div class="trow">
-                <span data-i18n="TAM"></span>
-                <div class="block">
-                    <input type="number" value="8" name="attr_TAM" />
-                    <button type="action" class="skill" name="act_TAM"></button>
-                </div>
-            </div>
-            <div class="trow">
-                <span data-i18n="COR"></span>
-                <div class="block">
-                    <input type="number" class="readonly" name="attr_COR" />
-                </div>
-            </div>
-            <div class="trow">
-                <span data-i18n="EDU"></span>
-                <div class="block">
-                    <input type="number" value="6" name="attr_EDU" />
-                    <button type="action" class="skill" name="act_EDU"></button>
-                </div>
-            </div>
-            <div class="trow">
-                <span data-i18n="know"></span>
-                <div class="block">
-                    <input type="number" class="readonly" name="attr_know" />
-                    <button type="action" class="skill" name="act_know"></button>
-                </div>
-            </div>
-            <div class="trow">
-                <span data-i18n="stable-sanity-u"></span>
-                <div class="block">
-
-                    <input type="number" name="attr_Max-Sanity" class="readonly" />
-                </div>
-            </div>
-            <div class="trow">
-                <span data-i18n="dmg-bonus-u"></span>
-                <div class="block">
-                    <input type="text" class="readonly" name="attr_dmg-bonus" style="width: 3.5em;" />
-                </div>
-            </div>
-            <div class="trow">
-                <span>Iniciativa</span>
-                <div class="block">
-                    <button type="action" class="skill" name="act_Init"></button>
-                </div>
-            </div>
-        </div>
+        
     </div>
     <hr>
     <div>
@@ -1018,7 +1034,10 @@
         </div>
     </div>
 </div>
-<div class="tabcontent skills-content">
+<div class="tabcontent combat-content">
+
+</div>
+<div class="tabcontent skills-content tab__skills">
     <h2 class="title">
         <span data-i18n="skills-u"></span>
     </h2>
@@ -1715,8 +1734,12 @@
             var element = values.sheetTab
             updateTabs(element)
         })
+
+        $20('input.navbar').on('change', function(eventinfo){
+            var element = eventinfo.htmlAttributes.value
+            updateTabs(element)
+        })
         $20('button.tab').on('click', function(eventinfo){
-            console.log(eventinfo)
             var element = eventinfo.htmlAttributes.name.replace("act_","")
             setAttrs({
                 sheetTab: element
@@ -1887,10 +1910,12 @@
     })
 
     function updateTabs(element){
-        var tabs = ["userinfo", "character", "items", "skills"]
+        var tabs = ["character", "items", "skills"]
         var filtered_tabs = _.filter(tabs, function(tab){
             return tab !== element
         })
+
+        console.log(element)
         
         var tab_select = $20(`button[name="act_${element}"]`)
         tab_select.removeClass("tab")
