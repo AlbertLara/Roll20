@@ -45,10 +45,10 @@
                     <div>
                         <input type="number" class="readonly" value="3" name="attr_FUE" />
                         <div class="buttons" >
-                            <button type="action" class="attr up" name="act_FUE"></button>
-                            <button type="action" class="attr down" name="act_FUE"></button>
-                        </div>                        
-                    </div>                    
+                            <button type="action" class="attr up" name="act_FUE-up"></button>
+                            <button type="action" class="attr down" name="act_FUE-down"></button>
+                        </div>
+                    </div>     
                 </div>
                 <div class="attribute">
                     <span data-i18n="DES"></span>
@@ -1734,6 +1734,10 @@
             })
             updateTabs(element)
             
+        })
+        
+        $20('button.attr').on('click', function(eventinfo){
+            console.log(eventinfo)
         })
 
         var skill_list = getTranslationByKey("skills-list").split(",")
