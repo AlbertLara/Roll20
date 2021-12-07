@@ -4,12 +4,13 @@
 
 .table-u {
     border: 2px solid black;
-    background-color: #9f9bc1;
+    background: url('https://s3.amazonaws.com/files.d20.io/images/97937165/ks0F-URBvdgE-vEm-J5cCg/max.png?1574799601');
 }
 
 .table-userinfo {
     display: flex;
     flex-direction: row;
+    column-gap: 10px;
 }
 
 img{
@@ -17,7 +18,7 @@ img{
     height: 200px;
 }
 
-.table-userinfo > h4 {
+.table-u > h4 {
     border-bottom: 2px solid black;
 }
 
@@ -26,12 +27,17 @@ img{
     
 }
 
-.table-userinfo span {
+.table-u span {
     font-weight: bold;
+    color: #e5d280;
+    text-transform: uppercase;
+    font-family: "Roboto", "Helvetica", "Verdana";
 }
 
-.table-userinfo input {
+.table-u input {
     width: auto;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
 }
 
 .attribute {
@@ -39,9 +45,53 @@ img{
     grid-template-columns: repeat(2, 1fr);
 }
 
-.table-charac > div {
+
+.table-charac {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    
+}
+
+.primary {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    padding-right: 0.75em;
+    grid-gap: 0.5rem;
+    align-items: stretch;
+    border-right: 1px solid rgba(229, 210, 128, 0.3);
+}
+
+.primary > .attribute,
+.secondary > .attribute {
+    border: 1px solid #554811;
+    background: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0.25rem;    
+}
+
+.attribute input[type=number].readonly {
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    
+}
+
+.attribute > div {
+    display: flex;
+    flex-direction: row;
+}
+
+.primary span {
+    grid-column: 1/-1;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
 }
 
 
@@ -77,11 +127,20 @@ input[type=number].show {
     pointer-events: all;
 }
 
-/*Convert action button to roll button*/
+/*Convert buttons*/
 button.skill::before {
     font-family: 'dicefontd20';
     content: 't';
     font-size: large;
+}
+
+button.up::before {
+    font-family: 'Pictos';
+    content: '&';
+}
+button.down::before {
+    font-family: 'Pictos';
+    content: '_';
 }
 
 /*
@@ -103,6 +162,7 @@ button.skill::before {
     justify-content: center;
     width: 100%;
     padding-right: 0px;
+    margin-bottom: 0px;
 }
 
 .navigation input {
@@ -127,7 +187,7 @@ div.tabcontent {
     display: none;
 }
 
-.show-tabcontent {
+div.show-tabcontent {
     display: block;
 }
 
