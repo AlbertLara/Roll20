@@ -35,7 +35,6 @@
             </div>
         </div>
     </div>
-    <br>
     <div class="table-u" >
         <h4 class="title" data-i18n="characteristics-u"></h4>
         <div class="table-charac">
@@ -45,8 +44,8 @@
                     <div>
                         <input type="number" class="readonly" value="3" name="attr_FUE" />
                         <div class="buttons" >
-                            <button type="action" class="attr up" name="act_FUE-up"></button>
-                            <button type="action" class="attr down" name="act_FUE-down"></button>
+                            <button type="action" class="attr up" name="FUE"></button>
+                            <button type="action" class="attr down" name="FUE"></button>
                         </div>
                     </div>     
                 </div>
@@ -54,14 +53,21 @@
                     <span data-i18n="DES"></span>
                     <div>
                         <input type="number" class="readonly" value="3" name="attr_DES" />
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="DES"></button>
+                            <button type="action" class="attr down" name="DES"></button>
+                        </div>
                     </div>                    
                 </div>
                 <div class="attribute">
                     <span data-i18n="INT"></span>
                     <div>
                         <input type="number" class="readonly" value="8" name="attr_INT" />
-                    </div>
-                    
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="INT"></button>
+                            <button type="action" class="attr down" name="INT"></button>
+                        </div>
+                    </div>                    
                 </div>
                 <div class="attribute">
                     <span data-i18n="idea"></span>
@@ -73,12 +79,20 @@
                     <span data-i18n="CON"></span>
                     <div>
                         <input type="number" class="readonly" value="3" name="attr_CON" />
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="CON"></button>
+                            <button type="action" class="attr down" name="CON"></button>
+                        </div>
                     </div>
                 </div>
                 <div class="attribute">
                     <span data-i18n="APA"></span>
                     <div>
                         <input type="number" class="readonly" value="3" name="attr_APA" />
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="APA"></button>
+                            <button type="action" class="attr down" name="APA"></button>
+                        </div>
                     </div>
                     
                 </div>
@@ -86,6 +100,10 @@
                     <span data-i18n="POD"></span>
                     <div>
                         <input type="number" class="readonly" value="3" name="attr_POD" />
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="POD"></button>
+                            <button type="action" class="attr down" name="POD"></button>
+                        </div>
                     </div>
                     
                 </div>
@@ -99,6 +117,10 @@
                     <span data-i18n="TAM"></span>
                     <div>
                         <input type="number" class="readonly" value="8" name="attr_TAM" />
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="TAM"></button>
+                            <button type="action" class="attr down" name="TAM"></button>
+                        </div>
                     </div>                    
                 </div>
                 <div class="attribute">
@@ -111,6 +133,10 @@
                     <span data-i18n="EDU"></span>
                     <div>
                         <input type="number" class="readonly" value="6" name="attr_EDU"  />
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="EDU"></button>
+                            <button type="action" class="attr down" name="EDU"></button>
+                        </div>
                     </div>
                     
                 </div>
@@ -128,7 +154,17 @@
                 </div>
             </div>
             <div class="secondary">
-                
+                <div class="attribute">
+                    <span data-i18n="hp-points-u"></span>
+                    <div>
+                        <span data-i18n="current-hp-u"></span>
+                        <input type="number" name="attr_HP" />           
+                    </div>
+                    <div>
+                        <span data-i18n="stable-hp-u"></span>
+                        <input type="number" name="attr_stableHP" class="readonly" />
+                    </div> 
+                </div>
             </div>
             
         </div>
@@ -140,19 +176,27 @@
 <div class="navigation">
     <label class="navigation_item" data-i18n-title="enable character tab">
         <input name="attr_sheetTab" class="navbar" type="radio" value="character" />
-        <div class="navigation__label">Atributos Secundarios</div>
+        <div class="navigation__label">
+            <span>Atributos Secundarios</span>
+        </div>
     </label>
     <label class="navigation_item" data-i18n-title="enable skills tab">
         <input name="attr_sheetTab" class="navbar" type="radio" value="skills" />
-        <div class="navigation__label">Habilidades</div>
+        <div class="navigation__label">
+            <span>Habilidades</span>
+        </div>
     </label>
     <label class="navigation_item" data-i18n-title="enable combat tab">
         <input name="attr_sheetTab" class="navbar" type="radio" value="combat" />
-        <div class="navigation__label">Combate</div>
+        <div class="navigation__label">
+            <span>Combate</span>
+        </div>
     </label>
     <label class="navigation_item" data-i18n-title="enable items tab">
         <input name="attr_sheetTab" class="navbar" type="radio" value="items" />
-        <div class="navigation__label">Equipo y armas</div>
+        <div class="navigation__label">
+            <span>Equipo y armas</span>
+        </div>
     </label>
 </div>
 <div id="character" class="tabcontent">
@@ -1737,20 +1781,20 @@
         })
         
         $20('button.attr').on('click', function(eventinfo){
-            console.log(eventinfo)
+            var htmlAttributes = eventinfo.htmlAttributes
+            var attribute = htmlAttributes.name
+            var operation = htmlAttributes.class.split(" ")[1] == "up"? 1:-1
+
+            getAttrs([attribute], function(values){
+                var value = parseInt(values[attribute])
+                var obj = {}
+                obj[attribute] = value + operation
+
+                setAttrs(obj)
+            })
         })
 
         var skill_list = getTranslationByKey("skills-list").split(",")
-    })
-    
-    
-    changes.forEach(change => {
-            
-        on(`change:${change}`, function(eventinfo){
-            var name = getTranslationByKey(change)
-            console.log(name)
-            console.log(eventinfo)
-        })
     })
     
     on(change_string, function(eventinfo){

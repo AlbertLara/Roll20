@@ -27,11 +27,14 @@ img{
     
 }
 
-.table-u span {
+.attribute  span {
     font-weight: bold;
     color: #e5d280;
-    text-transform: uppercase;
     font-family: "Roboto", "Helvetica", "Verdana";
+}
+
+.attribute > span {
+    text-transform: uppercase;
 }
 
 .table-u input {
@@ -47,9 +50,8 @@ img{
 
 
 .table-charac {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
     
 }
 
@@ -67,13 +69,13 @@ img{
     border: 1px solid #554811;
     background: rgba(0, 0, 0, 0.6);
     text-align: center;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    padding: 0.25rem;    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.25rem;
 }
 
 .attribute input[type=number].readonly {
-    width: 100%;
     text-align: center;
     padding: 5px;
     
@@ -88,12 +90,19 @@ img{
     grid-column: 1/-1;
 }
 
+.attribute__divide {
+    font-size: 2rem;
+}
+
 .buttons {
     display: flex;
     flex-direction: column;
     width: fit-content;
 }
 
+.attr {
+    line-height: 10px;
+}
 
 /*
     Generic elements
@@ -151,7 +160,8 @@ button.down::before {
     display: flex;
     justify-content: stretch;
     width: 100%;
-    background-color: #f1f1f1;
+    background-color: black;
+    color: white;
     
     font-weight: bold;
 }
@@ -175,8 +185,13 @@ button.down::before {
     padding: 10px;
 }
 
+.navigation_item {
+    color: white;
+}
+
 .navigation_item > input[type=radio]:checked + .navigation__label {
     background-color: #ccc;
+    color: #000;
 }
 
 .navigation__label:hover {
