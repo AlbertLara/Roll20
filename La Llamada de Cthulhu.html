@@ -128,18 +128,6 @@
                     <input type="number" name="attr_Max-Sanity" class="readonly" />
                 </div>
             </div>
-            <div class="attribute">
-                <span data-i18n="dmg-bonus-u"></span>
-                <div class="block">
-                    <input type="text" class="readonly" name="attr_dmg-bonus" style="width: 3.5em;" />
-                </div>
-            </div>
-            <div class="attribute">
-                <span>Iniciativa</span>
-                <div class="block">
-                    <button type="action" class="skill" name="act_Init"></button>
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -163,13 +151,6 @@
         <div class="navigation__label">Equipo y armas</div>
     </label>
 </div>
-
-<!--<div class="tabs">
-    <button class="tab character" type="action" name="act_character">Características y Puntuaciones</button>
-    <button class="tab skills" type="action" name="act_combat">Combate</button>
-    <button class="tab skills" type="action" name="act_skills">Habilidades</button>
-    <button class="tab items" type="action" name="act_items">Equipo y armas</button>
-</div>-->
 <div class="tabcontent character-content">
     <h2 class="title">
         <span>Características y Puntuaciones</span>
@@ -1035,7 +1016,16 @@
     </div>
 </div>
 <div class="tabcontent combat-content">
-
+    <div>
+        <div class="trow">
+            <span>Iniciativa</span>
+            <input type="number" name="attr_DES" class="readonly" />
+        </div>
+        <div class="trow">
+            <span data-i18n="dmg-bonus-u"></span>
+            <input type="text" class="readonly" name="attr_dmg-bonus" style="width: 3.5em;" />
+        </div>
+    </div>
 </div>
 <div class="tabcontent skills-content tab__skills">
     <h2 class="title">
@@ -1734,7 +1724,8 @@
             var element = values.sheetTab
             updateTabs(element)
         })
-
+        
+        initAttributes()
         $20('input.navbar').on('change', function(eventinfo){
             var element = eventinfo.htmlAttributes.value
             updateTabs(element)
@@ -1749,10 +1740,6 @@
         })
 
         var skill_list = getTranslationByKey("skills-list").split(",")
-        
-        
-
-        
     })
     
     
@@ -1765,12 +1752,8 @@
         })
     })
     
-    on(`sheet:opened ${change_string}`, function(eventinfo){
-
-        var attribute = eventinfo.sourceAttribute
-        initAttributes(attribute)        
-    
-    
+    on(change_string, function(eventinfo){
+        initAttributes()
     })
     
     on("change:HP", function(eventinfo){
@@ -1938,7 +1921,7 @@
     }
     
 
-    function initAttributes(attribute){
+    function initAttributes(){
 
         
         getAttrs(["INT"], function(values) {
