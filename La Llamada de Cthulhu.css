@@ -14,8 +14,8 @@
 }
 
 img{
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
 }
 
 .table-u > h4 {
@@ -27,7 +27,7 @@ img{
     
 }
 
-.attribute  span {
+.attribute span {
     font-weight: bold;
     color: #e5d280;
     font-family: "Roboto", "Helvetica", "Verdana";
@@ -48,12 +48,17 @@ img{
     grid-template-columns: repeat(2, 1fr);
 }
 
+.buttons {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
 
+/*
 .table-charac {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    
-}
+}*/
 
 .primary {
     display: grid;
@@ -78,7 +83,7 @@ img{
 .attribute input[type=number].readonly {
     text-align: center;
     padding: 5px;
-    
+    width: 100%;
 }
 
 .attribute > div {
@@ -88,16 +93,6 @@ img{
 
 .primary span {
     grid-column: 1/-1;
-}
-
-.attribute__divide {
-    font-size: 2rem;
-}
-
-.buttons {
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
 }
 
 .attr {
