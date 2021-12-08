@@ -812,6 +812,30 @@
     </div>
 </div>
 <div class="rolltemplates" >
+    <rolltemplate class="sheet-rolltemplate-skills">
+        <div class="table-u">
+            <div class="trow" >
+                <span>{{character_name}}</span>
+            </div>
+            <div class="trow" >
+                <h3>{{name}}</h3>
+            </div>
+
+            <div class="trow roll_wrapper">
+                <div class="roll__failure">
+                    <span data-i18n="failure"></span>
+                </div>
+                <div class="roll__success">
+                    <span data-i18n="success"></span>
+                </div>
+                <div class="roll__result">
+                    <span>{{roll}}</span>
+                    <span> vs </span>
+                    <span>{{value}}</span>
+                </div>
+            </div>
+        </div>       
+    </rolltemplate>
     <rolltemplate class="sheet-rolltemplate-dice">
         <table>
             <caption>{{name}}</caption>
@@ -959,7 +983,12 @@
                 console.log(name)
                 var value = parseInt(values[name])
                 console.log(value)
-                
+                let rollBase = '&{template:skills} {{character_name=@{character_name}}} {{name=$0}} {{value=$1}} {{roll=[[1d100]]}}'
+                console.log(rollBase)
+                rollBase = rollBase.replace("$0", name).replace("$1", value)
+                startRoll(rollBase, function(results){
+                    finishRoll(results.rollId)
+                })
             })
         })
     })

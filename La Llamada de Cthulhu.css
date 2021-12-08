@@ -312,6 +312,26 @@ div.skills{
     display: none;
 }
 
+.sheet-rolltemplate-skills > .sheet-table-u {
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+}
+
+.sheet-rolltemplate-skills .sheet-trow {
+    text-align: center;
+    display: grid;
+    padding: 5px;
+}
+
+.sheet-rolltemplate-skills .roll__result {
+    font-size: 2rem;
+}
+
+.sheet-rolltemplate-skills .sheet-trow:first-child {
+    background-color: #362f2f;
+}
+
 .sheet-rolltemplate-dice table,
 .sheet-rolltemplate-attk table{
     width: 100%;
