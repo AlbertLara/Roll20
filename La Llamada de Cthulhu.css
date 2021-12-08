@@ -13,6 +13,11 @@
     column-gap: 10px;
 }
 
+.character {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
 img{
     width: 100px;
     height: 100px;
@@ -27,14 +32,23 @@ img{
     
 }
 
-.attribute span {
+.attribute span,
+.character span {
     font-weight: bold;
     color: #e5d280;
     font-family: "Roboto", "Helvetica", "Verdana";
 }
 
-.attribute > span {
+.attribute > span,
+.character > span {
     text-transform: uppercase;
+}
+.character {
+    align-items: center;
+}
+
+.character > .character:last-child > span {
+    text-align: center;
 }
 
 .table-u input {
@@ -43,22 +57,17 @@ img{
     color: white;
 }
 
-.attribute {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
 .buttons {
     display: flex;
     flex-direction: column;
     width: fit-content;
 }
 
-/*
+
 .table-charac {
     display: grid;
-    grid-template-columns: 3fr 1fr;
-}*/
+    grid-template-columns: 2fr 1fr;
+}
 
 .primary {
     display: grid;
@@ -69,14 +78,10 @@ img{
     border-right: 1px solid rgba(229, 210, 128, 0.3);
 }
 
-.primary > .attribute,
-.secondary > .attribute {
+.attribute {
     border: 1px solid #554811;
     background: rgba(0, 0, 0, 0.6);
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     padding: 0.25rem;
 }
 
@@ -86,17 +91,18 @@ img{
     width: 100%;
 }
 
-.attribute > div {
-    display: flex;
-    flex-direction: row;
-}
-
 .primary span {
     grid-column: 1/-1;
 }
 
 .attr {
     line-height: 10px;
+}
+
+.attribute_divider {
+    font-size: 2rem;
+    text-align: center;
+    padding: 5px;
 }
 
 /*
@@ -132,7 +138,8 @@ input[type=number].show {
 }
 
 /*Convert buttons*/
-button.skill::before {
+
+button.roll::before {
     font-family: 'dicefontd20';
     content: 't';
     font-size: large;
