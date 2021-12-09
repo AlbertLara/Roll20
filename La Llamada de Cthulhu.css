@@ -1,3 +1,35 @@
+/*
+    Generic elements
+*/
+.title {
+    color: #FFF;
+    background-color: #000;
+    text-align: center;
+}
+
+.title button {
+    color: #000;
+}
+
+.trow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+table {
+    width: 100%;
+}
+
+input[type=number].readonly {
+    pointer-events: none;
+    -moz-appearance: textfield;
+}
+
+input[type=number].show {
+    pointer-events: all;
+}
+
 /**
     Header elements
 */
@@ -5,6 +37,26 @@
 .table-u {
     border: 2px solid black;
     background: url('https://s3.amazonaws.com/files.d20.io/images/97937165/ks0F-URBvdgE-vEm-J5cCg/max.png?1574799601');
+}
+
+.table-u>h4 {
+    border-bottom: 2px solid black;
+}
+
+.table-u>div {
+    margin: 10px;
+}
+
+.table-u input {
+    width: auto;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.table-u span {
+    font-weight: bold;
+    color: #e5d280;
+    font-family: "Roboto", "Helvetica", "Verdana";
 }
 
 .table-userinfo {
@@ -18,55 +70,33 @@
     grid-template-columns: repeat(2, 1fr);
 }
 
+.character {
+    align-items: center;
+}
+
+.character>.character:last-child>span {
+    text-align: center;
+}
+
+.table-charac {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
 img{
     width: 100px;
     height: 100px;
-}
-
-.table-u > h4 {
-    border-bottom: 2px solid black;
-}
-
-.table-u > div {
-    margin: 10px;
-    
-}
-
-.attribute span,
-.character span {
-    font-weight: bold;
-    color: #e5d280;
-    font-family: "Roboto", "Helvetica", "Verdana";
 }
 
 .attribute > span,
 .character > span {
     text-transform: uppercase;
 }
-.character {
-    align-items: center;
-}
-
-.character > .character:last-child > span {
-    text-align: center;
-}
-
-.table-u input {
-    width: auto;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
-}
 
 .buttons {
     display: flex;
     flex-direction: column;
     width: fit-content;
-}
-
-
-.table-charac {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
 }
 
 .primary {
@@ -76,6 +106,13 @@ img{
     grid-gap: 0.5rem;
     align-items: stretch;
     border-right: 1px solid rgba(229, 210, 128, 0.3);
+}
+
+.secondar {
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    padding-left: 0.75em;
+    align-items: stretch;
 }
 
 .attribute {
@@ -103,38 +140,6 @@ img{
     font-size: 2rem;
     text-align: center;
     padding: 5px;
-}
-
-/*
-    Generic elements
-*/
-.title {
-	color: #FFF;
-	background-color: #000;
-	text-align: center;
-}
-
-.title button {
-    color: #000;
-}
-
-.trow {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-table {
-    width: 100%;
-}
-
-input[type=number].readonly {
-    pointer-events: none;
-    -moz-appearance: textfield;
-}
-
-input[type=number].show {
-    pointer-events: all;
 }
 
 /*Convert buttons*/
