@@ -80,7 +80,7 @@ input[type=number].show {
 
 .table-charac {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 
 img{
@@ -106,13 +106,6 @@ img{
     grid-gap: 0.5rem;
     align-items: stretch;
     border-right: 1px solid rgba(229, 210, 128, 0.3);
-}
-
-.secondar {
-    display: grid;
-    grid-template-rows: repeat(3,1fr);
-    padding-left: 0.75em;
-    align-items: stretch;
 }
 
 .attribute {
