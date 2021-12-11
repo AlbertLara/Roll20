@@ -30,6 +30,16 @@ input[type=number].show {
     pointer-events: all;
 }
 
+.attrs::-webkit-outer-spin-button,
+.attrs::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.attrs {
+    -moz-appearance: textfield;
+}
+
 /**
     Header elements
 */

@@ -54,19 +54,31 @@
                 <div class="attribute">
                     <span data-i18n="FUE"></span>
                     <div class="trow">
-                        <input type="number" class="attrs" name="attr_FUE" />
+                        <input type="number" class="attrs" value="3" name="attr_FUE" />
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="FUE"></button>
+                            <button type="action" class="attr down" name="FUE"></button>
+                        </div>
                     </div>
                 </div>
                 <div class="attribute">
                     <span data-i18n="DES"></span>
                     <div class="trow">
-                        <input type="number" class="attrs" name="attr_DES" />
+                        <input type="number" class="attrs" value="3" name="attr_DES" />
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="DES"></button>
+                            <button type="action" class="attr down" name="DES"></button>
+                        </div>
                     </div>
                 </div>
                 <div class="attribute">
                     <span data-i18n="INT"></span>
                     <div class="trow">
-                        <input type="number" class="attrs" name="attr_INT" />
+                        <input type="number" class="attrs" value="8" name="attr_INT" />
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="INT"></button>
+                            <button type="action" class="attr down" name="INT"></button>
+                        </div>
                     </div>
                 </div>
                 <div class="attribute">
@@ -79,19 +91,31 @@
                 <div class="attribute">
                     <span data-i18n="CON"></span>
                     <div class="trow">
-                        <input type="number" class="attrs" name="attr_CON" />
+                        <input type="number" class="attrs" value="3" name="attr_CON" />
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="CON"></button>
+                            <button type="action" class="attr down" name="CON"></button>
+                        </div>
                     </div>
                 </div>
                 <div class="attribute">
                     <span data-i18n="APA"></span>
                     <div class="trow">
-                        <input type="number" class="attrs" name="attr_APA" />
+                        <input type="number" class="attrs" value="3" name="attr_APA" />
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="APA"></button>
+                            <button type="action" class="attr down" name="APA"></button>
+                        </div>
                     </div>
                 </div>
                 <div class="attribute">
                     <span data-i18n="POD"></span>
                     <div class="trow">
-                        <input type="number" class="attrs" name="attr_POD" />
+                        <input type="number" class="attrs" value="3" name="attr_POD" />
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="POD"></button>
+                            <button type="action" class="attr down" name="POD"></button>
+                        </div>
                     </div>
                 </div>
                 <div class="attribute">
@@ -104,7 +128,11 @@
                 <div class="attribute">
                     <span data-i18n="TAM"></span>
                     <div class="trow">
-                        <input type="number" class="attrs" name="attr_TAM" />
+                        <input type="number" class="attrs" value="8" name="attr_TAM" />
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="TAM"></button>
+                            <button type="action" class="attr down" name="TAM"></button>
+                        </div>
                     </div>
                 </div>
                 <div class="attribute">
@@ -116,7 +144,11 @@
                 <div class="attribute">
                     <span data-i18n="EDU"></span>
                     <div class="trow">
-                        <input type="number" class="attrs" name="attr_EDU"  />
+                        <input type="number" class="attrs" value="6" name="attr_EDU"  />
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="EDU"></button>
+                            <button type="action" class="attr down" name="EDU"></button>
+                        </div>
                     </div>
                 </div>
                 <div class="attribute">
@@ -138,6 +170,10 @@
                     <span data-i18n="hp-points-u"></span>
                     <div class="trow">
                         <input type="number" class="attrs" name="attr_HP" />
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="HP"></button>
+                            <button type="action" class="attr down" name="HP"></button>
+                        </div>
                         <span class="attribute_divider">/</span>
                         <input type="number" name="attr_stableHP" class="attrs readonly" />
                     </div>
@@ -147,6 +183,10 @@
                     <span data-i18n="mp-u"></span>
                     <div class="trow">
                         <input type="number" class="attrs" name="attr_MP" />
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="MP"></button>
+                            <button type="action" class="attr down" name="MP"></button>
+                        </div>
                         <span class="attribute_divider">/</span>
                         <input type="number" name="attr_stableMP" class="attrs readonly" />
                     </div>
@@ -155,6 +195,10 @@
                     <span data-i18n="sanity"></span>
                     <div class="trow">
                         <input type="number" class="attrs" name="attr_sanity" />
+                        <div class="buttons" >
+                            <button type="action" class="attr up" name="sanity"></button>
+                            <button type="action" class="attr down" name="sanity"></button>
+                        </div>
                         <span class="attribute_divider">/</span>
                         <input type="number" name="attr_Max-Sanity" class="attrs readonly" />
                     </div>
@@ -890,7 +934,17 @@
         }
     }
 
-    
+    var attributes = {
+        "FUE": 3,
+        "DES": 3,
+        "INT": 8,
+        "CON": 3,
+        "APA": 3,
+        "POD": 3,
+        "TAM": 8,        
+        "EDU": 6,
+        "cthulhumythos": 0
+    }
 
     on("sheet:opened", function(eventinfo){
 
@@ -904,21 +958,32 @@
             updateTabs(element)
         })
 
-        var attributes = {
-            "FUE": 3,
-            "CON": 3,
-            "TAM": 8,
-            "DES": 3,
-            "APA": 3,
-            "INT": 8,
-            "POD": 3,
-            "EDU": 6,
-            "cthulhumythos": 0
-        }
+        $20('button.attr').on('click', function(eventinfo){
+            console.log(eventinfo)
+            var htmlAttributes = eventinfo.htmlAttributes
+            var element = htmlAttributes.name
+            var operation = htmlAttributes.class.split(" ")[1] == "up"? 1:-1
+
+            getAttrs([element], function(values){
+                var value = parseInt(values[element])
+                var total = value + operation
+                var obj = {}
+                obj[element] = total
+                setAttrs(obj)
+                initAttributes()
+            })
+        })
+
+        $20('input.attrs').on('change', function(eventinfo){
+            var htmlAttributes = eventinfo.htmlAttributes
+            var element = htmlAttributes.name.replace("attr_", "")
+            initAttributes()
+            
+            
+        })
         
     
         for(var key of Object.keys(attributes)){
-
             
             getAttrs([key], function(values){
                 var element = Object.keys(values)[0]
@@ -931,22 +996,13 @@
                     setAttrs(obj)
                     
                 }
-                initAttributes(element, val)
+                val = parseInt(val)
+                initAttributes()
                 
             })
         }
         
-        $20('input.attrs').on('change', function(eventinfo){
-            var htmlAttributes = eventinfo.htmlAttributes
-            var element = htmlAttributes.name.replace("attr_", "")
-            getAttrs([element], function(values){
-                console.log(values)
-                var value = parseInt(values[element])
-                initAttributes(element, value)
-            })
-            
-            
-        })
+        
 
         $20('button.secondary').on('click', function(eventinfo){
             var attr = eventinfo.htmlAttributes.name.replace("act_", "")
@@ -963,33 +1019,6 @@
                     finishRoll(results.rollId)
                 })
             })
-        })
-    })
-    
-    on("change:HP", function(eventinfo){
-        getAttrs(["CON", "TAM"], (values) => {
-    
-            var hp = eventinfo["newValue"]
-            var value = Math.ceil((parseInt(values.CON) + parseInt(values.TAM))/2)
-            if(hp > value){
-                setAttrs({
-                    "HP": value
-                })
-            }
-        })
-        
-    })
-
-    on("change:MP", function(eventinfo){
-
-        getAttrs(["POD"], function(values){
-            var mp = eventinfo["newValue"]
-            var value = parseInt(values.POD)
-            if(mp > value){
-                setAttrs({
-                    "MP": value
-                })
-            }
         })
     })
     
@@ -1110,11 +1139,8 @@
         
     }    
 
-    function initAttributes(element, value){
-
-        console.log(element + " " + value)
-        
-        /*getAttrs(["INT"], function(values) {
+    function initAttributes(){
+        getAttrs(["INT"], function(values) {
             var val=parseInt(values.INT)
             setAttrs({
                 "idea":val*5,
@@ -1123,6 +1149,40 @@
             })
         });
 
+        getAttrs(["CON", "TAM", "HP"], function(values){
+            var valCon=parseInt(values.CON);
+            var valSiz=parseInt(values.TAM);
+            var val=valCon+valSiz;
+            var hp = values.HP == ""?Math.round(val/2):parseInt(values.HP)
+            setAttrs({
+                "stableHP": Math.round(val/2),
+                "CON": valCon,
+                "TAM": valSiz,
+                "HP": hp
+            })
+    
+        });
+    
+        getAttrs(["POD", "sanity", "MP"], function(values) {
+            var val=parseInt(values.POD)
+            var sanity = values["sanity"] == ""? val*5:parseInt(values["sanity"])
+            var mp = values.MP == ""?val:parseInt(values.MP)
+            if(mp > val){
+                mp = val
+            }
+            
+            var obj = {
+                "luck": val*5,
+                "stableMP": val,
+                "COR": val*5,
+                "POD": val,
+                "sanity": sanity,
+                "MP": mp,
+                "stableSanity": val*5
+            }
+            setAttrs(obj)
+        });
+    
         getAttrs(["EDU"], function(values) {
             var value=parseInt(values.EDU)            
     
@@ -1131,20 +1191,9 @@
                 "Hab-Ocu":value*20,
                 "EDU": value
             })
-        });  
-
-        getAttrs(["CON", "TAM"], function(values){
-            var valCon=parseInt(values.CON);
-            var valSiz=parseInt(values.TAM);
-            var val=valCon+valSiz;
-            setAttrs({
-                "stableHP": Math.round(val/2),
-                "CON": valCon,
-                "TAM": valSiz
-            })
+        });    
+        
     
-        });
-
         getAttrs(["FUE", "TAM"], function(values){
             var value = parseInt(values.FUE) + parseInt(values.TAM) -2
             var damage_bonus = DAMAGE_BONUS.getBonusForValue(value);
@@ -1152,19 +1201,6 @@
                 "dmg-bonus": damage_bonus
             })
     
-        });
-    
-        getAttrs(["POD"], function(values) {
-            var val=parseInt(values.POD)            
-            
-            var obj = {
-                "luck": val*5,
-                "stableMP": val,
-                "COR": val*5,
-                "POD": val,
-                "stableSanity": val*5
-            }
-            setAttrs(obj)
         });
     
         getAttrs(["cthulhumythos"], function(values){
@@ -1175,7 +1211,7 @@
                 "Max-Sanity":99-val
             })
     
-        });*/
+        });
     }
     
     
