@@ -20,11 +20,24 @@ $(document).ready(function(){
         updateTabs(value)
     })
     
+    var attributes = $(".attrs")
+    
+    $(".attrs").change(function(){
+        console.log(this)
+    })
+    
     
     
     $(".attr").on("click", function(){
         var name = this.name
-        console.log(this.classList)
+        var operation = this.className.split(" ")[1] == "up"?1:-1
+        getAttrs([name], function(values){
+        
+            var value = parseInt(values[name])
+            var obj = {}
+            obj[name] = value + operation
+            setAttrs(obj)
+        })
     })
     
     
