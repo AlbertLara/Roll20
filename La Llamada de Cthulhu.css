@@ -115,11 +115,13 @@ img{
     padding: 0.25rem;
 }
 
-.attribute input[type=number].readonly {
+.attribute input[type=number].attrs {
     text-align: center;
     padding: 5px;
     width: 100%;
 }
+
+
 
 .primary span {
     grid-column: 1/-1;
@@ -314,16 +316,63 @@ div.skills{
     border: 1px solid black;
     background-color: black;
     color: white;
+    padding: 5px ;
+}
+
+.sheet-rolltemplate-skills .sheet-roll_wrapper {
+    display: flex;
+    flex-direction: column;
 }
 
 .sheet-rolltemplate-skills .sheet-trow {
     text-align: center;
-    display: grid;
     padding: 5px;
 }
 
-.sheet-rolltemplate-skills .roll__result {
+.sheet-rolltemplate-skills h3,
+.sheet-rolltemplate-skills span
+ {
+    color: white;
+    font-family: "Droid Serif", "Lucida Bright", "Cambria", serif;
+}
+
+.sheet-rolltemplate-skills .inlinerollresult {
+    background-color: inherit;
+    font-size: 3rem;
+    padding: 0;
+    border: 0px;
+}
+
+.sheet-rolltemplate-skills .sheet-roll_wrapper > div {
+    padding: 5px;
+}
+
+.sheet-rolltemplate-skills .sheet-roll__result {
     font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.sheet-rolltemplate-skills .sheet-roll__failure {
+    background: #7a0707;
+}
+
+.sheet-rolltemplate-skills .sheet-roll__success {
+    background: #076d09;
+}
+
+.sheet-rolltemplate-skills .sheet-roll__failure > span,
+.sheet-rolltemplate-skills .sheet-roll__success > span {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.75rem;
+    
+}
+
+.sheet-rolltemplate-skills .sheet-roll__result span {
+    padding: 0.5rem;
 }
 
 .sheet-rolltemplate-skills .sheet-trow:first-child {

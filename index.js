@@ -22,8 +22,8 @@ $(document).ready(function(){
     
     var attributes = $(".attrs")
     
-    $(".attrs").change(function(){
-        console.log(this)
+    $("input.attrs").on('change',function(){
+        console.log(this.name)
     })
     
     
@@ -178,5 +178,6 @@ function setAttrs(attributes){
     for(var [key, value] of Object.entries(attributes)){
         var item = $(`*[name="attr_${key}"]`)
         item.val(value)
+        item.change()
     }
 }
