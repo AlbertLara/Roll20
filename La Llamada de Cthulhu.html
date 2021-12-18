@@ -82,12 +82,11 @@
                     </div>
                 </div>
                 <div class="attribute">
-                    <button type="action" name="act_idea" class="roll secondary" ></button>
                     <span data-i18n="idea"></span>
                     <div>
                         <input type="number" class="attrs readonly" name="attr_idea" />
                     </div>
-                    
+                    <button type="action" name="act_idea" class="roll secondary" ></button>
                 </div>
                 <div class="attribute">
                     <span data-i18n="CON"></span>
@@ -120,12 +119,11 @@
                     </div>
                 </div>
                 <div class="attribute">
-                    <button type="action" name="act_luck" class="roll secondary" ></button>
                     <span data-i18n="luck"></span>
                     <div>
                         <input type="number" class="attrs readonly" name="attr_luck" />
                     </div>
-                    
+                    <button type="action" name="act_luck" class="roll secondary" ></button>
                 </div>
                 <div class="attribute">
                     <span data-i18n="TAM"></span>
@@ -154,12 +152,11 @@
                     </div>
                 </div>
                 <div class="attribute">
-                    <button type="action" name="act_know" class="roll secondary" ></button>
                     <span data-i18n="know"></span>
                     <div>
                         <input type="number" class="attrs readonly" name="attr_know" />
                     </div>
-                    
+                    <button type="action" name="act_know" class="roll secondary" ></button>
                 </div>
                 <div class="attribute">
                     <span data-i18n="stable-sanity-u"></span>
@@ -962,7 +959,6 @@
         })
 
         $20('button.attr').on('click', function(eventinfo){
-            console.log(eventinfo)
             var htmlAttributes = eventinfo.htmlAttributes
             var element = htmlAttributes.name
             var operation = htmlAttributes.class.split(" ")[1] == "up"? 1:-1

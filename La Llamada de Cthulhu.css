@@ -91,6 +91,7 @@ input[type=number].show {
 .table-charac {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
 }
 
 img{
@@ -113,7 +114,7 @@ img{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     padding-right: 0.75em;
-    grid-gap: 0.5rem;
+    grid-gap: 10px;
     align-items: stretch;
     border-right: 1px solid rgba(229, 210, 128, 0.3);
 }
